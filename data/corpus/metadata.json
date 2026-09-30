@@ -1,0 +1,97 @@
+{
+  "description": "English/Turkish/Mandarin Chinese Wikipedia sentence data for multilingual tokenization assignment",
+  "source": "Leipzig Corpora Collection",
+  "source_terms": "https://wortschatz.uni-leipzig.de/en/usage",
+  "source_citation": "Goldhahn, Eckart & Quasthoff (2012), Building Large Monolingual Dictionaries at the Leipzig Corpora Collection: From 100 to 200 Languages, LREC 2012.",
+  "preprocessing": [
+    "Unicode NFC normalization",
+    "collapse whitespace runs to one ASCII space",
+    "remove empty sentences",
+    "exact sentence deduplication within each language",
+    "fixed-seed shuffle",
+    "balance languages by Unicode code-point count"
+  ],
+  "seed": 2326,
+  "requested_year": "2021",
+  "requested_size": "100K",
+  "balance_target_characters_per_language": 3682622,
+  "archives": {
+    "en": {
+      "url": "https://downloads.wortschatz-leipzig.de/corpora/eng-simple_wikipedia_2021_100K.tar.gz",
+      "archive": "leipzig_downloads/eng-simple_wikipedia_2021_100K.tar.gz",
+      "sha256": "7db3ebd5ee1d38d2423a66b1f0eadbdf36d68e7644c0ea2e711f68668a55d86e",
+      "unique_sentences": 100000,
+      "characters_after_normalization": 8184438
+    },
+    "tr": {
+      "url": "https://downloads.wortschatz-leipzig.de/corpora/tur_wikipedia_2021_100K.tar.gz",
+      "archive": "leipzig_downloads/tur_wikipedia_2021_100K.tar.gz",
+      "sha256": "732122ae3d9bec3b9a9781d773825301705c1e84cd1f14e242a50855bb49e56c",
+      "unique_sentences": 100000,
+      "characters_after_normalization": 9693317
+    },
+    "zh": {
+      "url": "https://downloads.wortschatz-leipzig.de/corpora/cmn_wikipedia_2021_100K.tar.gz",
+      "archive": "leipzig_downloads/cmn_wikipedia_2021_100K.tar.gz",
+      "sha256": "2525f649c6dc885c0b6c3d06476649ab4f296e8705b635863429376e25ed7fea",
+      "unique_sentences": 100000,
+      "characters_after_normalization": 3876445
+    }
+  },
+  "splits": {
+    "train": {
+      "en": {
+        "sentences": 36004,
+        "characters": 2946215
+      },
+      "tr": {
+        "sentences": 30379,
+        "characters": 2946140
+      },
+      "zh": {
+        "sentences": 75962,
+        "characters": 2946177
+      }
+    },
+    "valid": {
+      "en": {
+        "sentences": 4540,
+        "characters": 368269
+      },
+      "tr": {
+        "sentences": 3735,
+        "characters": 368383
+      },
+      "zh": {
+        "sentences": 9554,
+        "characters": 368266
+      }
+    },
+    "test": {
+      "en": {
+        "sentences": 4472,
+        "characters": 368309
+      },
+      "tr": {
+        "sentences": 3792,
+        "characters": 368342
+      },
+      "zh": {
+        "sentences": 9430,
+        "characters": 368265
+      }
+    }
+  },
+  "tokenizer_corpora": {
+    "balanced": {
+      "en": 2946215,
+      "tr": 2946140,
+      "zh": 2946177
+    },
+    "imbalanced_10-1-1": {
+      "en": 2946215,
+      "tr": 294630,
+      "zh": 294634
+    }
+  }
+}
