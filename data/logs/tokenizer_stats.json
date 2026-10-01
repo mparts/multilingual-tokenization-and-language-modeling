@@ -37,7 +37,7 @@
             "tokens": 377820,
             "tok/sent": "39.55",
             "chars/tok": "0.97",
-            "unk_percent": "4.852%"
+            "unk_percent": "4.850%"
         },
         "vocab_size": 2000
     },

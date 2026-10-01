@@ -1,0 +1,29 @@
+{
+    "en": {
+        "She also wrote a set of three books about the ocean and what lives in and around it.": {
+            "char": "S, h, e,  , a, l, s, o,  , w, r, o, t, e,  , a,  , s, e, t,  , o, f,  , t, h, r, e, e,  , b, o, o, k, s,  , a, b, o, u, t,  , t, h, e,  , o, c, e, a, n,  , a, n, d,  , w, h, a, t,  , l, i, v, e, s,  , i, n,  , a, n, d,  , a, r, o, u, n, d,  , i, t, .",
+            "BPE_2000": ", S, h, e, , a, l, s, o, , w, r, o, t, e, , a, , s, e, t, , o, f, , t, h, r, e, e, , b, o, o, k, s, , a, b, o, u, t, , t, h, e, , o, c, e, a, n, , a, n, d, , w, h, a, t, , l, i, v, e, s, , i, n, , a, n, d, , a, r, o, u, n, d, , i, t, .",
+            "BPE_10000": "S, he, also, w, ro, te, a, s, et, of, th, re, e, b, o, ok, s, ab, out, the, o, ce, an, and, wh, at, l, iv, es, in, and, ar, ound, it, .",
+            "ByteLevelBPE_2000": "She,  also,  w, ro, te,  a,  s, et,  of,  th, ree,  bo, ok, s,  about,  the,  o, ce, an,  and,  wh, at,  l, iv, es,  in,  and,  ar, ound,  it, .",
+            "ByteLevelBPE_10000": "She,  also,  wrote,  a,  set,  of,  three,  books,  about,  the,  o, ce, an,  and,  what,  lives,  in,  and,  around,  it, ."
+        }
+    },
+    "tr": {
+        "Kullanılan buğday aşurelik veya yarma buğday olabilir.": {
+            "char": "K, u, l, l, a, n, ı, l, a, n,  , b, u, ğ, d, a, y,  , a, ş, u, r, e, l, i, k,  , v, e, y, a,  , y, a, r, m, a,  , b, u, ğ, d, a, y,  , o, l, a, b, i, l, i, r, .",
+            "BPE_2000": ", K, u, l, l, a, n, ı, l, a, n, , b, u, ğ, d, a, y, , a, ş, u, r, e, l, i, k, , v, e, y, a, , y, a, r, m, a, , b, u, ğ, d, a, y, , o, l, a, b, i, l, i, r, .",
+            "BPE_10000": "K, ul, lan, ıl, an, bu, ğ, d, ay, a, ş, ur, el, ik, ve, ya, y, ar, ma, bu, ğ, d, ay, ol, ab, il, ir, .",
+            "ByteLevelBPE_2000": "K, ul, lan, ılan,  bu, ğ, d, ay,  a, ş, ur, el, ik,  ve, ya,  yar, ma,  bu, ğ, d, ay,  ol, ab, ilir, .",
+            "ByteLevelBPE_10000": "K, ul, lan, ılan,  bu, ğ, day,  aş, ur, elik,  veya,  yar, ma,  bu, ğ, day,  olabilir, ."
+        }
+    },
+    "zh": {
+        "美國第一家專為女性服務的性用品商店「夏娃花園」（Eve’s Garden）": {
+            "char": "美, 國, 第, 一, 家, 專, 為, 女, 性, 服, 務, 的, 性, 用, 品, 商, 店, 「, 夏, 娃, 花, 園, 」, （, E, v, e, ’, s,  , G, a, r, d, e, n, ）",
+            "BPE_2000": ", 美, 國, 第, 一, 家, 專, 為, 女, 性, 服, 務, 的, 性, 用, 品, 商, 店, 「, 夏, , 花, 園, 」, （, E, v, e, ’, s, , G, a, r, d, e, n, ）",
+            "BPE_10000": ", 美, 國, 第一, 家, 專, 為, 女, 性, 服, 務, 的, 性, 用, 品, 商, 店, 「, 夏, 娃, 花, 園, 」, （, E, v, e, ’, s, G, ar, den, ）",
+            "ByteLevelBPE_2000": "美, 國, 第一, 家, 專, 為, 女, 性, 服, 務, 的, 性, 用, 品, 商, �, �, 「, �, �, �, �, 花, �, �, 」, （, E, v, e, ’, s,  G, ar, den, ）",
+            "ByteLevelBPE_10000": "美國, 第一, 家, 專, 為, 女性, 服務, 的, 性, 用, 品, 商, 店, 「, 夏, 娃, 花, 園, 」（, E, ve, ’, s,  Gar, den, ）"
+        }
+    }
+}

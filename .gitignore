@@ -217,6 +217,15 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Models exclusion
+*.bin
+*.ftz
+*.vec
+*.npy
+*.pt
+*.model
+*.pkl
+
 # Testing 
 src/test.py
 docs/test_notes.md

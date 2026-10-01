@@ -9,6 +9,7 @@ from tqdm import tqdm
 DATA_PATH = Path("/srv/data/lt2326-h26/a1")
 # DATA_PATH = Path("../data/corpus")
 VOCAB_PATH = Path("../data/vocab")
+SAVE_PATH = Path("../data/logs")
 LANGS = ["en", "tr", "zh"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3
@@ -138,8 +139,8 @@ if __name__ == "__main__":
         pp.pprint({x: statistics[mode][x] for x in statistics[mode] if x != "vocab_size"}, width=100)
         print("="*100)
     
-    save_data(statistics, VOCAB_PATH / "tokenizer_stats.json") # save statistics
-    print(f"\n[{datetime.now()}] All done! Tokenizer statistics saved to {VOCAB_PATH / 'tokenizer_stats.json'}", flush=True)
+    save_data(statistics, SAVE_PATH / "tokenizer_stats.json") # save statistics
+    print(f"\n[{datetime.now()}] All done! Tokenizer statistics saved to {SAVE_PATH / 'tokenizer_stats.json'}", flush=True)
 
 
 """
