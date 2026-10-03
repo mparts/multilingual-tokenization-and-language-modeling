@@ -4,7 +4,7 @@ Module holding the three tokenizers used in the assignment. Also, functions for 
 
 from config import EXTERNAL_CORPUS_DIR, VOCAB_DIR, LOG_DIR
 from config import LANGS, MODELS, SPECIALS, PAD, UNK, BOS, EOS
-from helpers import read_lines, save_data
+from helpers import read_lines, save_data, char_lvl_encode
 
 from collections import Counter
 from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers
@@ -13,7 +13,7 @@ import pprint as pp
 from tqdm import tqdm
 
 
-def build_vocab(sentences):
+def CharacterLevel(sentences):
     counts = Counter()
     for s in tqdm(sentences, desc="Building character-level vocabulary"):
         counts.update(s)
@@ -21,10 +21,6 @@ def build_vocab(sentences):
     itos = SPECIALS + chars
     stoi = {c: i for i, c in enumerate(itos)}
     return itos, stoi
-
-
-def char_lvl_encode(text, stoi):
-    return [stoi.get(c, UNK) for c in text]
 
 
 def ByteLevelBPE(vocab_size, load_path, save_path):
@@ -46,7 +42,7 @@ def ByteLevelBPE(vocab_size, load_path, save_path):
     return tok
 
 
-def BPE(vocab_size, load_path, save_path):
+def CharLevelBPE(vocab_size, load_path, save_path):
     """
     My second choice.. doesn't seem as good as the bytelevel but I think it is what the assingment actually wants us to do..
     I'm gonna send an email about this, but for the time being I am going to keep both approaches.
@@ -97,7 +93,7 @@ if __name__ == "__main__":
         print(f"[{datetime.now()}] Training {mode} Tokenizer...", flush=True)
     
         if mode == "Character-Level":
-            itos, stoi = build_vocab([s for l in LANGS for s in train_split[l]]) # build vocabulary
+            itos, stoi = CharacterLevel([s for l in LANGS for s in train_split[l]]) # build vocabulary
             statistics[mode] = {l: stats(valid_split[l], stoi, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = len(itos) # add vocabulary size to statistics
             save_data(itos,VOCAB_DIR / f"{mode}_vocab.json") # save vocabulary
@@ -110,10 +106,10 @@ if __name__ == "__main__":
             statistics[mode] = {l: stats(valid_split[l], tok, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = tok.get_vocab_size() # add vocabulary size to statistics
 
-        elif mode.startswith("BPE"): # BPE
+        elif mode.startswith("CharLevelBPE"): # BPE
             size = 2000 if "2000" in mode else 10000 # set vocabulary size
 
-            tok = BPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train BPE tokenizer
+            tok = CharLevelBPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train BPE tokenizer
 
             statistics[mode] = {l: stats(valid_split[l], tok, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = tok.get_vocab_size() # add vocabulary size to statistics
@@ -123,8 +119,8 @@ if __name__ == "__main__":
         pp.pprint({x: statistics[mode][x] for x in statistics[mode] if x != "vocab_size"}, width=100)
         print("="*100)
     
-    save_data(statistics, LOG_DIR / "tokenizer_stats.json") # save statistics
-    print(f"\n[{datetime.now()}] All done! Tokenizer statistics saved to {LOG_DIR / 'tokenizer_stats.json'}", flush=True)
+    save_data(statistics, LOG_DIR / "tokenizers" / "tokenizer_stats.json") # save statistics
+    print(f"\n[{datetime.now()}] Tokenizer training completed!!", flush=True)
 
 
 """

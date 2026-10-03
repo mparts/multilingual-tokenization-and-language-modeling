@@ -3,6 +3,7 @@ Config file holding paths and constants for the project.
 """
 
 from pathlib import Path
+import torch
 
 
 # === Paths =======================================================
@@ -14,9 +15,15 @@ CORPUS_DIR = DATA_DIR / "corpus"
 VOCAB_DIR = DATA_DIR / "vocab"
 LOG_DIR = DATA_DIR / "logs"
 MODEL_DIR = ROOT / "models"
+RUN_HISTORY = "run_history"
+LATEST = "latest_runs"
+
 
 # === Constants ====================================================
 LANGS = ["en", "tr", "zh"]
-MODELS = ["Character-Level", "BPE_2000", "BPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
+MODELS = ["Character-Level", "CharLevelBPE_2000", "CharLevelBPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3
+
+# === Training =====================================================
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"

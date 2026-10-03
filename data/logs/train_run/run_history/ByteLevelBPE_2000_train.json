@@ -1,0 +1,134 @@
+[
+    {
+        "2026-10-03 22:52:54.420230": {
+            "args": {
+                "tok": "ByteLevelBPE_2000",
+                "epochs": 1,
+                "context_length": 256,
+                "batch_size": 32,
+                "lr": 0.001,
+                "warmup_steps": 200,
+                "hidden_dim": 256,
+                "n_heads": 4,
+                "ff_dim": 1024,
+                "n_layers": 2,
+                "dropout": 0.1,
+                "seed": 0
+            },
+            "params": {
+                "total": 2669568,
+                "input_embeddings": 512000,
+                "output_layer": 512000,
+                "positional": 65536,
+                "other": 1580032
+            },
+            "history": {
+                "steps": [
+                    {
+                        "step": 100,
+                        "train_loss": 7.106989574432373
+                    },
+                    {
+                        "step": 200,
+                        "train_loss": 6.63270131111145
+                    },
+                    {
+                        "step": 300,
+                        "train_loss": 6.1834102614720665
+                    },
+                    {
+                        "step": 400,
+                        "train_loss": 5.8905925738811495
+                    },
+                    {
+                        "step": 500,
+                        "train_loss": 5.6914328174591065
+                    },
+                    {
+                        "step": 600,
+                        "train_loss": 5.551475381056468
+                    },
+                    {
+                        "step": 700,
+                        "train_loss": 5.446420273780823
+                    }
+                ],
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "step": 758,
+                        "train_loss": 5.397980196180319,
+                        "valid_loss": 4.727235637316181,
+                        "valid_bpc_approx": 4.806743153147382
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "2026-10-03 22:53:35.095096": {
+            "args": {
+                "tok": "ByteLevelBPE_2000",
+                "epochs": 1,
+                "context_length": 256,
+                "batch_size": 32,
+                "lr": 0.001,
+                "warmup_steps": 200,
+                "hidden_dim": 256,
+                "n_heads": 4,
+                "ff_dim": 1024,
+                "n_layers": 2,
+                "dropout": 0.1,
+                "seed": 0
+            },
+            "params": {
+                "total": 2669568,
+                "input_embeddings": 512000,
+                "output_layer": 512000,
+                "positional": 65536,
+                "other": 1580032
+            },
+            "history": {
+                "steps": [
+                    {
+                        "step": 100,
+                        "train_loss": 7.106989574432373
+                    },
+                    {
+                        "step": 200,
+                        "train_loss": 6.63270131111145
+                    },
+                    {
+                        "step": 300,
+                        "train_loss": 6.1834102614720665
+                    },
+                    {
+                        "step": 400,
+                        "train_loss": 5.8905925738811495
+                    },
+                    {
+                        "step": 500,
+                        "train_loss": 5.6914328174591065
+                    },
+                    {
+                        "step": 600,
+                        "train_loss": 5.551475381056468
+                    },
+                    {
+                        "step": 700,
+                        "train_loss": 5.446420273780823
+                    }
+                ],
+                "epochs": [
+                    {
+                        "epoch": 1,
+                        "step": 758,
+                        "train_loss": 5.397980196180319,
+                        "valid_loss": 4.727235637316181,
+                        "valid_bpc_approx": 4.806743153147382
+                    }
+                ]
+            }
+        }
+    }
+]
