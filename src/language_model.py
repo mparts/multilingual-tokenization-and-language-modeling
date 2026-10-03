@@ -5,7 +5,7 @@ from config import MODEL_DIR
 from config import LANGS, BOS, EOS
 from helpers import read_lines
 
-import math, random, sys, time
+import math, random, time
 import torch, torch.nn as nn, torch.nn.functional as F
 from tqdm import tqdm
 
@@ -73,13 +73,12 @@ def train(model, xtr, ytr, xva, yva, dev, name, epochs, batch_size, lr, warmup, 
     opt = torch.optim.AdamW(model.parameters(), lr=lr)
     sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min((s + 1) / warmup, 0.5 * (1 + math.cos(math.pi * s / total))))
 
-    history, best, step = {"steps": [], "epochs": []}, float("inf"), 0
+    history, best, step, window = {"steps": [], "epochs": []}, float("inf"), 0, 0.0
     for ep in range(1, epochs + 1):
         model.train()
         perm = torch.randperm(len(xtr))
         run, t0 = 0.0, time.time()
-        for i in tqdm(range(steps_per_epoch), desc=f"Epoch {ep}/{epochs}", unit="batch", ncols=100,
-                      colour="green", disable=not sys.stderr.isatty()):
+        for i in tqdm(range(steps_per_epoch), desc=f"Epoch {ep}/{epochs}", unit="batch", ncols=100, colour="green"):
             idx = perm[i * batch_size:(i + 1) * batch_size]
             xb, yb = xtr[idx].to(dev), ytr[idx].to(dev)
             with _autocast(dev):
@@ -90,13 +89,16 @@ def train(model, xtr, ytr, xva, yva, dev, name, epochs, batch_size, lr, warmup, 
             nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step(); sched.step(); step += 1
             run += loss.item()
+            window += loss.item()
             if step % 100 == 0:
-                history["steps"].append({"step": step, "train_loss": run / (i + 1)})
+                history["steps"].append({"step": step, "train_loss": window / 100})
+                window = 0.0
         vl = evaluate(model, xva, yva, dev)
         rec = {"epoch": ep, "step": step, "train_loss": run / steps_per_epoch,
-               "valid_loss": vl, "valid_bpc_approx": bpc_approx(vl, tok_per_char)}
+               "valid_loss": vl, "valid_bpc_approx": bpc_approx(vl, tok_per_char), 
+               "train_time": time.time() - t0}
         history["epochs"].append(rec)
-        print(rec, f"({time.time() - t0:.0f}s)", flush=True)
+        print(rec, flush=True)
         if vl < best:
             best = vl
             save_checkpoint(MODEL_DIR / f"{name}.pt", model, name, meta)

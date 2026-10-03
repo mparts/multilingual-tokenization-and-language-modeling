@@ -24,7 +24,7 @@ def main():
     encode, _ = load_tokenizer(args.tok)
     ctx = model.config["context_length"]
 
-    print(f"\n[{datetime.now()}] Evaluating {args.tok} on the '{args.split}' split...", flush=True)
+    print(f"\n[{datetime.now()}] Evaluating '{args.tok}' model on the '{args.split}' split...", flush=True)
     results = {}
     for name, langs in [("all", LANGS)] + [(l, [l]) for l in LANGS]:
         x, y, n_chars = make_blocks(encode, args.split, ctx, langs=langs)
