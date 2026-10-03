@@ -4,17 +4,13 @@ Module holding the three tokenizers used in the assignment. Also, functions for 
 
 from config import EXTERNAL_CORPUS_DIR, VOCAB_DIR, LOG_DIR
 from config import LANGS, MODELS, SPECIALS, PAD, UNK, BOS, EOS
-import json
+from helpers import read_lines, save_data
+
 from collections import Counter
 from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers
 from datetime import datetime
 import pprint as pp
 from tqdm import tqdm
-
-
-def read_lines(split, lang):
-    with open(EXTERNAL_CORPUS_DIR / split / f"{lang}.txt", encoding="utf-8") as f:
-        return [line.rstrip("\n") for line in f]
 
 
 def build_vocab(sentences):
@@ -27,7 +23,7 @@ def build_vocab(sentences):
     return itos, stoi
 
 
-def encode(text, stoi):
+def char_lvl_encode(text, stoi):
     return [stoi.get(c, UNK) for c in text]
 
 
@@ -77,19 +73,14 @@ def BPE(vocab_size, load_path, save_path):
     return tok
 
 
-def save_data(data, path):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False)
-
-
 def stats(sentences, tokenized, mode):
-    n_chars = sum(len(s) for s in sentences)
     if mode == "Character-Level":
-        ids = [encode(s, tokenized) for s in sentences]
+        ids = [char_lvl_encode(s, tokenized) for s in sentences]
         n_unk = sum(id.count(UNK) for id in ids)
     else:
         ids = [tokenized.encode(s).ids for s in sentences]
         n_unk = sum(id.count(tokenized.token_to_id("<UNK>")) for id in ids)
+    n_chars = sum(len(s) for s in sentences)
     n_tokens = sum(len(id) for id in ids)
     return {"tokens": n_tokens, "tok/sent": f"{n_tokens / len(sentences):.2f}",
             "chars/tok": f"{n_chars / n_tokens:.2f}", "unk_percent": f"{100 * n_unk / n_tokens:.3f}%"}
