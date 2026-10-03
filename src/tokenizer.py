@@ -1,22 +1,19 @@
+"""
+Module holding the three tokenizers used in the assignment. Also, functions for reading data, building vocabularies, and computing statistics.
+"""
+
+from config import EXTERNAL_CORPUS_DIR, VOCAB_DIR, LOG_DIR
+from config import LANGS, MODELS, SPECIALS, PAD, UNK, BOS, EOS
 import json
 from collections import Counter
-from pathlib import Path
 from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers
 from datetime import datetime
 import pprint as pp
 from tqdm import tqdm
 
-DATA_PATH = Path("/srv/data/lt2326-h26/a1")
-# DATA_PATH = Path("../data/corpus")
-VOCAB_PATH = Path("../data/vocab")
-SAVE_PATH = Path("../data/logs")
-LANGS = ["en", "tr", "zh"]
-SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
-PAD, UNK, BOS, EOS = 0, 1, 2, 3
-
 
 def read_lines(split, lang):
-    with open(DATA_PATH / split / f"{lang}.txt", encoding="utf-8") as f:
+    with open(EXTERNAL_CORPUS_DIR / split / f"{lang}.txt", encoding="utf-8") as f:
         return [line.rstrip("\n") for line in f]
 
 
@@ -49,7 +46,6 @@ def ByteLevelBPE(vocab_size, load_path, save_path):
         show_progress=True,
     )
     tok.train([str(load_path)], trainer)
-    Path(save_path).parent.mkdir(parents=True, exist_ok=True)
     tok.save(str(save_path))
     return tok
 
@@ -77,14 +73,11 @@ def BPE(vocab_size, load_path, save_path):
     )
 
     tok.train([str(load_path)], trainer)
-
-    Path(save_path).parent.mkdir(parents=True, exist_ok=True)
     tok.save(str(save_path))
     return tok
 
 
 def save_data(data, path):
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
 
@@ -105,10 +98,10 @@ def stats(sentences, tokenized, mode):
 if __name__ == "__main__":
     train_split = {l: read_lines("train", l) for l in LANGS} # get the training data for each language
     valid_split = {l: read_lines("valid", l) for l in LANGS} # get the validation data for each language
-    balanced_split = DATA_PATH / "tokenizer" / "balanced.txt"
+    balanced_split = EXTERNAL_CORPUS_DIR / "tokenizer" / "balanced.txt"
     statistics = {}
 
-    for mode in ("Character-Level", "BPE_2000", "BPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"):
+    for mode in MODELS:
         print("="*100)
         print(f"[{datetime.now()}] Training {mode} Tokenizer...", flush=True)
     
@@ -116,12 +109,12 @@ if __name__ == "__main__":
             itos, stoi = build_vocab([s for l in LANGS for s in train_split[l]]) # build vocabulary
             statistics[mode] = {l: stats(valid_split[l], stoi, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = len(itos) # add vocabulary size to statistics
-            save_data(itos, VOCAB_PATH / "char_level_vocab.json") # save vocabulary
+            save_data(itos,VOCAB_DIR / "char_level_vocab.json") # save vocabulary
 
         elif mode.startswith("ByteLevelBPE"): # ByteLevel BPE
             size = 2000 if "2000" in mode else 10000 # set vocabulary size
 
-            tok = ByteLevelBPE(size, balanced_split, f"{VOCAB_PATH}/{mode}_vocab.json") # train ByteLevel BPE tokenizer
+            tok = ByteLevelBPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train ByteLevel BPE tokenizer
 
             statistics[mode] = {l: stats(valid_split[l], tok, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = tok.get_vocab_size() # add vocabulary size to statistics
@@ -129,7 +122,7 @@ if __name__ == "__main__":
         elif mode.startswith("BPE"): # BPE
             size = 2000 if "2000" in mode else 10000 # set vocabulary size
 
-            tok = BPE(size, balanced_split, f"{VOCAB_PATH}/{mode}_vocab.json") # train BPE tokenizer
+            tok = BPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train BPE tokenizer
 
             statistics[mode] = {l: stats(valid_split[l], tok, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = tok.get_vocab_size() # add vocabulary size to statistics
@@ -139,8 +132,8 @@ if __name__ == "__main__":
         pp.pprint({x: statistics[mode][x] for x in statistics[mode] if x != "vocab_size"}, width=100)
         print("="*100)
     
-    save_data(statistics, SAVE_PATH / "tokenizer_stats.json") # save statistics
-    print(f"\n[{datetime.now()}] All done! Tokenizer statistics saved to {SAVE_PATH / 'tokenizer_stats.json'}", flush=True)
+    save_data(statistics, LOG_DIR / "tokenizer_stats.json") # save statistics
+    print(f"\n[{datetime.now()}] All done! Tokenizer statistics saved to {LOG_DIR / 'tokenizer_stats.json'}", flush=True)
 
 
 """
@@ -148,4 +141,10 @@ Character-level tokenization yields a vocab arround 9k.. (because of chinese cha
 with a vocab size of 2k will actually lose A LOT of information. Not even actually merge.. The 10k will just merge like, half a 
 thousand characters and that's it. I'm not sure if I am misunderstanding the assignment.. The bytelevel bpe seems more reasonable, 
 but not really similar to the bpe implementation of the link at the start of the assignment
+"""
+
+"""
+The above comment + the docstrings for both bpe and bytelevel_bpe functions, were written before asking about it. After asking in 
+class about bpe and how we should implement it, I realized that the bytelevel bpe is the right one. So I had slightly misunderstood
+the purpose of the link in the assingment explaining the bpe algorithm. Either way, I leave the comments there just for documenting.
 """
