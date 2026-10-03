@@ -17,6 +17,6 @@ MODEL_DIR = ROOT / "models"
 
 # === Constants ====================================================
 LANGS = ["en", "tr", "zh"]
-MODELS = ["Character-Level","BPE_2000", "BPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
+MODELS = ["Character-Level", "BPE_2000", "BPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3

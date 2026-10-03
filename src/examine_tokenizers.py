@@ -6,6 +6,7 @@ from config import EXTERNAL_CORPUS_DIR, VOCAB_DIR, LOG_DIR
 from config import LANGS, MODELS
 import json
 from tokenizers import Tokenizer
+from datetime import datetime
 import random
 
 
@@ -24,7 +25,7 @@ def save_data(data, path):
 
 
 valid = {l: read_lines("valid", l) for l in LANGS}
-toks = {n: Tokenizer.from_file(f"{VOCAB_DIR}/{n}_vocab.json") for n in MODELS}
+toks = {n: Tokenizer.from_file(f"{VOCAB_DIR}/{n}_vocab.json") for n in MODELS[1:]}
 
 
 data = {}
@@ -39,3 +40,4 @@ for l in LANGS:
             data[l][text][n] = ", ".join(pieces(tok, text))
 
 save_data(data, LOG_DIR / "tokenized_sentences.json")
+print(f"\n[{datetime.now()}] All done! Tokenized sentences exported to {LOG_DIR / 'tokenized_sentences.json'}", flush=True)

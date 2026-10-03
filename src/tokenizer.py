@@ -109,7 +109,7 @@ if __name__ == "__main__":
             itos, stoi = build_vocab([s for l in LANGS for s in train_split[l]]) # build vocabulary
             statistics[mode] = {l: stats(valid_split[l], stoi, mode) for l in LANGS} # compute statistics for validation data
             statistics[mode]["vocab_size"] = len(itos) # add vocabulary size to statistics
-            save_data(itos,VOCAB_DIR / "char_level_vocab.json") # save vocabulary
+            save_data(itos,VOCAB_DIR / f"{mode}_vocab.json") # save vocabulary
 
         elif mode.startswith("ByteLevelBPE"): # ByteLevel BPE
             size = 2000 if "2000" in mode else 10000 # set vocabulary size
