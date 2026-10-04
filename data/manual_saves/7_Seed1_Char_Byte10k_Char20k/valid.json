@@ -1,0 +1,102 @@
+{
+  "saved_at": "2026-10-04T23:36:49",
+  "split": "valid",
+  "models": [
+    "Character-Level",
+    "ByteLevelBPE_10000",
+    "CharLevelBPE_20000"
+  ],
+  "shared_args": {
+    "epochs": 10,
+    "context_length": 256,
+    "batch_size": 32,
+    "lr": 0.001,
+    "warmup_steps": 200,
+    "hidden_dim": 256,
+    "n_heads": 4,
+    "ff_dim": 1024,
+    "n_layers": 2,
+    "dropout": 0.1,
+    "seed": 1
+  },
+  "results": {
+    "Character-Level": {
+      "all": {
+        "loss": 2.5740571695278525,
+        "perplexity": 13.118942387106022,
+        "bpc_approx": 3.833101789898363,
+        "blocks": 4455
+      },
+      "en": {
+        "loss": 1.630728637832476,
+        "perplexity": 5.1075949499349464,
+        "bpc_approx": 2.4106187118064533,
+        "blocks": 1474
+      },
+      "tr": {
+        "loss": 1.65799080643407,
+        "perplexity": 5.2487544793786105,
+        "bpc_approx": 2.4401869351953325,
+        "blocks": 1468
+      },
+      "zh": {
+        "loss": 4.3895886629839564,
+        "perplexity": 80.60725541233026,
+        "bpc_approx": 6.660634969575069,
+        "blocks": 1513
+      }
+    },
+    "ByteLevelBPE_10000": {
+      "all": {
+        "loss": 5.103706831460471,
+        "perplexity": 164.63103713942988,
+        "bpc_approx": 3.7258280607170455,
+        "blocks": 2184
+      },
+      "en": {
+        "loss": 4.4745181381825825,
+        "perplexity": 87.75230573495472,
+        "bpc_approx": 2.1674183474225974,
+        "blocks": 483
+      },
+      "tr": {
+        "loss": 4.710074205900494,
+        "perplexity": 111.06040093698954,
+        "bpc_approx": 2.2430362014726914,
+        "blocks": 475
+      },
+      "zh": {
+        "loss": 5.505821396185428,
+        "perplexity": 246.12053514253134,
+        "bpc_approx": 6.764116632921747,
+        "blocks": 1225
+      }
+    },
+    "CharLevelBPE_20000": {
+      "all": {
+        "loss": 5.556402522895287,
+        "perplexity": 258.88980889665714,
+        "bpc_approx": 3.749854997613154,
+        "blocks": 2019
+      },
+      "en": {
+        "loss": 4.746746514972887,
+        "perplexity": 115.20884386457116,
+        "bpc_approx": 2.170752073910362,
+        "blocks": 456
+      },
+      "tr": {
+        "loss": 5.057065873329042,
+        "perplexity": 157.12880347956138,
+        "bpc_approx": 2.2460388340487643,
+        "blocks": 443
+      },
+      "zh": {
+        "loss": 6.0911591694331575,
+        "perplexity": 441.93339003072145,
+        "bpc_approx": 6.835698740103092,
+        "blocks": 1119
+      }
+    }
+  }
+}

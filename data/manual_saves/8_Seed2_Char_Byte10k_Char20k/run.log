@@ -165,12 +165,3 @@ Part 4. Saving
     |    |
     |    |
 ~Running save_latest.py script...
-Saving 3 models to data/manual_saves/8_Seed2_Char_Byte10k_Char20k/
-  wrote data/manual_saves/8_Seed2_Char_Byte10k_Char20k/train.json
-  wrote data/manual_saves/8_Seed2_Char_Byte10k_Char20k/valid.json
-  wrote data/manual_saves/8_Seed2_Char_Byte10k_Char20k/test.json
-
-[2026-10-05 00:09:05.970147] Done!!
-^^^                                       ^^^
-^^^    End of RUN.sh pipeline.            ^^^
-^^^                                       ^^^

@@ -1,0 +1,128 @@
+{
+  "ByteLevelBPE_10000": {
+    "en": {
+      "tokens": 114717,
+      "tok/sent": "25.27",
+      "chars/tok": "3.21",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 114292,
+      "tok/sent": "30.60",
+      "chars/tok": "3.22",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 294671,
+      "tok/sent": "30.84",
+      "chars/tok": "1.25",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 10000
+  },
+  "ByteLevelBPE_12000": {
+    "en": {
+      "tokens": 110993,
+      "tok/sent": "24.45",
+      "chars/tok": "3.32",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 109858,
+      "tok/sent": "29.41",
+      "chars/tok": "3.35",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 285757,
+      "tok/sent": "29.91",
+      "chars/tok": "1.29",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 12000
+  },
+  "ByteLevelBPE_14000": {
+    "en": {
+      "tokens": 107963,
+      "tok/sent": "23.78",
+      "chars/tok": "3.41",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 106345,
+      "tok/sent": "28.47",
+      "chars/tok": "3.46",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 278934,
+      "tok/sent": "29.20",
+      "chars/tok": "1.32",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 14000
+  },
+  "ByteLevelBPE_16000": {
+    "en": {
+      "tokens": 105333,
+      "tok/sent": "23.20",
+      "chars/tok": "3.50",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 103489,
+      "tok/sent": "27.71",
+      "chars/tok": "3.56",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 273469,
+      "tok/sent": "28.62",
+      "chars/tok": "1.35",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 16000
+  },
+  "ByteLevelBPE_18000": {
+    "en": {
+      "tokens": 103232,
+      "tok/sent": "22.74",
+      "chars/tok": "3.57",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 101208,
+      "tok/sent": "27.10",
+      "chars/tok": "3.64",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 268817,
+      "tok/sent": "28.14",
+      "chars/tok": "1.37",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 18000
+  },
+  "ByteLevelBPE_20000": {
+    "en": {
+      "tokens": 101571,
+      "tok/sent": "22.37",
+      "chars/tok": "3.63",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 99292,
+      "tok/sent": "26.58",
+      "chars/tok": "3.71",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 264679,
+      "tok/sent": "27.70",
+      "chars/tok": "1.39",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 20000
+  }
+}

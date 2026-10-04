@@ -1,0 +1,301 @@
+====================================================================================================
+    |    |
+    |    |
+    |    |
+Multilingual Tokenization and Language Modeling
+    |    |
+    |    |
+    |    |
+====================================================================================================
+    |    |
+    |    |
+Part 1. Tokenizers
+    |    |
+    |    |
+~Running tokenizer.py script...
+====================================================================================================
+[2026-10-04 21:50:39.274003] Training ByteLevelBPE_10000 Tokenizer...
+
+
+
+
+[2026-10-04 21:50:55.884794] Success!! Analysis of ByteLevelBPE_10000 tokenizer on the validation split:
+Vocabulary size:  10000
+{'en': {'chars/tok': '3.21', 'tok/sent': '25.27', 'tokens': 114717, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.22', 'tok/sent': '30.60', 'tokens': 114292, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.25', 'tok/sent': '30.84', 'tokens': 294671, 'unk_percent': '0.000%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 21:50:55.885614] Training ByteLevelBPE_12000 Tokenizer...
+
+
+
+
+[2026-10-04 21:51:12.919295] Success!! Analysis of ByteLevelBPE_12000 tokenizer on the validation split:
+Vocabulary size:  12000
+{'en': {'chars/tok': '3.32', 'tok/sent': '24.45', 'tokens': 110993, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.35', 'tok/sent': '29.41', 'tokens': 109858, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.29', 'tok/sent': '29.91', 'tokens': 285757, 'unk_percent': '0.000%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 21:51:12.919567] Training ByteLevelBPE_14000 Tokenizer...
+
+
+
+
+[2026-10-04 21:51:30.342667] Success!! Analysis of ByteLevelBPE_14000 tokenizer on the validation split:
+Vocabulary size:  14000
+{'en': {'chars/tok': '3.41', 'tok/sent': '23.78', 'tokens': 107963, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.46', 'tok/sent': '28.47', 'tokens': 106345, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.32', 'tok/sent': '29.20', 'tokens': 278934, 'unk_percent': '0.000%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 21:51:30.342954] Training ByteLevelBPE_16000 Tokenizer...
+
+
+
+
+[2026-10-04 21:51:48.418741] Success!! Analysis of ByteLevelBPE_16000 tokenizer on the validation split:
+Vocabulary size:  16000
+{'en': {'chars/tok': '3.50', 'tok/sent': '23.20', 'tokens': 105333, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.56', 'tok/sent': '27.71', 'tokens': 103489, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.35', 'tok/sent': '28.62', 'tokens': 273469, 'unk_percent': '0.000%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 21:51:48.419129] Training ByteLevelBPE_18000 Tokenizer...
+
+
+
+
+[2026-10-04 21:52:07.137485] Success!! Analysis of ByteLevelBPE_18000 tokenizer on the validation split:
+Vocabulary size:  18000
+{'en': {'chars/tok': '3.57', 'tok/sent': '22.74', 'tokens': 103232, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.64', 'tok/sent': '27.10', 'tokens': 101208, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.37', 'tok/sent': '28.14', 'tokens': 268817, 'unk_percent': '0.000%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 21:52:07.137909] Training ByteLevelBPE_20000 Tokenizer...
+
+
+
+
+[2026-10-04 21:52:27.682795] Success!! Analysis of ByteLevelBPE_20000 tokenizer on the validation split:
+Vocabulary size:  20000
+{'en': {'chars/tok': '3.63', 'tok/sent': '22.37', 'tokens': 101571, 'unk_percent': '0.000%'},
+ 'tr': {'chars/tok': '3.71', 'tok/sent': '26.58', 'tokens': 99292, 'unk_percent': '0.000%'},
+ 'zh': {'chars/tok': '1.39', 'tok/sent': '27.70', 'tokens': 264679, 'unk_percent': '0.000%'}}
+====================================================================================================
+
+[2026-10-04 21:52:27.687713] Tokenizer training completed!!
+<!>    examine_tokenizers.py skipped.    <!>
+    |    |
+    |    |
+Part 2. Language modeling
+    |    |
+    |    |
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 21:52:31.600186] Loading 'ByteLevelBPE_10000' tokenizer and building blocks...
+    vocab_size=10000, train blocks=17376, valid blocks=2184, device=cuda
+    Parameters: {'total': 6765568, 'input_embeddings': 2560000, 'output_layer': 2560000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 21:52:35.957969] Training Transformer language model...
+1 Epoch | Step 543 | Train Loss 7.119 | Valid Loss 6.059 | BPC approx: 4.423 | Train Time: 37s
+2 Epoch | Step 1086 | Train Loss 5.807 | Valid Loss 5.532 | BPC approx: 4.039 | Train Time: 34s
+3 Epoch | Step 1629 | Train Loss 5.426 | Valid Loss 5.342 | BPC approx: 3.900 | Train Time: 37s
+4 Epoch | Step 2172 | Train Loss 5.234 | Valid Loss 5.239 | BPC approx: 3.824 | Train Time: 38s
+5 Epoch | Step 2715 | Train Loss 5.110 | Valid Loss 5.177 | BPC approx: 3.780 | Train Time: 38s
+6 Epoch | Step 3258 | Train Loss 5.020 | Valid Loss 5.138 | BPC approx: 3.751 | Train Time: 38s
+7 Epoch | Step 3801 | Train Loss 4.953 | Valid Loss 5.114 | BPC approx: 3.733 | Train Time: 38s
+8 Epoch | Step 4344 | Train Loss 4.905 | Valid Loss 5.101 | BPC approx: 3.724 | Train Time: 38s
+9 Epoch | Step 4887 | Train Loss 4.874 | Valid Loss 5.095 | BPC approx: 3.720 | Train Time: 38s
+10 Epoch | Step 5430 | Train Loss 4.859 | Valid Loss 5.095 | BPC approx: 3.719 | Train Time: 38s
+
+[2026-10-04 21:58:50.784118] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 21:58:55.065324] Loading trained model...
+
+[2026-10-04 21:58:55.644002] Evaluating 'ByteLevelBPE_10000' model on the 'valid' split...
+    all: Loss: 5.095 | Perplexity: 163.197 | BPC approx: 3.719
+     en: Loss: 4.463 | Perplexity: 86.759 | BPC approx: 2.162
+     tr: Loss: 4.688 | Perplexity: 108.648 | BPC approx: 2.233
+     zh: Loss: 5.506 | Perplexity: 246.142 | BPC approx: 6.764
+
+[2026-10-04 21:59:02.463427] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 21:59:06.289088] Loading 'ByteLevelBPE_12000' tokenizer and building blocks...
+    vocab_size=12000, train blocks=16841, valid blocks=2118, device=cuda
+    Parameters: {'total': 7789568, 'input_embeddings': 3072000, 'output_layer': 3072000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 21:59:10.661289] Training Transformer language model...
+1 Epoch | Step 526 | Train Loss 7.292 | Valid Loss 6.275 | BPC approx: 4.443 | Train Time: 42s
+2 Epoch | Step 1052 | Train Loss 5.993 | Valid Loss 5.709 | BPC approx: 4.042 | Train Time: 40s
+3 Epoch | Step 1578 | Train Loss 5.578 | Valid Loss 5.500 | BPC approx: 3.894 | Train Time: 40s
+4 Epoch | Step 2104 | Train Loss 5.364 | Valid Loss 5.395 | BPC approx: 3.820 | Train Time: 40s
+5 Epoch | Step 2630 | Train Loss 5.227 | Valid Loss 5.334 | BPC approx: 3.776 | Train Time: 40s
+6 Epoch | Step 3156 | Train Loss 5.128 | Valid Loss 5.295 | BPC approx: 3.748 | Train Time: 40s
+7 Epoch | Step 3682 | Train Loss 5.054 | Valid Loss 5.273 | BPC approx: 3.733 | Train Time: 40s
+8 Epoch | Step 4208 | Train Loss 5.001 | Valid Loss 5.261 | BPC approx: 3.725 | Train Time: 40s
+9 Epoch | Step 4734 | Train Loss 4.969 | Valid Loss 5.257 | BPC approx: 3.722 | Train Time: 40s
+10 Epoch | Step 5260 | Train Loss 4.952 | Valid Loss 5.256 | BPC approx: 3.721 | Train Time: 40s
+
+[2026-10-04 22:05:57.220851] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 22:06:01.555037] Loading trained model...
+
+[2026-10-04 22:06:02.185786] Evaluating 'ByteLevelBPE_12000' model on the 'valid' split...
+    all: Loss: 5.256 | Perplexity: 191.803 | BPC approx: 3.721
+     en: Loss: 4.591 | Perplexity: 98.614 | BPC approx: 2.159
+     tr: Loss: 4.877 | Perplexity: 131.278 | BPC approx: 2.240
+     zh: Loss: 5.670 | Perplexity: 290.079 | BPC approx: 6.767
+
+[2026-10-04 22:06:09.203204] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 22:06:12.957858] Loading 'ByteLevelBPE_14000' tokenizer and building blocks...
+    vocab_size=14000, train blocks=16418, valid blocks=2066, device=cuda
+    Parameters: {'total': 8813568, 'input_embeddings': 3584000, 'output_layer': 3584000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 22:06:17.439185] Training Transformer language model...
+1 Epoch | Step 513 | Train Loss 7.434 | Valid Loss 6.468 | BPC approx: 4.467 | Train Time: 45s
+2 Epoch | Step 1026 | Train Loss 6.158 | Valid Loss 5.858 | BPC approx: 4.045 | Train Time: 43s
+3 Epoch | Step 1539 | Train Loss 5.709 | Valid Loss 5.637 | BPC approx: 3.893 | Train Time: 43s
+4 Epoch | Step 2052 | Train Loss 5.473 | Valid Loss 5.528 | BPC approx: 3.818 | Train Time: 43s
+5 Epoch | Step 2565 | Train Loss 5.319 | Valid Loss 5.464 | BPC approx: 3.773 | Train Time: 43s
+6 Epoch | Step 3078 | Train Loss 5.210 | Valid Loss 5.427 | BPC approx: 3.748 | Train Time: 43s
+7 Epoch | Step 3591 | Train Loss 5.130 | Valid Loss 5.406 | BPC approx: 3.734 | Train Time: 43s
+8 Epoch | Step 4104 | Train Loss 5.074 | Valid Loss 5.395 | BPC approx: 3.726 | Train Time: 43s
+9 Epoch | Step 4617 | Train Loss 5.038 | Valid Loss 5.391 | BPC approx: 3.723 | Train Time: 43s
+10 Epoch | Step 5130 | Train Loss 5.019 | Valid Loss 5.390 | BPC approx: 3.722 | Train Time: 43s
+
+[2026-10-04 22:13:34.070128] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 22:13:38.248030] Loading trained model...
+
+[2026-10-04 22:13:38.982422] Evaluating 'ByteLevelBPE_14000' model on the 'valid' split...
+    all: Loss: 5.390 | Perplexity: 219.227 | BPC approx: 3.722
+     en: Loss: 4.695 | Perplexity: 109.388 | BPC approx: 2.152
+     tr: Loss: 5.018 | Perplexity: 151.159 | BPC approx: 2.234
+     zh: Loss: 5.809 | Perplexity: 333.416 | BPC approx: 6.782
+
+[2026-10-04 22:13:46.209938] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 22:13:50.123600] Loading 'ByteLevelBPE_16000' tokenizer and building blocks...
+    vocab_size=16000, train blocks=16073, valid blocks=2023, device=cuda
+    Parameters: {'total': 9837568, 'input_embeddings': 4096000, 'output_layer': 4096000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 22:13:54.356033] Training Transformer language model...
+1 Epoch | Step 502 | Train Loss 7.527 | Valid Loss 6.580 | BPC approx: 4.449 | Train Time: 47s
+2 Epoch | Step 1004 | Train Loss 6.274 | Valid Loss 5.979 | BPC approx: 4.043 | Train Time: 46s
+3 Epoch | Step 1506 | Train Loss 5.805 | Valid Loss 5.743 | BPC approx: 3.883 | Train Time: 46s
+4 Epoch | Step 2008 | Train Loss 5.552 | Valid Loss 5.633 | BPC approx: 3.809 | Train Time: 46s
+5 Epoch | Step 2510 | Train Loss 5.389 | Valid Loss 5.571 | BPC approx: 3.767 | Train Time: 46s
+6 Epoch | Step 3012 | Train Loss 5.272 | Valid Loss 5.535 | BPC approx: 3.743 | Train Time: 46s
+7 Epoch | Step 3514 | Train Loss 5.188 | Valid Loss 5.514 | BPC approx: 3.729 | Train Time: 46s
+8 Epoch | Step 4016 | Train Loss 5.127 | Valid Loss 5.506 | BPC approx: 3.723 | Train Time: 46s
+9 Epoch | Step 4518 | Train Loss 5.087 | Valid Loss 5.503 | BPC approx: 3.721 | Train Time: 46s
+10 Epoch | Step 5020 | Train Loss 5.068 | Valid Loss 5.503 | BPC approx: 3.721 | Train Time: 46s
+
+[2026-10-04 22:21:38.123692] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 22:21:42.267740] Loading trained model...
+
+[2026-10-04 22:21:43.066162] Evaluating 'ByteLevelBPE_16000' model on the 'valid' split...
+    all: Loss: 5.503 | Perplexity: 245.372 | BPC approx: 3.721
+     en: Loss: 4.781 | Perplexity: 119.258 | BPC approx: 2.139
+     tr: Loss: 5.146 | Perplexity: 171.745 | BPC approx: 2.234
+     zh: Loss: 5.925 | Perplexity: 374.179 | BPC approx: 6.786
+
+[2026-10-04 22:21:50.649751] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 22:21:54.533582] Loading 'ByteLevelBPE_18000' tokenizer and building blocks...
+    vocab_size=18000, train blocks=15784, valid blocks=1987, device=cuda
+    Parameters: {'total': 10861568, 'input_embeddings': 4608000, 'output_layer': 4608000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 22:21:58.821000] Training Transformer language model...
+1 Epoch | Step 493 | Train Loss 7.638 | Valid Loss 6.704 | BPC approx: 4.452 | Train Time: 50s
+2 Epoch | Step 986 | Train Loss 6.388 | Valid Loss 6.087 | BPC approx: 4.043 | Train Time: 49s
+3 Epoch | Step 1479 | Train Loss 5.897 | Valid Loss 5.840 | BPC approx: 3.879 | Train Time: 49s
+4 Epoch | Step 1972 | Train Loss 5.625 | Valid Loss 5.722 | BPC approx: 3.801 | Train Time: 49s
+5 Epoch | Step 2465 | Train Loss 5.449 | Valid Loss 5.659 | BPC approx: 3.758 | Train Time: 49s
+6 Epoch | Step 2958 | Train Loss 5.323 | Valid Loss 5.624 | BPC approx: 3.736 | Train Time: 50s
+7 Epoch | Step 3451 | Train Loss 5.230 | Valid Loss 5.608 | BPC approx: 3.724 | Train Time: 49s
+8 Epoch | Step 3944 | Train Loss 5.165 | Valid Loss 5.597 | BPC approx: 3.718 | Train Time: 49s
+9 Epoch | Step 4437 | Train Loss 5.124 | Valid Loss 5.594 | BPC approx: 3.716 | Train Time: 49s
+10 Epoch | Step 4930 | Train Loss 5.103 | Valid Loss 5.594 | BPC approx: 3.715 | Train Time: 49s
+
+[2026-10-04 22:30:18.130636] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 22:30:22.281200] Loading trained model...
+
+[2026-10-04 22:30:23.162430] Evaluating 'ByteLevelBPE_18000' model on the 'valid' split...
+    all: Loss: 5.594 | Perplexity: 268.817 | BPC approx: 3.715
+     en: Loss: 4.869 | Perplexity: 130.153 | BPC approx: 2.139
+     tr: Loss: 5.250 | Perplexity: 190.546 | BPC approx: 2.232
+     zh: Loss: 6.015 | Perplexity: 409.719 | BPC approx: 6.781
+
+[2026-10-04 22:30:31.005374] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 22:30:34.893250] Loading 'ByteLevelBPE_20000' tokenizer and building blocks...
+    vocab_size=20000, train blocks=15537, valid blocks=1957, device=cuda
+    Parameters: {'total': 11885568, 'input_embeddings': 5120000, 'output_layer': 5120000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 22:30:39.095926] Training Transformer language model...
+1 Epoch | Step 485 | Train Loss 7.715 | Valid Loss 6.802 | BPC approx: 4.450 | Train Time: 52s
+2 Epoch | Step 970 | Train Loss 6.489 | Valid Loss 6.184 | BPC approx: 4.045 | Train Time: 52s
+3 Epoch | Step 1455 | Train Loss 5.981 | Valid Loss 5.923 | BPC approx: 3.875 | Train Time: 52s
+4 Epoch | Step 1940 | Train Loss 5.691 | Valid Loss 5.808 | BPC approx: 3.799 | Train Time: 52s
+5 Epoch | Step 2425 | Train Loss 5.502 | Valid Loss 5.746 | BPC approx: 3.759 | Train Time: 52s
+6 Epoch | Step 2910 | Train Loss 5.367 | Valid Loss 5.714 | BPC approx: 3.738 | Train Time: 52s
+7 Epoch | Step 3395 | Train Loss 5.269 | Valid Loss 5.696 | BPC approx: 3.726 | Train Time: 52s
+8 Epoch | Step 3880 | Train Loss 5.200 | Valid Loss 5.689 | BPC approx: 3.721 | Train Time: 52s
+9 Epoch | Step 4365 | Train Loss 5.156 | Valid Loss 5.687 | BPC approx: 3.720 | Train Time: 52s
+10 Epoch | Step 4850 | Train Loss 5.134 | Valid Loss 5.687 | BPC approx: 3.720 | Train Time: 52s
+
+[2026-10-04 22:39:26.598034] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 22:39:30.888324] Loading trained model...
+
+[2026-10-04 22:39:32.029652] Evaluating 'ByteLevelBPE_20000' model on the 'valid' split...
+    all: Loss: 5.687 | Perplexity: 295.015 | BPC approx: 3.720
+     en: Loss: 4.932 | Perplexity: 138.634 | BPC approx: 2.137
+     tr: Loss: 5.340 | Perplexity: 208.469 | BPC approx: 2.232
+     zh: Loss: 6.121 | Perplexity: 455.130 | BPC approx: 6.801
+
+[2026-10-04 22:39:40.044753] Evaluation completed!!
+====================================================================================================
+    |    |
+    |    |
+Part 3. Plotting
+    |    |
+    |    |
+~Running plot_lm.py script...
+[2026-10-04 22:39:44.487866] Generating plots for 'valid' split...
+Plots saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
+    |    |
+    |    |
+Part 4. Saving
+    |    |
+    |    |
+~Running save_latest.py script...

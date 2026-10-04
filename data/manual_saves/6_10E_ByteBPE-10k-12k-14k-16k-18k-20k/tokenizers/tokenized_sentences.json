@@ -1,0 +1,29 @@
+{
+  "en": {
+    "This law allowed people in France to be Protestant, even though most people were Catholic.": {
+      "char": "T, h, i, s,  , l, a, w,  , a, l, l, o, w, e, d,  , p, e, o, p, l, e,  , i, n,  , F, r, a, n, c, e,  , t, o,  , b, e,  , P, r, o, t, e, s, t, a, n, t, ,,  , e, v, e, n,  , t, h, o, u, g, h,  , m, o, s, t,  , p, e, o, p, l, e,  , w, e, r, e,  , C, a, t, h, o, l, i, c, .",
+      "ByteLevelBPE_2000": "This,  l, aw,  all, ow, ed,  people,  in,  F, ran, ce,  to,  be,  P, ro, t, est, ant, ,,  ev, en,  th, o, ugh,  most,  people,  were,  C, ath, ol, ic, .",
+      "ByteLevelBPE_10000": "This,  law,  allowed,  people,  in,  France,  to,  be,  Pro, t, est, ant, ,,  even,  though,  most,  people,  were,  C, ath, ol, ic, .",
+      "ByteLevelBPE_20000": "This,  law,  allowed,  people,  in,  France,  to,  be,  Prot, est, ant, ,,  even,  though,  most,  people,  were,  Catholic, .",
+      "CharLevelBPE_20000": "This, law, allowed, people, in, France, to, be, Pro, t, est, ant, ,, even, though, most, people, were, Cath, olic, ."
+    }
+  },
+  "tr": {
+    "En yüksek yüzde 10'luk oranın 2018'de 192,150 ABD doları kazanacağı tahmin edilmektedir.": {
+      "char": "E, n,  , y, ü, k, s, e, k,  , y, ü, z, d, e,  , 1, 0, ', l, u, k,  , o, r, a, n, ı, n,  , 2, 0, 1, 8, ', d, e,  , 1, 9, 2, ,, 1, 5, 0,  , A, B, D,  , d, o, l, a, r, ı,  , k, a, z, a, n, a, c, a, ğ, ı,  , t, a, h, m, i, n,  , e, d, i, l, m, e, k, t, e, d, i, r, .",
+      "ByteLevelBPE_2000": "E, n,  yük, s, ek,  y, üz, de,  1, 0, ', lu, k,  or, an, ın,  20, 18, 'd, e,  19, 2, ,, 15, 0,  A, B, D,  do, ları,  k, az, an, ac, ağ, ı,  t, ah, m, in,  ed, ilm, ek, tedir, .",
+      "ByteLevelBPE_10000": "En,  yüksek,  yüz, de,  10, ', luk,  or, anın,  2018, 'd, e,  19, 2, ,, 150,  ABD,  do, ları,  kazan, acağı,  tahmin,  edilmektedir, .",
+      "ByteLevelBPE_20000": "En,  yüksek,  yüzde,  10, ', luk,  or, anın,  2018, 'd, e,  19, 2, ,, 150,  ABD,  do, ları,  kazan, acağı,  tahmin,  edilmektedir, .",
+      "CharLevelBPE_20000": "En, yüksek, yüz, de, 10, ', luk, or, anın, 2018, 'de, 19, 2,, 150, ABD, do, ları, kazan, acağı, tahmin, edilm, ek, ted, ir, ."
+    }
+  },
+  "zh": {
+    "其後，屈穎妍撰文惹起反對派不滿。2015年5月中，“人民力量”的“快必”譚得志，於網上公布了屈穎妍家的地址，並且號召支持者到她家鬧事，稱要對其三個女兒“送上祝福”。": {
+      "char": "其, 後, ，, 屈, 穎, 妍, 撰, 文, 惹, 起, 反, 對, 派, 不, 滿, 。, 2, 0, 1, 5, 年, 5, 月, 中, ，, “, 人, 民, 力, 量, ”, 的, “, 快, 必, ”, 譚, 得, 志, ，, 於, 網, 上, 公, 布, 了, 屈, 穎, 妍, 家, 的, 地, 址, ，, 並, 且, 號, 召, 支, 持, 者, 到, 她, 家, 鬧, 事, ，, 稱, 要, 對, 其, 三, 個, 女, 兒, “, 送, 上, 祝, 福, ”, 。",
+      "ByteLevelBPE_2000": "其, 後, ，, �, �, �, �, �, �, �, �, 文, �, �, 起, 反, 對, 派, 不, �, �, 。, 20, 15, 年, 5, 月, 中, ，, “, 人, 民, 力, 量, ”, 的, “, �, �, �, �, ”, �, �, 得, 志, ，, 於, �, �, 上, 公, 布, 了, �, �, �, �, �, �, 家, 的, 地, �, �, ，, 並, 且, 號, �, �, 支, 持, 者, 到, 她, 家, �, �, 事, ，, 稱, 要, 對, 其, 三, 個, 女, �, �, “, �, �, 上, �, �, 福, ”, 。",
+      "ByteLevelBPE_10000": "其後, ，, 屈, �, �, �, �, 撰, 文, �, �, 起, 反對, 派, 不滿, 。, 2015, 年, 5, 月, 中, ，“, 人民, 力量, ”, 的, “, 快, 必, ”, �, �, 得, 志, ，, 於, 網, 上, 公布, 了, 屈, �, �, �, �, 家, 的地, 址, ，, 並且, 號, 召, 支持, 者, 到, 她, 家, �, �, 事, ，, 稱, 要, 對, 其, 三個, 女兒, “, 送, 上, 祝, 福, ”。",
+      "ByteLevelBPE_20000": "其後, ，, 屈, �, �, �, �, 撰, 文, �, �, 起, 反對, 派, 不滿, 。, 2015, 年, 5, 月中, ，“, 人民, 力量, ”, 的, “, 快, 必, ”, �, �, 得, 志, ，, 於, 網上, 公布, 了, 屈, �, �, �, �, 家, 的地, 址, ，, 並且, 號, 召, 支持者, 到, 她, 家, �, �, 事, ，, 稱, 要, 對其, 三個, 女兒, “, 送, 上, 祝, 福, ”。",
+      "CharLevelBPE_20000": "其, 後，, 屈, 穎, 妍, 撰, 文, 惹, 起, 反對, 派, 不滿, 。, 2015年, 5月, 中，, “, 人民, 力量, ”的, “, 快, 必, ”, 譚, 得, 志, ，於, 網, 上, 公布, 了, 屈, 穎, 妍, 家, 的地, 址, ，並且, 號, 召, 支持, 者, 到, 她, 家, 鬧, 事，, 稱, 要, 對, 其, 三個, 女兒, “, 送, 上, 祝, 福, ”, 。"
+    }
+  }
+}

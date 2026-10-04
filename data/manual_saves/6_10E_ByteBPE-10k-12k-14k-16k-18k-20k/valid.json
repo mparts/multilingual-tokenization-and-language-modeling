@@ -1,0 +1,183 @@
+{
+  "saved_at": "2026-10-04T22:39:49",
+  "split": "valid",
+  "models": [
+    "ByteLevelBPE_10000",
+    "ByteLevelBPE_12000",
+    "ByteLevelBPE_14000",
+    "ByteLevelBPE_16000",
+    "ByteLevelBPE_18000",
+    "ByteLevelBPE_20000"
+  ],
+  "shared_args": {
+    "epochs": 10,
+    "context_length": 256,
+    "batch_size": 32,
+    "lr": 0.001,
+    "warmup_steps": 200,
+    "hidden_dim": 256,
+    "n_heads": 4,
+    "ff_dim": 1024,
+    "n_layers": 2,
+    "dropout": 0.1,
+    "seed": 0
+  },
+  "results": {
+    "ByteLevelBPE_10000": {
+      "all": {
+        "loss": 5.09495782328176,
+        "perplexity": 163.1969613669748,
+        "bpc_approx": 3.7194410754821674,
+        "blocks": 2184
+      },
+      "en": {
+        "loss": 4.463130469154374,
+        "perplexity": 86.75867980010356,
+        "bpc_approx": 2.161902257863032,
+        "blocks": 483
+      },
+      "tr": {
+        "loss": 4.688112535978618,
+        "perplexity": 108.64791712082213,
+        "bpc_approx": 2.232577593279672,
+        "blocks": 475
+      },
+      "zh": {
+        "loss": 5.505910610276826,
+        "perplexity": 246.14249354193322,
+        "bpc_approx": 6.764226235917574,
+        "blocks": 1225
+      }
+    },
+    "ByteLevelBPE_12000": {
+      "all": {
+        "loss": 5.256469220457716,
+        "perplexity": 191.80307995073582,
+        "bpc_approx": 3.7213844375540877,
+        "blocks": 2118
+      },
+      "en": {
+        "loss": 4.591214796119153,
+        "perplexity": 98.61415351847639,
+        "bpc_approx": 2.159483031214708,
+        "blocks": 469
+      },
+      "tr": {
+        "loss": 4.877315912704801,
+        "perplexity": 131.2778294243112,
+        "bpc_approx": 2.239552710314287,
+        "blocks": 458
+      },
+      "zh": {
+        "loss": 5.670154334316734,
+        "perplexity": 290.07930012778525,
+        "bpc_approx": 6.766977321229773,
+        "blocks": 1190
+      }
+    },
+    "ByteLevelBPE_14000": {
+      "all": {
+        "loss": 5.390105532768966,
+        "perplexity": 219.22651991489388,
+        "bpc_approx": 3.722305732342593,
+        "blocks": 2066
+      },
+      "en": {
+        "loss": 4.694901547755402,
+        "perplexity": 109.38803861372104,
+        "bpc_approx": 2.1517510885205304,
+        "blocks": 457
+      },
+      "tr": {
+        "loss": 5.018330891927083,
+        "perplexity": 151.15879275728722,
+        "bpc_approx": 2.2338663589909085,
+        "blocks": 444
+      },
+      "zh": {
+        "loss": 5.8093905301438165,
+        "perplexity": 333.41585682343367,
+        "bpc_approx": 6.781666555827448,
+        "blocks": 1164
+      }
+    },
+    "ByteLevelBPE_16000": {
+      "all": {
+        "loss": 5.502774301284737,
+        "perplexity": 245.37172394371538,
+        "bpc_approx": 3.721020295529767,
+        "blocks": 2023
+      },
+      "en": {
+        "loss": 4.781287154809242,
+        "perplexity": 119.25775448822957,
+        "bpc_approx": 2.138597367099369,
+        "blocks": 446
+      },
+      "tr": {
+        "loss": 5.146013255482733,
+        "perplexity": 171.7454185234192,
+        "bpc_approx": 2.233951400638845,
+        "blocks": 433
+      },
+      "zh": {
+        "loss": 5.924733257126683,
+        "perplexity": 374.17861256910436,
+        "bpc_approx": 6.785592668349524,
+        "blocks": 1142
+      }
+    },
+    "ByteLevelBPE_18000": {
+      "all": {
+        "loss": 5.594031969866203,
+        "perplexity": 268.8173008519315,
+        "bpc_approx": 3.715414458111929,
+        "blocks": 1987
+      },
+      "en": {
+        "loss": 4.868712055084368,
+        "perplexity": 130.15317877605818,
+        "bpc_approx": 2.1386392966274026,
+        "blocks": 438
+      },
+      "tr": {
+        "loss": 5.249895671628556,
+        "perplexity": 190.54638802725407,
+        "bpc_approx": 2.2316775959438644,
+        "blocks": 424
+      },
+      "zh": {
+        "loss": 6.015472547863726,
+        "perplexity": 409.71940520801974,
+        "bpc_approx": 6.780924986296037,
+        "blocks": 1124
+      }
+    },
+    "ByteLevelBPE_20000": {
+      "all": {
+        "loss": 5.687025418132924,
+        "perplexity": 295.0147685986339,
+        "bpc_approx": 3.720149993299169,
+        "blocks": 1957
+      },
+      "en": {
+        "loss": 4.931839872289587,
+        "perplexity": 138.63434733019255,
+        "bpc_approx": 2.136692649426066,
+        "blocks": 432
+      },
+      "tr": {
+        "loss": 5.339789740473247,
+        "perplexity": 208.46887311406223,
+        "bpc_approx": 2.2324160462744174,
+        "blocks": 417
+      },
+      "zh": {
+        "loss": 6.120582387765823,
+        "perplexity": 455.12967928716574,
+        "bpc_approx": 6.801197527346081,
+        "blocks": 1108
+      }
+    }
+  }
+}

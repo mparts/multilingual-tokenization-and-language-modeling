@@ -32,7 +32,7 @@ def main():
     print("="*100)
     print(f"[{datetime.now()}] Loading '{args.tok}' tokenizer and building blocks...", flush=True)
     encode, vocab_size = load_tokenizer(args.tok)
-    xtr, ytr, _ = make_blocks(encode, "train", args.context_length)
+    xtr, ytr, _ = make_blocks(encode, "train", args.context_length, seed=args.seed)
     xva, yva, va_chars = make_blocks(encode, "valid", args.context_length)
     tok_per_char = yva.numel() / va_chars
     print(f"    vocab_size={vocab_size}, train blocks={len(xtr)}, valid blocks={len(xva)}, device={DEVICE}")
