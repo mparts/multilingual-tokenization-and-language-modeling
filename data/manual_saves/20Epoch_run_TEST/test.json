@@ -1,0 +1,156 @@
+{
+  "saved_at": "2026-10-04T15:00:04",
+  "split": "test",
+  "models": [
+    "Character-Level",
+    "ByteLevelBPE_2000",
+    "ByteLevelBPE_10000",
+    "ByteLevelBPE_20000",
+    "CharLevelBPE_20000"
+  ],
+  "shared_args": {
+    "epochs": 20,
+    "context_length": 256,
+    "batch_size": 32,
+    "lr": 0.001,
+    "warmup_steps": 200,
+    "hidden_dim": 256,
+    "n_heads": 4,
+    "ff_dim": 1024,
+    "n_layers": 2,
+    "dropout": 0.1,
+    "seed": 0
+  },
+  "results": {
+    "Character-Level": {
+      "all": {
+        "loss": 2.478739455402513,
+        "perplexity": 11.926221404686418,
+        "bpc_approx": 3.6903396053156894,
+        "blocks": 4454
+      },
+      "en": {
+        "loss": 1.541312390739871,
+        "perplexity": 4.670716054896863,
+        "bpc_approx": 2.276646434386428,
+        "blocks": 1473
+      },
+      "tr": {
+        "loss": 1.5699347410279982,
+        "perplexity": 4.806334527090172,
+        "bpc_approx": 2.3108455421157257,
+        "blocks": 1468
+      },
+      "zh": {
+        "loss": 4.27966656760564,
+        "perplexity": 72.21635671974131,
+        "bpc_approx": 6.489567950327483,
+        "blocks": 1512
+      }
+    },
+    "ByteLevelBPE_2000": {
+      "all": {
+        "loss": 3.635986902461406,
+        "perplexity": 37.939276792888094,
+        "bpc_approx": 3.6971473657505793,
+        "blocks": 3042
+      },
+      "en": {
+        "loss": 3.140962580810183,
+        "perplexity": 23.126116904617014,
+        "bpc_approx": 2.1134279934639952,
+        "blocks": 671
+      },
+      "tr": {
+        "loss": 3.129790839596071,
+        "perplexity": 22.869195711951654,
+        "bpc_approx": 2.165347825891665,
+        "blocks": 690
+      },
+      "zh": {
+        "loss": 4.045839794765561,
+        "perplexity": 57.159167853851926,
+        "bpc_approx": 6.81260857483212,
+        "blocks": 1679
+      }
+    },
+    "ByteLevelBPE_10000": {
+      "all": {
+        "loss": 4.9547458034198515,
+        "perplexity": 141.84654488318375,
+        "bpc_approx": 3.608808612013168,
+        "blocks": 2179
+      },
+      "en": {
+        "loss": 4.336987585015984,
+        "perplexity": 76.47681209498899,
+        "bpc_approx": 2.0831755287513403,
+        "blocks": 479
+      },
+      "tr": {
+        "loss": 4.52405342935514,
+        "perplexity": 92.20860254997451,
+        "bpc_approx": 2.1592252013720277,
+        "blocks": 476
+      },
+      "zh": {
+        "loss": 5.370115952324107,
+        "perplexity": 214.88778299767515,
+        "bpc_approx": 6.586643819556375,
+        "blocks": 1223
+      }
+    },
+    "ByteLevelBPE_20000": {
+      "all": {
+        "loss": 5.6153596313851395,
+        "perplexity": 274.6121205763658,
+        "bpc_approx": 3.6676457095726223,
+        "blocks": 1954
+      },
+      "en": {
+        "loss": 4.896385585036233,
+        "perplexity": 133.80527682042487,
+        "bpc_approx": 2.1014620549596534,
+        "blocks": 428
+      },
+      "tr": {
+        "loss": 5.264206115576289,
+        "perplexity": 193.29279571993015,
+        "bpc_approx": 2.201061628567652,
+        "blocks": 417
+      },
+      "zh": {
+        "loss": 6.030218635194467,
+        "perplexity": 415.8059292548715,
+        "bpc_approx": 6.7068510833988455,
+        "blocks": 1109
+      }
+    },
+    "CharLevelBPE_20000": {
+      "all": {
+        "loss": 5.445844878166929,
+        "perplexity": 231.7930338798401,
+        "bpc_approx": 3.671608837282127,
+        "blocks": 2017
+      },
+      "en": {
+        "loss": 4.642480003912717,
+        "perplexity": 103.80145665440115,
+        "bpc_approx": 2.1088729521138823,
+        "blocks": 453
+      },
+      "tr": {
+        "loss": 4.935582903653182,
+        "perplexity": 139.15423240641582,
+        "bpc_approx": 2.19232754164898,
+        "blocks": 443
+      },
+      "zh": {
+        "loss": 5.981340178216111,
+        "perplexity": 395.9706840019951,
+        "bpc_approx": 6.712474490994688,
+        "blocks": 1119
+      }
+    }
+  }
+}

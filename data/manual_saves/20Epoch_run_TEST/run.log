@@ -98,12 +98,3 @@ Part 4. Saving
     |    |
     |    |
 ~Running save_latest.py script...
-Saving 5 models to data/manual_saves/20Epoch_run_TEST/
-  wrote data/manual_saves/20Epoch_run_TEST/train.json
-  wrote data/manual_saves/20Epoch_run_TEST/valid.json
-  wrote data/manual_saves/20Epoch_run_TEST/test.json
-
-[2026-10-04 15:00:06.453146] Done!!
-^^^                                       ^^^
-^^^    End of RUN.sh pipeline.            ^^^
-^^^                                       ^^^
