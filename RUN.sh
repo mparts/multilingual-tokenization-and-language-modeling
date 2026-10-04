@@ -45,13 +45,17 @@ section "Part 2. Language modeling"
 for TOK in $LM_TOKENIZERS; do
     run_step $TRAIN_LM train_lm.py --tok $TOK --epochs $EPOCHS_LM --context_length $CONTEXT_LENGTH --batch_size $BATCH_SIZE --lr $LEARNING_RATE --hidden_dim $HIDDEN_DIM --n_heads $N_HEADS --ff_dim $FF_DIM --n_layers $N_LAYERS --dropout $DROPOUT --seed $SEED
     run_step $EVAL_LM evaluate_lm.py --tok $TOK --split $EVAL_SPLIT
+
+    sed -i '/^[[:space:]]*Epoch/d' "$LOG_FILE"
 done
 
 # Plotting
 section "Part 3. Plotting"
 run_step $PLOT_LM plot_lm.py --split $EVAL_SPLIT
 
-sed -i '/^[[:space:]]*Epoch/d' "$LOG_FILE"
+# Saving
+section "Part 4. Saving"
+run_step $SAVE_RUN save_latest.py $RUN_NAME
 
 echo "^^^                                       ^^^" | tee -a "$LOG_FILE"
 echo "^^^    End of RUN.sh pipeline.            ^^^" | tee -a "$LOG_FILE"

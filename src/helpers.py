@@ -26,10 +26,10 @@ def save_data(data, path, mode="w"):
             runs = []
         runs.append(data)
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(runs, f, ensure_ascii=False)
+            json.dump(runs, f, ensure_ascii=False, indent=2)
     else:
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False)
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
 
 def load_vocabulary(name, path=VOCAB_DIR):
@@ -37,7 +37,7 @@ def load_vocabulary(name, path=VOCAB_DIR):
 
 
 def load_tokenizer(name):
-    if name == MODELS[0]:
+    if name == "Character-Level":
         itos = json.load(open(VOCAB_DIR / f"{name}_vocab.json", encoding="utf-8"))
         stoi = {c: i for i, c in enumerate(itos)}
         return (lambda ss: [char_lvl_encode(s, stoi) for s in ss]), len(itos)

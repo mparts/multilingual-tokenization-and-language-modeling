@@ -21,7 +21,9 @@ LATEST = "latest_runs"
 
 # === Constants ====================================================
 LANGS = ["en", "tr", "zh"]
-MODELS = ["Character-Level", "CharLevelBPE_2000", "CharLevelBPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
+# MODELS = ["Character-Level", "CharLevelBPE_2000", "CharLevelBPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
+# MODELS = ["ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000"]
+MODELS = ["CharLevelBPE_10000", "CharLevelBPE_11000", "CharLevelBPE_12000", "CharLevelBPE_15000", "CharLevelBPE_20000"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3
 

@@ -99,7 +99,7 @@ if __name__ == "__main__":
             save_data(itos,VOCAB_DIR / f"{mode}_vocab.json") # save vocabulary
 
         elif mode.startswith("ByteLevelBPE"): # ByteLevel BPE
-            size = 2000 if "2000" in mode else 10000 # set vocabulary size
+            size = int(mode.split("_")[-1]) # get vocab size from model name
 
             tok = ByteLevelBPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train ByteLevel BPE tokenizer
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
             statistics[mode]["vocab_size"] = tok.get_vocab_size() # add vocabulary size to statistics
 
         elif mode.startswith("CharLevelBPE"): # BPE
-            size = 2000 if "2000" in mode else 10000 # set vocabulary size
+            size = int(mode.split("_")[-1]) # get vocab size from model name
 
             tok = CharLevelBPE(size, balanced_split, f"{VOCAB_DIR}/{mode}_vocab.json") # train BPE tokenizer
 
