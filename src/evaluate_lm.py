@@ -31,7 +31,8 @@ def main():
         loss = evaluate(model, x, y, DEVICE, args.batch_size)
         results[name] = {"loss": loss, "perplexity": math.exp(loss),
                          "bpc_approx": bpc_approx(loss, y.numel() / n_chars), "blocks": len(x)}
-        print(f"    {name:>3}: {results[name]}")
+        print(f"    {name:>3}: Loss: {results[name]['loss']:.3f} | "
+              f"Perplexity: {results[name]['perplexity']:.3f} | BPC approx: {results[name]['bpc_approx']:.3f}")
 
     save_path, file_name = LOG_DIR / f"{args.split}_run", f"{args.tok}_{args.split}_eval.json"
     save_data({f"{datetime.now()}": {"split": args.split, **meta, "results": results}},

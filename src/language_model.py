@@ -98,7 +98,9 @@ def train(model, xtr, ytr, xva, yva, dev, name, epochs, batch_size, lr, warmup, 
                "valid_loss": vl, "valid_bpc_approx": bpc_approx(vl, tok_per_char), 
                "train_time": time.time() - t0}
         history["epochs"].append(rec)
-        print(rec, flush=True)
+        print(f"Epoch {ep}/{epochs} | Step {step} | Train Loss {rec['train_loss']:.3f} | "
+              f"Valid Loss {vl:.3f} | BPC approx: {rec['valid_bpc_approx']:.3f} | "
+              f"Train Time: {rec['train_time']:.0f}s", flush=True)
         if vl < best:
             best = vl
             save_checkpoint(MODEL_DIR / f"{name}.pt", model, name, meta)
