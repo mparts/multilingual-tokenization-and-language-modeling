@@ -37,8 +37,8 @@ run_step() {
 
 # Tokenizers
 section "Part 1. Tokenizers"
-run_step $TOKENIZERS tokenizer.py
-run_step $EXAMINE examine_tokenizers.py
+run_step $TRAIN_TOKENIZERS tokenizer.py
+run_step $EXAMINE_TOKENIZERS examine_tokenizers.py
 
 # Language modeling
 section "Part 2. Language modeling"

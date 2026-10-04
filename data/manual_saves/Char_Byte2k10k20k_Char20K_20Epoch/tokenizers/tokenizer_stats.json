@@ -1,0 +1,107 @@
+{
+  "Character-Level": {
+    "en": {
+      "tokens": 368269,
+      "tok/sent": "81.12",
+      "chars/tok": "1.00",
+      "unk_percent": "0.013%"
+    },
+    "tr": {
+      "tokens": 368383,
+      "tok/sent": "98.63",
+      "chars/tok": "1.00",
+      "unk_percent": "0.004%"
+    },
+    "zh": {
+      "tokens": 368266,
+      "tok/sent": "38.55",
+      "chars/tok": "1.00",
+      "unk_percent": "0.070%"
+    },
+    "vocab_size": 9446
+  },
+  "ByteLevelBPE_2000": {
+    "en": {
+      "tokens": 163815,
+      "tok/sent": "36.08",
+      "chars/tok": "2.25",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 168838,
+      "tok/sent": "45.20",
+      "chars/tok": "2.18",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 410474,
+      "tok/sent": "42.96",
+      "chars/tok": "0.90",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 2000
+  },
+  "ByteLevelBPE_10000": {
+    "en": {
+      "tokens": 114717,
+      "tok/sent": "25.27",
+      "chars/tok": "3.21",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 114292,
+      "tok/sent": "30.60",
+      "chars/tok": "3.22",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 294671,
+      "tok/sent": "30.84",
+      "chars/tok": "1.25",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 10000
+  },
+  "ByteLevelBPE_20000": {
+    "en": {
+      "tokens": 101571,
+      "tok/sent": "22.37",
+      "chars/tok": "3.63",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 99292,
+      "tok/sent": "26.58",
+      "chars/tok": "3.71",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 264679,
+      "tok/sent": "27.70",
+      "chars/tok": "1.39",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 20000
+  },
+  "CharLevelBPE_20000": {
+    "en": {
+      "tokens": 107829,
+      "tok/sent": "23.75",
+      "chars/tok": "3.42",
+      "unk_percent": "0.045%"
+    },
+    "tr": {
+      "tokens": 106090,
+      "tok/sent": "28.40",
+      "chars/tok": "3.47",
+      "unk_percent": "0.014%"
+    },
+    "zh": {
+      "tokens": 267425,
+      "tok/sent": "27.99",
+      "chars/tok": "1.38",
+      "unk_percent": "0.096%"
+    },
+    "vocab_size": 20000
+  }
+}

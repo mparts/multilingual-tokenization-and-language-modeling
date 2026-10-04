@@ -344,11 +344,3 @@ Part 4. Saving
     |    |
     |    |
 ~Running save_latest.py script...
-Saving 5 models to data/manual_saves/Char_Byte2k10k20k_Char20K_20Epoch/
-  wrote data/manual_saves/Char_Byte2k10k20k_Char20K_20Epoch/train.json
-  wrote data/manual_saves/Char_Byte2k10k20k_Char20K_20Epoch/valid.json
-
-[2026-10-04 14:33:39.214147] Done!!
-^^^                                       ^^^
-^^^    End of RUN.sh pipeline.            ^^^
-^^^                                       ^^^
