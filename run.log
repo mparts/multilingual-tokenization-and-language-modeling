@@ -1,0 +1,295 @@
+====================================================================================================
+    |    |
+    |    |
+    |    |
+Multilingual Tokenization and Language Modeling
+    |    |
+    |    |
+    |    |
+====================================================================================================
+    |    |
+    |    |
+Part 1. Tokenizers
+    |    |
+    |    |
+~Running tokenizer.py script...
+====================================================================================================
+[2026-10-04 10:57:24.172732] Training CharLevelBPE_10000 Tokenizer...
+
+
+
+
+[2026-10-04 10:57:30.429801] Success!! Analysis of CharLevelBPE_10000 tokenizer on the validation split:
+Vocabulary size:  10000
+{'en': {'chars/tok': '2.11', 'tok/sent': '38.50', 'tokens': 174776, 'unk_percent': '0.028%'},
+ 'tr': {'chars/tok': '2.01', 'tok/sent': '49.03', 'tokens': 183145, 'unk_percent': '0.008%'},
+ 'zh': {'chars/tok': '1.06', 'tok/sent': '36.23', 'tokens': 346180, 'unk_percent': '0.075%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 10:57:30.430224] Training CharLevelBPE_11000 Tokenizer...
+
+
+
+
+[2026-10-04 10:57:37.894080] Success!! Analysis of CharLevelBPE_11000 tokenizer on the validation split:
+Vocabulary size:  11000
+{'en': {'chars/tok': '2.49', 'tok/sent': '32.64', 'tokens': 148190, 'unk_percent': '0.033%'},
+ 'tr': {'chars/tok': '2.43', 'tok/sent': '40.56', 'tokens': 151509, 'unk_percent': '0.010%'},
+ 'zh': {'chars/tok': '1.13', 'tok/sent': '33.99', 'tokens': 324749, 'unk_percent': '0.079%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 10:57:37.894496] Training CharLevelBPE_12000 Tokenizer...
+
+
+
+
+[2026-10-04 10:57:45.905698] Success!! Analysis of CharLevelBPE_12000 tokenizer on the validation split:
+Vocabulary size:  12000
+{'en': {'chars/tok': '2.71', 'tok/sent': '29.96', 'tokens': 136028, 'unk_percent': '0.036%'},
+ 'tr': {'chars/tok': '2.68', 'tok/sent': '36.86', 'tokens': 137672, 'unk_percent': '0.011%'},
+ 'zh': {'chars/tok': '1.18', 'tok/sent': '32.64', 'tokens': 311836, 'unk_percent': '0.083%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 10:57:45.905923] Training CharLevelBPE_15000 Tokenizer...
+
+
+
+
+[2026-10-04 10:57:55.724768] Success!! Analysis of CharLevelBPE_15000 tokenizer on the validation split:
+Vocabulary size:  15000
+{'en': {'chars/tok': '3.07', 'tok/sent': '26.39', 'tokens': 119820, 'unk_percent': '0.041%'},
+ 'tr': {'chars/tok': '3.08', 'tok/sent': '32.07', 'tokens': 119769, 'unk_percent': '0.013%'},
+ 'zh': {'chars/tok': '1.28', 'tok/sent': '30.10', 'tokens': 287599, 'unk_percent': '0.090%'}}
+====================================================================================================
+====================================================================================================
+[2026-10-04 10:57:55.725019] Training CharLevelBPE_20000 Tokenizer...
+
+
+
+
+[2026-10-04 10:58:07.705463] Success!! Analysis of CharLevelBPE_20000 tokenizer on the validation split:
+Vocabulary size:  20000
+{'en': {'chars/tok': '3.42', 'tok/sent': '23.75', 'tokens': 107829, 'unk_percent': '0.045%'},
+ 'tr': {'chars/tok': '3.47', 'tok/sent': '28.40', 'tokens': 106090, 'unk_percent': '0.014%'},
+ 'zh': {'chars/tok': '1.38', 'tok/sent': '27.99', 'tokens': 267425, 'unk_percent': '0.096%'}}
+====================================================================================================
+
+[2026-10-04 10:58:07.709936] Tokenizer training completed!!
+~Running examine_tokenizers.py script...
+
+ ==================================================================================================== 
+ In 1998, Disney believed that Simba's Pride would be so popular that it shipped 15 million copies to stores for the October 27 release date.
+
+char : ['I', 'n', ' ', '1', '9', '9', '8', ',', ' ', 'D', 'i', 's', 'n', 'e', 'y', ' ', 'b', 'e', 'l', 'i', 'e', 'v', 'e', 'd', ' ', 't', 'h', 'a', 't', ' ', 'S', 'i', 'm', 'b', 'a', "'", 's', ' ', 'P', 'r', 'i', 'd', 'e', ' ', 'w', 'o', 'u', 'l', 'd', ' ', 'b', 'e', ' ', 's', 'o', ' ', 'p', 'o', 'p', 'u', 'l', 'a', 'r', ' ', 't', 'h', 'a', 't', ' ', 'i', 't', ' ', 's', 'h', 'i', 'p', 'p', 'e', 'd', ' ', '1', '5', ' ', 'm', 'i', 'l', 'l', 'i', 'o', 'n', ' ', 'c', 'o', 'p', 'i', 'e', 's', ' ', 't', 'o', ' ', 's', 't', 'o', 'r', 'e', 's', ' ', 'f', 'o', 'r', ' ', 't', 'h', 'e', ' ', 'O', 'c', 't', 'o', 'b', 'e', 'r', ' ', '2', '7', ' ', 'r', 'e', 'l', 'e', 'a', 's', 'e', ' ', 'd', 'a', 't', 'e', '.']
+
+CharLevelBPE_11000: ['In', '199', '8', ',', 'D', 'is', 'n', 'ey', 'bel', 'i', 'ev', 'ed', 'that', 'S', 'im', 'b', 'a', "'s", 'P', 'ri', 'de', 'would', 'be', 'so', 'pop', 'ular', 'that', 'it', 'sh', 'ip', 'p', 'ed', '15', 'm', 'ill', 'ion', 'c', 'op', 'ies', 'to', 'st', 'or', 'es', 'for', 'the', 'O', 'ct', 'ober', '2', '7', 'releas', 'e', 'd', 'ate', '.']
+
+CharLevelBPE_12000: ['In', '199', '8', ',', 'D', 'is', 'n', 'ey', 'bel', 'iev', 'ed', 'that', 'S', 'im', 'b', 'a', "'s", 'P', 'ri', 'de', 'would', 'be', 'so', 'pop', 'ular', 'that', 'it', 'sh', 'ip', 'p', 'ed', '15', 'mill', 'ion', 'c', 'op', 'ies', 'to', 'st', 'or', 'es', 'for', 'the', 'October', '2', '7', 'releas', 'e', 'd', 'ate', '.']
+
+CharLevelBPE_15000: ['In', '199', '8,', 'D', 'is', 'ney', 'believ', 'ed', 'that', 'Sim', 'b', 'a', "'s", 'P', 'ri', 'de', 'would', 'be', 'so', 'popular', 'that', 'it', 'sh', 'ip', 'ped', '15', 'million', 'c', 'op', 'ies', 'to', 'stor', 'es', 'for', 'the', 'October', '27', 'releas', 'e', 'd', 'ate', '.']
+
+CharLevelBPE_20000: ['In', '199', '8,', 'Dis', 'ney', 'believed', 'that', 'Sim', 'ba', "'s", 'Pri', 'de', 'would', 'be', 'so', 'popular', 'that', 'it', 'ship', 'ped', '15', 'million', 'cop', 'ies', 'to', 'stor', 'es', 'for', 'the', 'October', '27', 'releas', 'e', 'd', 'ate', '.']
+
+ ==================================================================================================== 
+ İlki bir transesterifikasyon reaksiyonu iken ikincisi esterifikasyon reaksiyonudur.
+
+char : ['İ', 'l', 'k', 'i', ' ', 'b', 'i', 'r', ' ', 't', 'r', 'a', 'n', 's', 'e', 's', 't', 'e', 'r', 'i', 'f', 'i', 'k', 'a', 's', 'y', 'o', 'n', ' ', 'r', 'e', 'a', 'k', 's', 'i', 'y', 'o', 'n', 'u', ' ', 'i', 'k', 'e', 'n', ' ', 'i', 'k', 'i', 'n', 'c', 'i', 's', 'i', ' ', 'e', 's', 't', 'e', 'r', 'i', 'f', 'i', 'k', 'a', 's', 'y', 'o', 'n', ' ', 'r', 'e', 'a', 'k', 's', 'i', 'y', 'o', 'n', 'u', 'd', 'u', 'r', '.']
+
+CharLevelBPE_11000: ['İl', 'ki', 'bir', 'tr', 'ans', 'est', 'er', 'if', 'ik', 'asyon', 're', 'ak', 's', 'iyon', 'u', 'ik', 'en', 'ik', 'in', 'c', 'isi', '', 'est', 'er', 'if', 'ik', 'asyon', 're', 'ak', 's', 'iyon', 'ud', 'ur', '.']
+
+CharLevelBPE_12000: ['İl', 'ki', 'bir', 'trans', 'est', 'er', 'if', 'ik', 'asyon', 're', 'ak', 's', 'iyon', 'u', 'ik', 'en', 'ik', 'inc', 'isi', '', 'est', 'er', 'if', 'ik', 'asyon', 're', 'ak', 's', 'iyon', 'ud', 'ur', '.']
+
+CharLevelBPE_15000: ['İl', 'ki', 'bir', 'trans', 'est', 'er', 'if', 'ik', 'asyon', 're', 'aks', 'iyon', 'u', 'ik', 'en', 'ik', 'inc', 'isi', 'est', 'er', 'if', 'ik', 'asyon', 're', 'aks', 'iyon', 'ud', 'ur', '.']
+
+CharLevelBPE_20000: ['İl', 'ki', 'bir', 'trans', 'est', 'er', 'if', 'ik', 'asyon', 're', 'aks', 'iyon', 'u', 'iken', 'ik', 'inc', 'isi', 'est', 'er', 'if', 'ik', 'asyon', 're', 'aks', 'iyon', 'ud', 'ur', '.']
+
+ ==================================================================================================== 
+ 巴勒斯坦官员在公告中表示使美国失去了和平谈判的资格，
+
+char : ['巴', '勒', '斯', '坦', '官', '员', '在', '公', '告', '中', '表', '示', '使', '美', '国', '失', '去', '了', '和', '平', '谈', '判', '的', '资', '格', '，']
+
+CharLevelBPE_11000: ['', '巴', '勒', '斯', '坦', '官', '员', '在', '公', '告', '中', '表示', '使', '美国', '失', '去', '了', '和', '平', '谈', '判', '的', '资', '格', '，']
+
+CharLevelBPE_12000: ['', '巴', '勒', '斯', '坦', '官', '员', '在', '公', '告', '中', '表示', '使', '美国', '失', '去', '了', '和', '平', '谈', '判', '的', '资', '格', '，']
+
+CharLevelBPE_15000: ['', '巴', '勒', '斯坦', '官', '员', '在', '公', '告', '中', '表示', '使', '美国', '失去', '了', '和平', '谈', '判', '的', '资', '格', '，']
+
+CharLevelBPE_20000: ['巴', '勒', '斯坦', '官员', '在', '公', '告', '中', '表示', '使', '美国', '失去', '了', '和平', '谈', '判', '的', '资格', '，']
+
+[2026-10-04 10:58:11.630705] All done! Tokenized sentences exported to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/tokenizers/tokenized_sentences.json
+    |    |
+    |    |
+Part 2. Language modeling
+    |    |
+    |    |
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 10:58:15.434450] Loading 'CharLevelBPE_10000' tokenizer and building blocks...
+    vocab_size=10000, train blocks=23084, valid blocks=2889, device=cuda
+    Parameters: {'total': 6765568, 'input_embeddings': 2560000, 'output_layer': 2560000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 10:58:19.973953] Training Transformer language model...
+1 Epoch | Step 721 | Train Loss 5.602 | Valid Loss 4.675 | BPC approx: 4.515 | Train Time: 47s
+2 Epoch | Step 1442 | Train Loss 4.562 | Valid Loss 4.362 | BPC approx: 4.213 | Train Time: 47s
+3 Epoch | Step 2163 | Train Loss 4.308 | Valid Loss 4.162 | BPC approx: 4.019 | Train Time: 50s
+4 Epoch | Step 2884 | Train Loss 4.149 | Valid Loss 4.052 | BPC approx: 3.913 | Train Time: 50s
+5 Epoch | Step 3605 | Train Loss 4.049 | Valid Loss 3.987 | BPC approx: 3.850 | Train Time: 50s
+6 Epoch | Step 4326 | Train Loss 3.979 | Valid Loss 3.946 | BPC approx: 3.810 | Train Time: 50s
+7 Epoch | Step 5047 | Train Loss 3.929 | Valid Loss 3.918 | BPC approx: 3.784 | Train Time: 50s
+8 Epoch | Step 5768 | Train Loss 3.894 | Valid Loss 3.904 | BPC approx: 3.770 | Train Time: 50s
+9 Epoch | Step 6489 | Train Loss 3.872 | Valid Loss 3.898 | BPC approx: 3.764 | Train Time: 50s
+10 Epoch | Step 7210 | Train Loss 3.862 | Valid Loss 3.897 | BPC approx: 3.764 | Train Time: 50s
+
+[2026-10-04 11:06:36.963307] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 11:06:41.154191] Loading trained model...
+
+[2026-10-04 11:06:41.776500] Evaluating 'CharLevelBPE_10000' model on the 'valid' split...
+    all: Loss: 3.897 | Perplexity: 49.269 | BPC approx: 3.764
+     en: Loss: 3.141 | Perplexity: 23.134 | BPC approx: 2.262
+     tr: Loss: 3.088 | Perplexity: 21.932 | BPC approx: 2.303
+     zh: Loss: 4.704 | Perplexity: 110.380 | BPC approx: 6.727
+
+[2026-10-04 11:06:49.468262] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 11:06:53.233665] Loading 'CharLevelBPE_11000' tokenizer and building blocks...
+    vocab_size=11000, train blocks=20581, valid blocks=2578, device=cuda
+    Parameters: {'total': 7277568, 'input_embeddings': 2816000, 'output_layer': 2816000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 11:06:57.413537] Training Transformer language model...
+1 Epoch | Step 643 | Train Loss 6.195 | Valid Loss 5.128 | BPC approx: 4.419 | Train Time: 49s
+2 Epoch | Step 1286 | Train Loss 4.991 | Valid Loss 4.802 | BPC approx: 4.138 | Train Time: 47s
+3 Epoch | Step 1929 | Train Loss 4.745 | Valid Loss 4.647 | BPC approx: 4.004 | Train Time: 47s
+4 Epoch | Step 2572 | Train Loss 4.598 | Valid Loss 4.544 | BPC approx: 3.916 | Train Time: 47s
+5 Epoch | Step 3215 | Train Loss 4.495 | Valid Loss 4.477 | BPC approx: 3.858 | Train Time: 47s
+6 Epoch | Step 3858 | Train Loss 4.419 | Valid Loss 4.433 | BPC approx: 3.820 | Train Time: 47s
+7 Epoch | Step 4501 | Train Loss 4.364 | Valid Loss 4.405 | BPC approx: 3.796 | Train Time: 47s
+8 Epoch | Step 5144 | Train Loss 4.324 | Valid Loss 4.389 | BPC approx: 3.782 | Train Time: 47s
+9 Epoch | Step 5787 | Train Loss 4.299 | Valid Loss 4.382 | BPC approx: 3.776 | Train Time: 47s
+10 Epoch | Step 6430 | Train Loss 4.288 | Valid Loss 4.381 | BPC approx: 3.775 | Train Time: 47s
+
+[2026-10-04 11:14:54.737848] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 11:14:58.990397] Loading trained model...
+
+[2026-10-04 11:14:59.681774] Evaluating 'CharLevelBPE_11000' model on the 'valid' split...
+    all: Loss: 4.381 | Perplexity: 79.909 | BPC approx: 3.775
+     en: Loss: 3.665 | Perplexity: 39.074 | BPC approx: 2.257
+     tr: Loss: 3.704 | Perplexity: 40.608 | BPC approx: 2.306
+     zh: Loss: 5.023 | Perplexity: 151.877 | BPC approx: 6.765
+
+[2026-10-04 11:15:07.112023] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 11:15:11.029961] Loading 'CharLevelBPE_12000' tokenizer and building blocks...
+    vocab_size=12000, train blocks=19361, valid blocks=2426, device=cuda
+    Parameters: {'total': 7789568, 'input_embeddings': 3072000, 'output_layer': 3072000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 11:15:15.025262] Training Transformer language model...
+1 Epoch | Step 605 | Train Loss 6.555 | Valid Loss 5.431 | BPC approx: 4.404 | Train Time: 48s
+2 Epoch | Step 1210 | Train Loss 5.255 | Valid Loss 5.046 | BPC approx: 4.092 | Train Time: 46s
+3 Epoch | Step 1815 | Train Loss 4.975 | Valid Loss 4.890 | BPC approx: 3.966 | Train Time: 46s
+4 Epoch | Step 2420 | Train Loss 4.820 | Valid Loss 4.792 | BPC approx: 3.886 | Train Time: 46s
+5 Epoch | Step 3025 | Train Loss 4.713 | Valid Loss 4.729 | BPC approx: 3.835 | Train Time: 46s
+6 Epoch | Step 3630 | Train Loss 4.634 | Valid Loss 4.686 | BPC approx: 3.800 | Train Time: 46s
+7 Epoch | Step 4235 | Train Loss 4.575 | Valid Loss 4.660 | BPC approx: 3.779 | Train Time: 46s
+8 Epoch | Step 4840 | Train Loss 4.534 | Valid Loss 4.644 | BPC approx: 3.766 | Train Time: 46s
+9 Epoch | Step 5445 | Train Loss 4.508 | Valid Loss 4.638 | BPC approx: 3.761 | Train Time: 46s
+10 Epoch | Step 6050 | Train Loss 4.495 | Valid Loss 4.637 | BPC approx: 3.760 | Train Time: 46s
+
+[2026-10-04 11:23:01.299088] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 11:23:05.693331] Loading trained model...
+
+[2026-10-04 11:23:06.436256] Evaluating 'CharLevelBPE_12000' model on the 'valid' split...
+    all: Loss: 4.637 | Perplexity: 103.266 | BPC approx: 3.760
+     en: Loss: 3.931 | Perplexity: 50.962 | BPC approx: 2.231
+     tr: Loss: 4.037 | Perplexity: 56.659 | BPC approx: 2.291
+     zh: Loss: 5.212 | Perplexity: 183.388 | BPC approx: 6.753
+
+[2026-10-04 11:23:13.736421] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 11:23:17.522808] Loading 'CharLevelBPE_15000' tokenizer and building blocks...
+    vocab_size=15000, train blocks=17522, valid blocks=2198, device=cuda
+    Parameters: {'total': 9325568, 'input_embeddings': 3840000, 'output_layer': 3840000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 11:23:21.454750] Training Transformer language model...
+1 Epoch | Step 547 | Train Loss 7.146 | Valid Loss 6.048 | BPC approx: 4.443 | Train Time: 50s
+2 Epoch | Step 1094 | Train Loss 5.781 | Valid Loss 5.524 | BPC approx: 4.058 | Train Time: 48s
+3 Epoch | Step 1641 | Train Loss 5.406 | Valid Loss 5.343 | BPC approx: 3.926 | Train Time: 48s
+4 Epoch | Step 2188 | Train Loss 5.216 | Valid Loss 5.247 | BPC approx: 3.855 | Train Time: 49s
+5 Epoch | Step 2735 | Train Loss 5.091 | Valid Loss 5.188 | BPC approx: 3.811 | Train Time: 48s
+6 Epoch | Step 3282 | Train Loss 4.999 | Valid Loss 5.150 | BPC approx: 3.784 | Train Time: 48s
+7 Epoch | Step 3829 | Train Loss 4.931 | Valid Loss 5.126 | BPC approx: 3.766 | Train Time: 48s
+8 Epoch | Step 4376 | Train Loss 4.881 | Valid Loss 5.113 | BPC approx: 3.757 | Train Time: 48s
+9 Epoch | Step 4923 | Train Loss 4.849 | Valid Loss 5.108 | BPC approx: 3.753 | Train Time: 48s
+10 Epoch | Step 5470 | Train Loss 4.834 | Valid Loss 5.107 | BPC approx: 3.752 | Train Time: 48s
+
+[2026-10-04 11:31:31.227275] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 11:31:35.364503] Loading trained model...
+
+[2026-10-04 11:31:36.206413] Evaluating 'CharLevelBPE_15000' model on the 'valid' split...
+    all: Loss: 5.107 | Perplexity: 165.234 | BPC approx: 3.752
+     en: Loss: 4.367 | Perplexity: 78.769 | BPC approx: 2.203
+     tr: Loss: 4.556 | Perplexity: 95.213 | BPC approx: 2.270
+     zh: Loss: 5.650 | Perplexity: 284.405 | BPC approx: 6.789
+
+[2026-10-04 11:31:43.758664] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-04 11:31:47.556097] Loading 'CharLevelBPE_20000' tokenizer and building blocks...
+    vocab_size=20000, train blocks=16054, valid blocks=2019, device=cuda
+    Parameters: {'total': 11885568, 'input_embeddings': 5120000, 'output_layer': 5120000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-04 11:31:51.181909] Training Transformer language model...
+1 Epoch | Step 501 | Train Loss 7.665 | Valid Loss 6.694 | BPC approx: 4.517 | Train Time: 55s
+2 Epoch | Step 1002 | Train Loss 6.358 | Valid Loss 6.053 | BPC approx: 4.085 | Train Time: 54s
+3 Epoch | Step 1503 | Train Loss 5.864 | Valid Loss 5.804 | BPC approx: 3.917 | Train Time: 54s
+4 Epoch | Step 2004 | Train Loss 5.602 | Valid Loss 5.689 | BPC approx: 3.839 | Train Time: 54s
+5 Epoch | Step 2505 | Train Loss 5.433 | Valid Loss 5.624 | BPC approx: 3.795 | Train Time: 54s
+6 Epoch | Step 3006 | Train Loss 5.314 | Valid Loss 5.589 | BPC approx: 3.772 | Train Time: 54s
+7 Epoch | Step 3507 | Train Loss 5.227 | Valid Loss 5.569 | BPC approx: 3.758 | Train Time: 54s
+8 Epoch | Step 4008 | Train Loss 5.165 | Valid Loss 5.558 | BPC approx: 3.751 | Train Time: 54s
+9 Epoch | Step 4509 | Train Loss 5.126 | Valid Loss 5.555 | BPC approx: 3.749 | Train Time: 54s
+10 Epoch | Step 5010 | Train Loss 5.106 | Valid Loss 5.555 | BPC approx: 3.749 | Train Time: 54s
+
+[2026-10-04 11:40:57.564848] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-04 11:41:01.953583] Loading trained model...
+
+[2026-10-04 11:41:02.853138] Evaluating 'CharLevelBPE_20000' model on the 'valid' split...
+    all: Loss: 5.555 | Perplexity: 258.418 | BPC approx: 3.749
+     en: Loss: 4.746 | Perplexity: 115.131 | BPC approx: 2.170
+     tr: Loss: 5.055 | Perplexity: 156.736 | BPC approx: 2.245
+     zh: Loss: 6.088 | Perplexity: 440.537 | BPC approx: 6.832
+
+[2026-10-04 11:41:10.921401] Evaluation completed!!
+====================================================================================================
+    |    |
+    |    |
+Part 3. Plotting
+    |    |
+    |    |
+~Running plot_lm.py script...
+[2026-10-04 11:41:15.242167] Generating plots for 'valid' split...
+Plots saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
+^^^                                       ^^^
+^^^    End of RUN.sh pipeline.            ^^^
+^^^                                       ^^^
