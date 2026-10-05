@@ -1,0 +1,359 @@
+{
+  "Character-Level": {
+    "en": {
+      "tokens": 368269,
+      "tok/sent": "81.12",
+      "chars/tok": "1.00",
+      "unk_percent": "0.013%"
+    },
+    "tr": {
+      "tokens": 368383,
+      "tok/sent": "98.63",
+      "chars/tok": "1.00",
+      "unk_percent": "0.004%"
+    },
+    "zh": {
+      "tokens": 368266,
+      "tok/sent": "38.55",
+      "chars/tok": "1.00",
+      "unk_percent": "0.070%"
+    },
+    "vocab_size": 9446
+  },
+  "ByteLevelBPE_2000": {
+    "en": {
+      "tokens": 163815,
+      "tok/sent": "36.08",
+      "chars/tok": "2.25",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 168838,
+      "tok/sent": "45.20",
+      "chars/tok": "2.18",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 410474,
+      "tok/sent": "42.96",
+      "chars/tok": "0.90",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 2000
+  },
+  "ByteLevelBPE_4000": {
+    "en": {
+      "tokens": 139711,
+      "tok/sent": "30.77",
+      "chars/tok": "2.64",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 141074,
+      "tok/sent": "37.77",
+      "chars/tok": "2.61",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 349290,
+      "tok/sent": "36.56",
+      "chars/tok": "1.05",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 4000
+  },
+  "ByteLevelBPE_6000": {
+    "en": {
+      "tokens": 127472,
+      "tok/sent": "28.08",
+      "chars/tok": "2.89",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 127840,
+      "tok/sent": "34.23",
+      "chars/tok": "2.88",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 322375,
+      "tok/sent": "33.74",
+      "chars/tok": "1.14",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 6000
+  },
+  "ByteLevelBPE_8000": {
+    "en": {
+      "tokens": 120177,
+      "tok/sent": "26.47",
+      "chars/tok": "3.06",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 119872,
+      "tok/sent": "32.09",
+      "chars/tok": "3.07",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 305724,
+      "tok/sent": "32.00",
+      "chars/tok": "1.20",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 8000
+  },
+  "ByteLevelBPE_10000": {
+    "en": {
+      "tokens": 114717,
+      "tok/sent": "25.27",
+      "chars/tok": "3.21",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 114292,
+      "tok/sent": "30.60",
+      "chars/tok": "3.22",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 294671,
+      "tok/sent": "30.84",
+      "chars/tok": "1.25",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 10000
+  },
+  "ByteLevelBPE_12000": {
+    "en": {
+      "tokens": 110993,
+      "tok/sent": "24.45",
+      "chars/tok": "3.32",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 109858,
+      "tok/sent": "29.41",
+      "chars/tok": "3.35",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 285757,
+      "tok/sent": "29.91",
+      "chars/tok": "1.29",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 12000
+  },
+  "ByteLevelBPE_14000": {
+    "en": {
+      "tokens": 107963,
+      "tok/sent": "23.78",
+      "chars/tok": "3.41",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 106345,
+      "tok/sent": "28.47",
+      "chars/tok": "3.46",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 278934,
+      "tok/sent": "29.20",
+      "chars/tok": "1.32",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 14000
+  },
+  "ByteLevelBPE_16000": {
+    "en": {
+      "tokens": 105333,
+      "tok/sent": "23.20",
+      "chars/tok": "3.50",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 103489,
+      "tok/sent": "27.71",
+      "chars/tok": "3.56",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 273469,
+      "tok/sent": "28.62",
+      "chars/tok": "1.35",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 16000
+  },
+  "ByteLevelBPE_18000": {
+    "en": {
+      "tokens": 103232,
+      "tok/sent": "22.74",
+      "chars/tok": "3.57",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 101208,
+      "tok/sent": "27.10",
+      "chars/tok": "3.64",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 268817,
+      "tok/sent": "28.14",
+      "chars/tok": "1.37",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 18000
+  },
+  "ByteLevelBPE_20000": {
+    "en": {
+      "tokens": 101571,
+      "tok/sent": "22.37",
+      "chars/tok": "3.63",
+      "unk_percent": "0.000%"
+    },
+    "tr": {
+      "tokens": 99292,
+      "tok/sent": "26.58",
+      "chars/tok": "3.71",
+      "unk_percent": "0.000%"
+    },
+    "zh": {
+      "tokens": 264679,
+      "tok/sent": "27.70",
+      "chars/tok": "1.39",
+      "unk_percent": "0.000%"
+    },
+    "vocab_size": 20000
+  },
+  "CharLevelBPE_2000": {
+    "en": {
+      "tokens": 372809,
+      "tok/sent": "82.12",
+      "chars/tok": "0.99",
+      "unk_percent": "0.048%"
+    },
+    "tr": {
+      "tokens": 372118,
+      "tok/sent": "99.63",
+      "chars/tok": "0.99",
+      "unk_percent": "0.063%"
+    },
+    "zh": {
+      "tokens": 377820,
+      "tok/sent": "39.55",
+      "chars/tok": "0.97",
+      "unk_percent": "4.851%"
+    },
+    "vocab_size": 2000
+  },
+  "CharLevelBPE_10000": {
+    "en": {
+      "tokens": 174776,
+      "tok/sent": "38.50",
+      "chars/tok": "2.11",
+      "unk_percent": "0.028%"
+    },
+    "tr": {
+      "tokens": 183145,
+      "tok/sent": "49.03",
+      "chars/tok": "2.01",
+      "unk_percent": "0.008%"
+    },
+    "zh": {
+      "tokens": 346180,
+      "tok/sent": "36.23",
+      "chars/tok": "1.06",
+      "unk_percent": "0.075%"
+    },
+    "vocab_size": 10000
+  },
+  "CharLevelBPE_11000": {
+    "en": {
+      "tokens": 148190,
+      "tok/sent": "32.64",
+      "chars/tok": "2.49",
+      "unk_percent": "0.033%"
+    },
+    "tr": {
+      "tokens": 151509,
+      "tok/sent": "40.56",
+      "chars/tok": "2.43",
+      "unk_percent": "0.010%"
+    },
+    "zh": {
+      "tokens": 324749,
+      "tok/sent": "33.99",
+      "chars/tok": "1.13",
+      "unk_percent": "0.079%"
+    },
+    "vocab_size": 11000
+  },
+  "CharLevelBPE_12000": {
+    "en": {
+      "tokens": 136028,
+      "tok/sent": "29.96",
+      "chars/tok": "2.71",
+      "unk_percent": "0.036%"
+    },
+    "tr": {
+      "tokens": 137672,
+      "tok/sent": "36.86",
+      "chars/tok": "2.68",
+      "unk_percent": "0.011%"
+    },
+    "zh": {
+      "tokens": 311836,
+      "tok/sent": "32.64",
+      "chars/tok": "1.18",
+      "unk_percent": "0.083%"
+    },
+    "vocab_size": 12000
+  },
+  "CharLevelBPE_15000": {
+    "en": {
+      "tokens": 119820,
+      "tok/sent": "26.39",
+      "chars/tok": "3.07",
+      "unk_percent": "0.041%"
+    },
+    "tr": {
+      "tokens": 119769,
+      "tok/sent": "32.07",
+      "chars/tok": "3.08",
+      "unk_percent": "0.013%"
+    },
+    "zh": {
+      "tokens": 287599,
+      "tok/sent": "30.10",
+      "chars/tok": "1.28",
+      "unk_percent": "0.090%"
+    },
+    "vocab_size": 15000
+  },
+  "CharLevelBPE_20000": {
+    "en": {
+      "tokens": 107829,
+      "tok/sent": "23.75",
+      "chars/tok": "3.42",
+      "unk_percent": "0.045%"
+    },
+    "tr": {
+      "tokens": 106090,
+      "tok/sent": "28.40",
+      "chars/tok": "3.47",
+      "unk_percent": "0.014%"
+    },
+    "zh": {
+      "tokens": 267425,
+      "tok/sent": "27.99",
+      "chars/tok": "1.38",
+      "unk_percent": "0.096%"
+    },
+    "vocab_size": 20000
+  }
+}
