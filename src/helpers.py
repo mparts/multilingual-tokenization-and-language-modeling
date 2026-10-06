@@ -2,7 +2,7 @@
 helpers.py
 """
 
-from config import EXTERNAL_CORPUS_DIR, UNK, VOCAB_DIR, MODELS
+from config import EXTERNAL_CORPUS_DIR, UNK, VOCAB_DIR, ROOT
 from tokenizers import Tokenizer
 import json
 
@@ -16,12 +16,19 @@ def char_lvl_encode(text, stoi):
     return [stoi.get(c, UNK) for c in text]
 
 
+def load_json(path):
+    if not path.exists():
+        print(f"  [!] missing: {path.relative_to(ROOT)}")
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def save_data(data, path, mode="w"):
     path.parent.mkdir(parents=True, exist_ok=True)
     if mode == "a":
         if path.exists() and path.stat().st_size > 0:
-            with open(path, "r", encoding="utf-8") as f:
-                runs = json.load(f)
+            runs = load_json(path)
         else:
             runs = []
         runs.append(data)
@@ -38,7 +45,7 @@ def load_vocabulary(name, path=VOCAB_DIR):
 
 def load_tokenizer(name):
     if name == "Character-Level":
-        itos = json.load(open(VOCAB_DIR / f"{name}_vocab.json", encoding="utf-8"))
+        itos = load_json(open(VOCAB_DIR / f"{name}_vocab.json"))
         stoi = {c: i for i, c in enumerate(itos)}
         return (lambda ss: [char_lvl_encode(s, stoi) for s in ss]), len(itos)
     tok = load_vocabulary(name)

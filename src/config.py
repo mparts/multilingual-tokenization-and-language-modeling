@@ -21,12 +21,6 @@ LATEST = "latest_runs"
 
 # === Constants ====================================================
 LANGS = ["en", "tr", "zh"]
-# MODELS = ["Character-Level", "CharLevelBPE_2000", "CharLevelBPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
-# MODELS = ["ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000"]
-# MODELS = ["CharLevelBPE_10000", "CharLevelBPE_11000", "CharLevelBPE_12000", "CharLevelBPE_15000", "CharLevelBPE_20000"]
-# MODELS = ["Character-Level", "ByteLevelBPE_2000", "ByteLevelBPE_10000", "ByteLevelBPE_20000", "CharLevelBPE_20000"]
-# MODELS = ["ByteLevelBPE_10000", "ByteLevelBPE_12000", "ByteLevelBPE_14000", "ByteLevelBPE_16000", "ByteLevelBPE_18000", "ByteLevelBPE_20000"]
-MODELS = ["Character-Level", "ByteLevelBPE_10000", "CharLevelBPE_20000"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3
 
@@ -37,8 +31,18 @@ N_SAMPLES = 5
 # === Training =====================================================
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# === Available Tokenizers ==========================================
-MODELS     = ["Character-Level", 
-              "ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000", 
-              "ByteLevelBPE_12000", "ByteLevelBPE_14000", "ByteLevelBPE_16000", "ByteLevelBPE_18000", "ByteLevelBPE_20000", 
-              "CharLevelBPE_2000", "CharLevelBPE_10000", "CharLevelBPE_11000", "CharLevelBPE_12000", "CharLevelBPE_15000", "CharLevelBPE_20000"]
+# === Tokenizer - Model names ==========================================
+# List of available tokenizers:
+all_toks     = ["Character-Level",
+                "ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000", 
+                "ByteLevelBPE_12000", "ByteLevelBPE_14000", "ByteLevelBPE_16000", "ByteLevelBPE_18000", "ByteLevelBPE_20000", 
+                "CharLevelBPE_2000", "CharLevelBPE_10000", "CharLevelBPE_11000", "CharLevelBPE_12000", "CharLevelBPE_15000", "CharLevelBPE_20000"]
+
+
+# Keep one uncomented!!
+MODELS = ["Character-Level", "ByteLevelBPE_10000", "CharLevelBPE_20000"]
+# MODELS = ["Character-Level", "CharLevelBPE_2000", "CharLevelBPE_10000", "ByteLevelBPE_2000", "ByteLevelBPE_10000"]
+# MODELS = ["ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000"]
+# MODELS = ["CharLevelBPE_10000", "CharLevelBPE_11000", "CharLevelBPE_12000", "CharLevelBPE_15000", "CharLevelBPE_20000"]
+# MODELS = ["Character-Level", "ByteLevelBPE_2000", "ByteLevelBPE_10000", "ByteLevelBPE_20000", "CharLevelBPE_20000"]
+# MODELS = ["ByteLevelBPE_10000", "ByteLevelBPE_12000", "ByteLevelBPE_14000", "ByteLevelBPE_16000", "ByteLevelBPE_18000", "ByteLevelBPE_20000"]

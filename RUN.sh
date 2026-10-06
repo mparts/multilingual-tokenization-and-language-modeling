@@ -38,6 +38,7 @@ run_step() {
 # Tokenizers
 section "Part 1. Tokenizers"
 run_step $TRAIN_TOKENIZERS tokenizer.py
+run_step $PLOT_TOKENIZERS plot_vocab.py
 run_step $EXAMINE_TOKENIZERS examine_tokenizers.py
 
 # Language modeling

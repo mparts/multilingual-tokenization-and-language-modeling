@@ -1,25 +1,11 @@
-import json
 import shutil
 import sys
 from datetime import datetime
 
 from config import ROOT, LOG_DIR, VOCAB_DIR, MODEL_DIR, LATEST, MODELS
+from helpers import load_json, save_data
 
 EPOCH_KEYS = ["epoch", "step", "train_loss", "valid_loss", "valid_bpc_approx", "train_time"]
-
-
-def load(path):
-    if not path.exists():
-        print(f"  [!] missing: {path.relative_to(ROOT)}")
-        return None
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def write(data, path):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"  wrote {path.relative_to(ROOT)}")
 
 
 def copy(src, dst):
@@ -48,7 +34,7 @@ def split_args(args_per_model):
 def merge_train(dest):
     args, runs = {}, {}
     for name in MODELS:
-        d = load(LOG_DIR / "train_run" / LATEST / f"{name}_train.json")
+        d = load_json(LOG_DIR / "train_run" / LATEST / f"{name}_train.json")
         if d is None:
             continue
         args[name] = d["args"]
@@ -59,14 +45,14 @@ def merge_train(dest):
     shared, overrides = split_args(args)
     out = {"saved_at": datetime.now().isoformat(timespec="seconds"), "models": list(runs),
            "shared_args": shared, **({"args_overrides": overrides} if overrides else {}), "runs": runs}
-    write(out, dest / "train.json")
+    save_data(out, dest / "train.json")
 
 
 def merge_eval(dest):
     args, results, splits = {}, {}, set()
     for name in MODELS:
         for split in ("valid", "test"):
-            d = load_quiet(LOG_DIR / f"{split}_run" / LATEST / f"{name}_{split}_eval.json")
+            d = load_json(LOG_DIR / f"{split}_run" / LATEST / f"{name}_{split}_eval.json")
             if d is not None:
                 splits.add(split)
                 args[(split, name)] = d["args"]
@@ -81,17 +67,11 @@ def merge_eval(dest):
             print(f"  [!] {split}: no eval for {missing}")
         out = {"saved_at": datetime.now().isoformat(timespec="seconds"), "split": split, "models": list(res),
                "shared_args": shared, **({"args_overrides": overrides} if overrides else {}), "results": res}
-        write(out, dest / f"{split}.json")
+        save_data(out, dest / f"{split}.json")
 
 
-def load_quiet(path):
-    if not path.exists():
-        return None
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
 
-
-def main():
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         sys.exit(f"Usage: python3 {sys.argv[0]} <directory-name>")
     dest = ROOT / "data" / "manual_saves" / sys.argv[1]
@@ -108,7 +88,3 @@ def main():
     copy(LOG_DIR / "plots", dest / "plots")
     copy(LOG_DIR / "tokenizers", dest / "tokenizers")
     print(f"\n[{datetime.now()}] Done!!", flush=True)
-
-
-if __name__ == "__main__":
-    main()

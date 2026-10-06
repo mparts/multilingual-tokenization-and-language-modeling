@@ -1,20 +1,13 @@
 from config import LOG_DIR, MODELS, LANGS, LATEST
-import json
+from helpers import load_json
 import numpy as np
 import matplotlib.pyplot as plt
 from argparse import ArgumentParser
 from datetime import datetime
 
 
-def load(path):
-    if not path.exists():
-        return None
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
-
-
 def learning_curves(out_dir):
-    runs = {t: load(LOG_DIR / "train_run" / LATEST / f"{t}_train.json") for t in MODELS}
+    runs = {t: load_json(LOG_DIR / "train_run" / LATEST / f"{t}_train.json") for t in MODELS}
     runs = {t: r for t, r in runs.items() if r}
     fig, (ax_loss, ax_bpc) = plt.subplots(1, 2, figsize=(13, 4.8))
 
@@ -37,7 +30,7 @@ def learning_curves(out_dir):
 
 
 def eval_plots(split, out_dir):
-    res = {t: load(LOG_DIR / f"{split}_run" / LATEST / f"{t}_{split}_eval.json") for t in MODELS}
+    res = {t: load_json(LOG_DIR / f"{split}_run" / LATEST / f"{t}_{split}_eval.json") for t in MODELS}
     res = {t: r["results"] for t, r in res.items() if r}
     if not res:
         print(f"No eval files found for split '{split}'.")
@@ -76,7 +69,8 @@ def eval_plots(split, out_dir):
     plt.close(fig)
 
 
-def main():
+
+if __name__ == "__main__":
     ap = ArgumentParser()
     ap.add_argument("--split", default="valid", choices=["valid", "test"])
     args = ap.parse_args()
@@ -86,7 +80,3 @@ def main():
     learning_curves(out_dir)
     eval_plots(args.split, out_dir)
     print(f"Plots saved to {out_dir}")
-
-
-if __name__ == "__main__":
-    main()
