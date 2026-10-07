@@ -43,6 +43,7 @@ run_step $RESTORE_SAVE save_restore.py --save_dir $RESTORE_NAME --mode "restore"
 section "Part 1. Tokenizers"
 run_step $TRAIN_TOKENIZERS tokenizer.py
 run_step $PLOT_TOKENIZERS plot_vocab.py
+run_step $EXAMINE_VOCAB_ALOCATION vocab_alocation.py
 run_step $EXAMINE_TOKENIZERS examine_tokenizers.py
 
 # Language modeling
