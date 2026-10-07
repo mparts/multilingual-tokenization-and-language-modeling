@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from config import LANGS, LOG_DIR, DATA_DIR
+from config import LANGS, LOG_DIR
 from helpers import load_json
 
 LANGUAGE_COLORS = {"en": "green", "tr": "red", "zh": "blue",}
@@ -108,7 +108,6 @@ def plot_vocab_stats(out_path, mode):
 
 if __name__ == "__main__":
     indir = LOG_DIR / "tokenizers"
-    # indir = DATA_DIR / "manual_saves" / "9_Gather_All_Tokenizers" / "tokenizers"
     outdir = LOG_DIR / "plots"
     data = load_json(indir / "tokenizer_stats.json")
     plot_vocab_stats(outdir, "tok/sent")

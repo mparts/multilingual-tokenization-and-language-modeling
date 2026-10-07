@@ -2,7 +2,7 @@
 evaluate_lm.py
 """
 
-from config import MODEL_DIR, MODELS, LANGS, LOG_DIR, DEVICE, RUN_HISTORY, LATEST
+from config import MODEL_DIR, MODELS, LANGS, LOG_DIR, DEVICE
 from helpers import save_data, load_tokenizer
 from language_model import make_blocks, evaluate, bpc_approx, load_checkpoint
 
@@ -34,11 +34,8 @@ def main():
         print(f"    {name:>3}: Loss: {results[name]['loss']:.3f} | "
               f"Perplexity: {results[name]['perplexity']:.3f} | BPC approx: {results[name]['bpc_approx']:.3f}")
 
-    save_path, file_name = LOG_DIR / f"{args.split}_run", f"{args.tok}_{args.split}_eval.json"
-    save_data({f"{datetime.now()}": {"split": args.split, **meta, "results": results}},
-              save_path / RUN_HISTORY / file_name, mode="a")
-    save_data({"split": args.split, **meta, "results": results},
-              save_path / LATEST / file_name)
+    save_path= LOG_DIR / f"{args.split}_run" / f"{args.tok}_{args.split}_eval.json"
+    save_data({"split": args.split, **meta, "results": results}, save_path)
     print(f"\n[{datetime.now()}] Evaluation completed!!", flush=True)
     print("="*100)
 

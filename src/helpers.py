@@ -45,7 +45,7 @@ def load_vocabulary(name, path=VOCAB_DIR):
 
 def load_tokenizer(name):
     if name == "Character-Level":
-        itos = load_json(open(VOCAB_DIR / f"{name}_vocab.json"))
+        itos = load_json(VOCAB_DIR / f"{name}_vocab.json")
         stoi = {c: i for i, c in enumerate(itos)}
         return (lambda ss: [char_lvl_encode(s, stoi) for s in ss]), len(itos)
     tok = load_vocabulary(name)

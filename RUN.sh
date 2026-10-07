@@ -35,6 +35,10 @@ run_step() {
     fi
 }
 
+# Load a checkpoint
+section "Part 0.1 Loading from checkpoint"
+run_step $RESTORE_SAVE save_restore.py --save_dir $RESTORE_NAME --mode "restore"
+
 # Tokenizers
 section "Part 1. Tokenizers"
 run_step $TRAIN_TOKENIZERS tokenizer.py
@@ -56,7 +60,7 @@ run_step $PLOT_LM plot_lm.py --split $EVAL_SPLIT
 
 # Saving
 section "Part 4. Saving"
-run_step $SAVE_RUN save_latest.py $RUN_NAME
+run_step $SAVE_RUN save_restore.py --save_dir $RUN_NAME --mode "save"
 
 echo "^^^                                       ^^^" | tee -a "$LOG_FILE"
 echo "^^^    End of RUN.sh pipeline.            ^^^" | tee -a "$LOG_FILE"

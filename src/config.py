@@ -15,8 +15,6 @@ CORPUS_DIR = DATA_DIR / "corpus"
 VOCAB_DIR = DATA_DIR / "vocab"
 LOG_DIR = DATA_DIR / "logs"
 MODEL_DIR = ROOT / "models"
-RUN_HISTORY = "run_history"
-LATEST = "latest_runs"
 
 
 # === Constants ====================================================

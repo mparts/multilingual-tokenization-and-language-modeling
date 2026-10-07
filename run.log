@@ -9,277 +9,294 @@ Multilingual Tokenization and Language Modeling
 ====================================================================================================
     |    |
     |    |
+Part 0.1 Loading from checkpoint
+    |    |
+    |    |
+~Running save_restore.py script...
+Restoring from data/manual_saves/7_Seed1_Char_Byte10k_Char20k/
+
+[2026-10-07 13:38:29.941743] Restore done!!
+    |    |
+    |    |
 Part 1. Tokenizers
     |    |
     |    |
 ~Running tokenizer.py script...
 ====================================================================================================
-[2026-10-05 11:23:53.981920] Training Character-Level Tokenizer...
-Building character-level vocabulary:   0%|          | 0/142345 [00:00<?, ?it/s]Building character-level vocabulary:  10%|▉         | 13803/142345 [00:00<00:00, 138017.30it/s]Building character-level vocabulary:  19%|█▉        | 27658/142345 [00:00<00:00, 138314.62it/s]Building character-level vocabulary:  29%|██▉       | 41490/142345 [00:00<00:00, 132028.24it/s]Building character-level vocabulary:  38%|███▊      | 54726/142345 [00:00<00:00, 120931.05it/s]Building character-level vocabulary:  47%|████▋     | 66944/142345 [00:00<00:00, 116390.74it/s]Building character-level vocabulary:  57%|█████▋    | 80986/142345 [00:00<00:00, 123932.88it/s]Building character-level vocabulary:  66%|██████▌   | 94020/142345 [00:00<00:00, 125914.58it/s]Building character-level vocabulary:  75%|███████▌  | 107211/142345 [00:00<00:00, 127752.41it/s]Building character-level vocabulary:  85%|████████▍ | 120344/142345 [00:00<00:00, 128840.96it/s]Building character-level vocabulary:  94%|█████████▍| 133702/142345 [00:01<00:00, 130273.06it/s]Building character-level vocabulary: 100%|██████████| 142345/142345 [00:01<00:00, 127853.38it/s]
+[2026-10-07 13:38:32.344311] Training Character-Level Tokenizer...
+Building character-level vocabulary:   0%|          | 0/142345 [00:00<?, ?it/s]Building character-level vocabulary:  10%|▉         | 13545/142345 [00:00<00:00, 135439.47it/s]Building character-level vocabulary:  19%|█▉        | 27513/142345 [00:00<00:00, 137929.26it/s]Building character-level vocabulary:  29%|██▉       | 41306/142345 [00:00<00:00, 131720.10it/s]Building character-level vocabulary:  38%|███▊      | 54510/142345 [00:00<00:00, 120714.26it/s]Building character-level vocabulary:  47%|████▋     | 66705/142345 [00:00<00:00, 115456.08it/s]Building character-level vocabulary:  57%|█████▋    | 80911/142345 [00:00<00:00, 123773.05it/s]Building character-level vocabulary:  66%|██████▋   | 94493/142345 [00:00<00:00, 127482.67it/s]Building character-level vocabulary:  76%|███████▌  | 107669/142345 [00:00<00:00, 128790.52it/s]Building character-level vocabulary:  85%|████████▌ | 121046/142345 [00:00<00:00, 130302.51it/s]Building character-level vocabulary:  94%|█████████▍| 134376/142345 [00:01<00:00, 131205.82it/s]Building character-level vocabulary: 100%|██████████| 142345/142345 [00:01<00:00, 128424.23it/s]
 
-[2026-10-05 11:23:55.292027] Success!! Analysis of Character-Level tokenizer on the validation split:
+[2026-10-07 13:38:33.653119] Success!! Analysis of Character-Level tokenizer on the validation split:
 Vocabulary size:  9446
 {'en': {'chars/tok': '1.00', 'tok/sent': '81.12', 'tokens': 368269, 'unk_percent': '0.013%'},
  'tr': {'chars/tok': '1.00', 'tok/sent': '98.63', 'tokens': 368383, 'unk_percent': '0.004%'},
  'zh': {'chars/tok': '1.00', 'tok/sent': '38.55', 'tokens': 368266, 'unk_percent': '0.070%'}}
 ====================================================================================================
 ====================================================================================================
-[2026-10-05 11:23:55.292539] Training ByteLevelBPE_2000 Tokenizer...
+[2026-10-07 13:38:33.653521] Training ByteLevelBPE_10000 Tokenizer...
 
 
 
 
-[2026-10-05 11:24:07.656129] Success!! Analysis of ByteLevelBPE_2000 tokenizer on the validation split:
-Vocabulary size:  2000
-{'en': {'chars/tok': '2.25', 'tok/sent': '36.08', 'tokens': 163815, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '2.18', 'tok/sent': '45.20', 'tokens': 168838, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '0.90', 'tok/sent': '42.96', 'tokens': 410474, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:24:07.656524] Training ByteLevelBPE_4000 Tokenizer...
-
-
-
-
-[2026-10-05 11:24:22.004950] Success!! Analysis of ByteLevelBPE_4000 tokenizer on the validation split:
-Vocabulary size:  4000
-{'en': {'chars/tok': '2.64', 'tok/sent': '30.77', 'tokens': 139711, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '2.61', 'tok/sent': '37.77', 'tokens': 141074, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.05', 'tok/sent': '36.56', 'tokens': 349290, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:24:22.005316] Training ByteLevelBPE_6000 Tokenizer...
-
-
-
-
-[2026-10-05 11:24:37.568760] Success!! Analysis of ByteLevelBPE_6000 tokenizer on the validation split:
-Vocabulary size:  6000
-{'en': {'chars/tok': '2.89', 'tok/sent': '28.08', 'tokens': 127472, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '2.88', 'tok/sent': '34.23', 'tokens': 127840, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.14', 'tok/sent': '33.74', 'tokens': 322375, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:24:37.569022] Training ByteLevelBPE_8000 Tokenizer...
-
-
-
-
-[2026-10-05 11:24:53.499353] Success!! Analysis of ByteLevelBPE_8000 tokenizer on the validation split:
-Vocabulary size:  8000
-{'en': {'chars/tok': '3.06', 'tok/sent': '26.47', 'tokens': 120177, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.07', 'tok/sent': '32.09', 'tokens': 119872, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.20', 'tok/sent': '32.00', 'tokens': 305724, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:24:53.499727] Training ByteLevelBPE_10000 Tokenizer...
-
-
-
-
-[2026-10-05 11:25:09.970190] Success!! Analysis of ByteLevelBPE_10000 tokenizer on the validation split:
+[2026-10-07 13:38:50.267858] Success!! Analysis of ByteLevelBPE_10000 tokenizer on the validation split:
 Vocabulary size:  10000
 {'en': {'chars/tok': '3.21', 'tok/sent': '25.27', 'tokens': 114717, 'unk_percent': '0.000%'},
  'tr': {'chars/tok': '3.22', 'tok/sent': '30.60', 'tokens': 114292, 'unk_percent': '0.000%'},
  'zh': {'chars/tok': '1.25', 'tok/sent': '30.84', 'tokens': 294671, 'unk_percent': '0.000%'}}
 ====================================================================================================
 ====================================================================================================
-[2026-10-05 11:25:09.970402] Training ByteLevelBPE_12000 Tokenizer...
+[2026-10-07 13:38:50.268257] Training CharLevelBPE_20000 Tokenizer...
 
 
 
 
-[2026-10-05 11:25:26.617667] Success!! Analysis of ByteLevelBPE_12000 tokenizer on the validation split:
-Vocabulary size:  12000
-{'en': {'chars/tok': '3.32', 'tok/sent': '24.45', 'tokens': 110993, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.35', 'tok/sent': '29.41', 'tokens': 109858, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.29', 'tok/sent': '29.91', 'tokens': 285757, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:25:26.617880] Training ByteLevelBPE_14000 Tokenizer...
-
-
-
-
-[2026-10-05 11:25:44.056223] Success!! Analysis of ByteLevelBPE_14000 tokenizer on the validation split:
-Vocabulary size:  14000
-{'en': {'chars/tok': '3.41', 'tok/sent': '23.78', 'tokens': 107963, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.46', 'tok/sent': '28.47', 'tokens': 106345, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.32', 'tok/sent': '29.20', 'tokens': 278934, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:25:44.056438] Training ByteLevelBPE_16000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:01.777162] Success!! Analysis of ByteLevelBPE_16000 tokenizer on the validation split:
-Vocabulary size:  16000
-{'en': {'chars/tok': '3.50', 'tok/sent': '23.20', 'tokens': 105333, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.56', 'tok/sent': '27.71', 'tokens': 103489, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.35', 'tok/sent': '28.62', 'tokens': 273469, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:01.777379] Training ByteLevelBPE_18000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:20.161667] Success!! Analysis of ByteLevelBPE_18000 tokenizer on the validation split:
-Vocabulary size:  18000
-{'en': {'chars/tok': '3.57', 'tok/sent': '22.74', 'tokens': 103232, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.64', 'tok/sent': '27.10', 'tokens': 101208, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.37', 'tok/sent': '28.14', 'tokens': 268817, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:20.161891] Training ByteLevelBPE_20000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:39.007070] Success!! Analysis of ByteLevelBPE_20000 tokenizer on the validation split:
-Vocabulary size:  20000
-{'en': {'chars/tok': '3.63', 'tok/sent': '22.37', 'tokens': 101571, 'unk_percent': '0.000%'},
- 'tr': {'chars/tok': '3.71', 'tok/sent': '26.58', 'tokens': 99292, 'unk_percent': '0.000%'},
- 'zh': {'chars/tok': '1.39', 'tok/sent': '27.70', 'tokens': 264679, 'unk_percent': '0.000%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:39.007431] Training CharLevelBPE_2000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:43.239779] Success!! Analysis of CharLevelBPE_2000 tokenizer on the validation split:
-Vocabulary size:  2000
-{'en': {'chars/tok': '0.99', 'tok/sent': '82.12', 'tokens': 372809, 'unk_percent': '0.048%'},
- 'tr': {'chars/tok': '0.99', 'tok/sent': '99.63', 'tokens': 372118, 'unk_percent': '0.063%'},
- 'zh': {'chars/tok': '0.97', 'tok/sent': '39.55', 'tokens': 377820, 'unk_percent': '4.851%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:43.240027] Training CharLevelBPE_10000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:49.869777] Success!! Analysis of CharLevelBPE_10000 tokenizer on the validation split:
-Vocabulary size:  10000
-{'en': {'chars/tok': '2.11', 'tok/sent': '38.50', 'tokens': 174776, 'unk_percent': '0.028%'},
- 'tr': {'chars/tok': '2.01', 'tok/sent': '49.03', 'tokens': 183145, 'unk_percent': '0.008%'},
- 'zh': {'chars/tok': '1.06', 'tok/sent': '36.23', 'tokens': 346180, 'unk_percent': '0.075%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:49.870040] Training CharLevelBPE_11000 Tokenizer...
-
-
-
-
-[2026-10-05 11:26:57.024847] Success!! Analysis of CharLevelBPE_11000 tokenizer on the validation split:
-Vocabulary size:  11000
-{'en': {'chars/tok': '2.49', 'tok/sent': '32.64', 'tokens': 148190, 'unk_percent': '0.033%'},
- 'tr': {'chars/tok': '2.43', 'tok/sent': '40.56', 'tokens': 151509, 'unk_percent': '0.010%'},
- 'zh': {'chars/tok': '1.13', 'tok/sent': '33.99', 'tokens': 324749, 'unk_percent': '0.079%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:26:57.025054] Training CharLevelBPE_12000 Tokenizer...
-
-
-
-
-[2026-10-05 11:27:04.972844] Success!! Analysis of CharLevelBPE_12000 tokenizer on the validation split:
-Vocabulary size:  12000
-{'en': {'chars/tok': '2.71', 'tok/sent': '29.96', 'tokens': 136028, 'unk_percent': '0.036%'},
- 'tr': {'chars/tok': '2.68', 'tok/sent': '36.86', 'tokens': 137672, 'unk_percent': '0.011%'},
- 'zh': {'chars/tok': '1.18', 'tok/sent': '32.64', 'tokens': 311836, 'unk_percent': '0.083%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:27:04.973080] Training CharLevelBPE_15000 Tokenizer...
-
-
-
-
-[2026-10-05 11:27:14.821960] Success!! Analysis of CharLevelBPE_15000 tokenizer on the validation split:
-Vocabulary size:  15000
-{'en': {'chars/tok': '3.07', 'tok/sent': '26.39', 'tokens': 119820, 'unk_percent': '0.041%'},
- 'tr': {'chars/tok': '3.08', 'tok/sent': '32.07', 'tokens': 119769, 'unk_percent': '0.013%'},
- 'zh': {'chars/tok': '1.28', 'tok/sent': '30.10', 'tokens': 287599, 'unk_percent': '0.090%'}}
-====================================================================================================
-====================================================================================================
-[2026-10-05 11:27:14.822188] Training CharLevelBPE_20000 Tokenizer...
-
-
-
-
-[2026-10-05 11:27:27.149343] Success!! Analysis of CharLevelBPE_20000 tokenizer on the validation split:
+[2026-10-07 13:39:02.734173] Success!! Analysis of CharLevelBPE_20000 tokenizer on the validation split:
 Vocabulary size:  20000
 {'en': {'chars/tok': '3.42', 'tok/sent': '23.75', 'tokens': 107829, 'unk_percent': '0.045%'},
  'tr': {'chars/tok': '3.47', 'tok/sent': '28.40', 'tokens': 106090, 'unk_percent': '0.014%'},
  'zh': {'chars/tok': '1.38', 'tok/sent': '27.99', 'tokens': 267425, 'unk_percent': '0.096%'}}
 ====================================================================================================
 
-[2026-10-05 11:27:27.155438] Tokenizer training completed!!
+[2026-10-07 13:39:02.746854] Tokenizer training completed!!
+~Running plot_vocab.py script...
+Plot saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
+Plot saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
+Plot saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
 ~Running examine_tokenizers.py script...
-  File "/home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/src/examine_tokenizers.py", line 16
-    toks = {n: load_vocabulary(n) for n in MODELS[] if n != "Character-Level"}
-                                                  ^
-SyntaxError: invalid syntax
+
+ ==================================================================================================== 
+ The university is an administrative body responsible for standards, degree examinations and certification.
+
+char : ['T', 'h', 'e', ' ', 'u', 'n', 'i', 'v', 'e', 'r', 's', 'i', 't', 'y', ' ', 'i', 's', ' ', 'a', 'n', ' ', 'a', 'd', 'm', 'i', 'n', 'i', 's', 't', 'r', 'a', 't', 'i', 'v', 'e', ' ', 'b', 'o', 'd', 'y', ' ', 'r', 'e', 's', 'p', 'o', 'n', 's', 'i', 'b', 'l', 'e', ' ', 'f', 'o', 'r', ' ', 's', 't', 'a', 'n', 'd', 'a', 'r', 'd', 's', ',', ' ', 'd', 'e', 'g', 'r', 'e', 'e', ' ', 'e', 'x', 'a', 'm', 'i', 'n', 'a', 't', 'i', 'o', 'n', 's', ' ', 'a', 'n', 'd', ' ', 'c', 'e', 'r', 't', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n', '.']
+
+ByteLevelBPE_10000: ['The', ' un', 'iversity', ' is', ' an', ' ad', 'min', 'ist', 'rat', 'ive', ' body', ' resp', 'ons', 'ible', ' for', ' stand', 'ards', ',', ' de', 'g', 'ree', ' ex', 'amin', 'ations', ' and', ' c', 'ert', 'ific', 'ation', '.']
+
+CharLevelBPE_20000: ['The', 'university', 'is', 'an', 'ad', 'minist', 'rat', 'ive', 'body', 'respons', 'ible', 'for', 'standard', 's,', 'deg', 'ree', 'ex', 'amin', 'ations', 'and', 'c', 'ert', 'ific', 'ation', '.']
+
+ ==================================================================================================== 
+ In more recent years, people have once more changed their minds about the meaning of the music.
+
+char : ['I', 'n', ' ', 'm', 'o', 'r', 'e', ' ', 'r', 'e', 'c', 'e', 'n', 't', ' ', 'y', 'e', 'a', 'r', 's', ',', ' ', 'p', 'e', 'o', 'p', 'l', 'e', ' ', 'h', 'a', 'v', 'e', ' ', 'o', 'n', 'c', 'e', ' ', 'm', 'o', 'r', 'e', ' ', 'c', 'h', 'a', 'n', 'g', 'e', 'd', ' ', 't', 'h', 'e', 'i', 'r', ' ', 'm', 'i', 'n', 'd', 's', ' ', 'a', 'b', 'o', 'u', 't', ' ', 't', 'h', 'e', ' ', 'm', 'e', 'a', 'n', 'i', 'n', 'g', ' ', 'o', 'f', ' ', 't', 'h', 'e', ' ', 'm', 'u', 's', 'i', 'c', '.']
+
+ByteLevelBPE_10000: ['In', ' more', ' rec', 'ent', ' years', ',', ' people', ' have', ' once', ' more', ' changed', ' their', ' m', 'ind', 's', ' about', ' the', ' meaning', ' of', ' the', ' music', '.']
+
+CharLevelBPE_20000: ['In', 'more', 'rec', 'ent', 'years,', 'people', 'have', 'once', 'more', 'changed', 'their', 'm', 'ind', 's', 'about', 'the', 'meaning', 'of', 'the', 'music', '.']
+
+ ==================================================================================================== 
+ They are a short and muscular animal that walks on four strong legs.
+
+char : ['T', 'h', 'e', 'y', ' ', 'a', 'r', 'e', ' ', 'a', ' ', 's', 'h', 'o', 'r', 't', ' ', 'a', 'n', 'd', ' ', 'm', 'u', 's', 'c', 'u', 'l', 'a', 'r', ' ', 'a', 'n', 'i', 'm', 'a', 'l', ' ', 't', 'h', 'a', 't', ' ', 'w', 'a', 'l', 'k', 's', ' ', 'o', 'n', ' ', 'f', 'o', 'u', 'r', ' ', 's', 't', 'r', 'o', 'n', 'g', ' ', 'l', 'e', 'g', 's', '.']
+
+ByteLevelBPE_10000: ['They', ' are', ' a', ' short', ' and', ' mus', 'cular', ' anim', 'al', ' that', ' w', 'al', 'ks', ' on', ' four', ' strong', ' leg', 's', '.']
+
+CharLevelBPE_20000: ['They', 'are', 'a', 'short', 'and', 'mus', 'cular', 'animal', 'that', 'w', 'al', 'ks', 'on', 'four', 'strong', 'leg', 's', '.']
+
+ ==================================================================================================== 
+ Females reach sexual maturity at 4 years.
+
+char : ['F', 'e', 'm', 'a', 'l', 'e', 's', ' ', 'r', 'e', 'a', 'c', 'h', ' ', 's', 'e', 'x', 'u', 'a', 'l', ' ', 'm', 'a', 't', 'u', 'r', 'i', 't', 'y', ' ', 'a', 't', ' ', '4', ' ', 'y', 'e', 'a', 'r', 's', '.']
+
+ByteLevelBPE_10000: ['F', 'em', 'ales', ' re', 'ach', ' sex', 'ual', ' mat', 'ur', 'ity', ' at', ' 4', ' years', '.']
+
+CharLevelBPE_20000: ['F', 'em', 'ales', 'reach', 'sex', 'ual', 'mat', 'ur', 'ity', 'at', '4', 'years', '.']
+
+ ==================================================================================================== 
+ In 1845, a Greek revival masonry structure was erected as the Capitol building in time for statehood.
+
+char : ['I', 'n', ' ', '1', '8', '4', '5', ',', ' ', 'a', ' ', 'G', 'r', 'e', 'e', 'k', ' ', 'r', 'e', 'v', 'i', 'v', 'a', 'l', ' ', 'm', 'a', 's', 'o', 'n', 'r', 'y', ' ', 's', 't', 'r', 'u', 'c', 't', 'u', 'r', 'e', ' ', 'w', 'a', 's', ' ', 'e', 'r', 'e', 'c', 't', 'e', 'd', ' ', 'a', 's', ' ', 't', 'h', 'e', ' ', 'C', 'a', 'p', 'i', 't', 'o', 'l', ' ', 'b', 'u', 'i', 'l', 'd', 'i', 'n', 'g', ' ', 'i', 'n', ' ', 't', 'i', 'm', 'e', ' ', 'f', 'o', 'r', ' ', 's', 't', 'a', 't', 'e', 'h', 'o', 'o', 'd', '.']
+
+ByteLevelBPE_10000: ['In', ' 18', '45', ',', ' a', ' Gre', 'ek', ' rev', 'ival', ' m', 'ason', 'ry', ' struct', 'ure', ' was', ' er', 'ected', ' as', ' the', ' Cap', 'it', 'ol', ' building', ' in', ' time', ' for', ' state', 'h', 'ood', '.']
+
+CharLevelBPE_20000: ['In', '18', '45', ',', 'a', 'Gre', 'ek', 'rev', 'ival', 'm', 'ason', 'ry', 'struct', 'ure', 'was', 'er', 'ected', 'as', 'the', 'Cap', 'it', 'ol', 'building', 'in', 'time', 'for', 'state', 'hood', '.']
+
+ ==================================================================================================== 
+ Siyasi ilgisizlik, seçimlerde düşük katılım oranlarına ve durgunluğa yol açabilir.
+
+char : ['S', 'i', 'y', 'a', 's', 'i', ' ', 'i', 'l', 'g', 'i', 's', 'i', 'z', 'l', 'i', 'k', ',', ' ', 's', 'e', 'ç', 'i', 'm', 'l', 'e', 'r', 'd', 'e', ' ', 'd', 'ü', 'ş', 'ü', 'k', ' ', 'k', 'a', 't', 'ı', 'l', 'ı', 'm', ' ', 'o', 'r', 'a', 'n', 'l', 'a', 'r', 'ı', 'n', 'a', ' ', 'v', 'e', ' ', 'd', 'u', 'r', 'g', 'u', 'n', 'l', 'u', 'ğ', 'a', ' ', 'y', 'o', 'l', ' ', 'a', 'ç', 'a', 'b', 'i', 'l', 'i', 'r', '.']
+
+ByteLevelBPE_10000: ['S', 'iyas', 'i', ' ilg', 'is', 'iz', 'lik', ',', ' seçim', 'lerde', ' düşük', ' katıl', 'ım', ' oran', 'larına', ' ve', ' dur', 'g', 'un', 'luğ', 'a', ' yol', ' aç', 'abilir', '.']
+
+CharLevelBPE_20000: ['S', 'iyas', 'i', 'ilg', 'is', 'iz', 'lik', ',', 'seçim', 'lerde', 'düşük', 'katılım', 'oran', 'larına', 've', 'dur', 'gun', 'luğ', 'a', 'yol', 'aç', 'abilir', '.']
+
+ ==================================================================================================== 
+ Ancak görüntü büyütülürse Hannover çizgileri ortaya çıkacaktır.
+
+char : ['A', 'n', 'c', 'a', 'k', ' ', 'g', 'ö', 'r', 'ü', 'n', 't', 'ü', ' ', 'b', 'ü', 'y', 'ü', 't', 'ü', 'l', 'ü', 'r', 's', 'e', ' ', 'H', 'a', 'n', 'n', 'o', 'v', 'e', 'r', ' ', 'ç', 'i', 'z', 'g', 'i', 'l', 'e', 'r', 'i', ' ', 'o', 'r', 't', 'a', 'y', 'a', ' ', 'ç', 'ı', 'k', 'a', 'c', 'a', 'k', 't', 'ı', 'r', '.']
+
+ByteLevelBPE_10000: ['Ancak', ' görün', 'tü', ' büy', 'üt', 'ül', 'ür', 'se', ' H', 'ann', 'over', ' çiz', 'g', 'ileri', ' ortaya', ' çık', 'acaktır', '.']
+
+CharLevelBPE_20000: ['Ancak', 'görüntü', 'büy', 'üt', 'ül', 'ür', 'se', 'H', 'ann', 'over', 'çiz', 'gil', 'eri', 'ortaya', 'çık', 'acak', 'tır', '.']
+
+ ==================================================================================================== 
+ John'un emriyle Kuzey İtalya'da bulunan Viana'daki Santa Maria Kilisesi'nin içinde mermerden bir anıt mezara gömüldü.
+
+char : ['J', 'o', 'h', 'n', "'", 'u', 'n', ' ', 'e', 'm', 'r', 'i', 'y', 'l', 'e', ' ', 'K', 'u', 'z', 'e', 'y', ' ', 'İ', 't', 'a', 'l', 'y', 'a', "'", 'd', 'a', ' ', 'b', 'u', 'l', 'u', 'n', 'a', 'n', ' ', 'V', 'i', 'a', 'n', 'a', "'", 'd', 'a', 'k', 'i', ' ', 'S', 'a', 'n', 't', 'a', ' ', 'M', 'a', 'r', 'i', 'a', ' ', 'K', 'i', 'l', 'i', 's', 'e', 's', 'i', "'", 'n', 'i', 'n', ' ', 'i', 'ç', 'i', 'n', 'd', 'e', ' ', 'm', 'e', 'r', 'm', 'e', 'r', 'd', 'e', 'n', ' ', 'b', 'i', 'r', ' ', 'a', 'n', 'ı', 't', ' ', 'm', 'e', 'z', 'a', 'r', 'a', ' ', 'g', 'ö', 'm', 'ü', 'l', 'd', 'ü', '.']
+
+ByteLevelBPE_10000: ['John', "'", 'un', ' em', 'r', 'iyle', ' Kuzey', ' İtal', 'ya', "'d", 'a', ' bulunan', ' V', 'ian', 'a', "'d", 'aki', ' S', 'ant', 'a', ' Mar', 'ia', ' K', 'il', 'is', 'esi', "'", 'nin', ' içinde', ' mer', 'mer', 'den', ' bir', ' an', 'ıt', ' mez', 'ara', ' gö', 'm', 'üldü', '.']
+
+CharLevelBPE_20000: ['John', "'un", 'em', 'r', 'iyle', 'Kuzey', 'İtal', "ya'da", 'bulunan', 'V', 'ian', 'a', "'daki", 'San', 'ta', 'Mar', 'ia', 'Kil', 'is', 'esi', "'nin", 'içinde', 'mer', 'mer', 'den', 'bir', 'an', 'ıt', 'mez', 'ara', 'gö', 'm', 'ül', 'dü', '.']
+
+ ==================================================================================================== 
+ Ana alışveriş semti olan Front Street şehrin kalbindedir.
+
+char : ['A', 'n', 'a', ' ', 'a', 'l', 'ı', 'ş', 'v', 'e', 'r', 'i', 'ş', ' ', 's', 'e', 'm', 't', 'i', ' ', 'o', 'l', 'a', 'n', ' ', 'F', 'r', 'o', 'n', 't', ' ', 'S', 't', 'r', 'e', 'e', 't', ' ', 'ş', 'e', 'h', 'r', 'i', 'n', ' ', 'k', 'a', 'l', 'b', 'i', 'n', 'd', 'e', 'd', 'i', 'r', '.']
+
+ByteLevelBPE_10000: ['An', 'a', ' al', 'ış', 'ver', 'iş', ' sem', 'ti', ' olan', ' F', 'ront', ' St', 'reet', ' şehrin', ' kal', 'b', 'indedir', '.']
+
+CharLevelBPE_20000: ['An', 'a', 'al', 'ış', 'ver', 'iş', 'sem', 'ti', 'olan', 'F', 'ront', 'Street', 'şehrin', 'kal', 'b', 'ind', 'ed', 'ir', '.']
+
+ ==================================================================================================== 
+ Türkiye İmar Bankası Türk Anonim Şirketi (veya İmarbank), Uzan ailesi üyelerinin Türkiye'de 1988-2003 yılları arasında etkinlikte bulunmuş bankası.
+
+char : ['T', 'ü', 'r', 'k', 'i', 'y', 'e', ' ', 'İ', 'm', 'a', 'r', ' ', 'B', 'a', 'n', 'k', 'a', 's', 'ı', ' ', 'T', 'ü', 'r', 'k', ' ', 'A', 'n', 'o', 'n', 'i', 'm', ' ', 'Ş', 'i', 'r', 'k', 'e', 't', 'i', ' ', '(', 'v', 'e', 'y', 'a', ' ', 'İ', 'm', 'a', 'r', 'b', 'a', 'n', 'k', ')', ',', ' ', 'U', 'z', 'a', 'n', ' ', 'a', 'i', 'l', 'e', 's', 'i', ' ', 'ü', 'y', 'e', 'l', 'e', 'r', 'i', 'n', 'i', 'n', ' ', 'T', 'ü', 'r', 'k', 'i', 'y', 'e', "'", 'd', 'e', ' ', '1', '9', '8', '8', '-', '2', '0', '0', '3', ' ', 'y', 'ı', 'l', 'l', 'a', 'r', 'ı', ' ', 'a', 'r', 'a', 's', 'ı', 'n', 'd', 'a', ' ', 'e', 't', 'k', 'i', 'n', 'l', 'i', 'k', 't', 'e', ' ', 'b', 'u', 'l', 'u', 'n', 'm', 'u', 'ş', ' ', 'b', 'a', 'n', 'k', 'a', 's', 'ı', '.']
+
+ByteLevelBPE_10000: ['Türkiye', ' İ', 'mar', ' B', 'ank', 'ası', ' Türk', ' An', 'on', 'im', ' Ş', 'irket', 'i', ' (', 'v', 'ey', 'a', ' İ', 'm', 'arb', 'ank', '),', ' U', 'z', 'an', ' ail', 'esi', ' üy', 'elerinin', ' Türkiye', "'d", 'e', ' 1988', '-', '2003', ' yılları', ' arasında', ' etkin', 'lik', 'te', ' bulun', 'muş', ' bank', 'ası', '.']
+
+CharLevelBPE_20000: ['Türkiye', 'İm', 'ar', 'Bank', 'ası', 'Türk', 'An', 'on', 'im', 'Şirket', 'i', '(', 'vey', 'a', 'İm', 'ar', 'b', 'ank', '),', 'Uz', 'an', 'ail', 'esi', 'üy', 'elerinin', "Türkiye'de", '1988', '-200', '3', 'yılları', 'arasında', 'etkin', 'lik', 'te', 'bulun', 'muş', 'bank', 'ası', '.']
+
+ ==================================================================================================== 
+ 稱呼他人時會加上特殊語尾詞，並與二年級的十傑關係不好。
+
+char : ['稱', '呼', '他', '人', '時', '會', '加', '上', '特', '殊', '語', '尾', '詞', '，', '並', '與', '二', '年', '級', '的', '十', '傑', '關', '係', '不', '好', '。']
+
+ByteLevelBPE_10000: ['稱', '呼', '他', '人', '時', '會', '加上', '特殊', '語', '尾', '詞', '，', '並', '與', '二年', '級', '的', '十', '傑', '關係', '不', '好', '。']
+
+CharLevelBPE_20000: ['', '稱呼', '他', '人', '時會', '加上', '特殊', '語', '尾', '詞', '，並', '與', '二年', '級', '的', '十', '傑', '關係', '不', '好', '。']
+
+ ==================================================================================================== 
+ ，但成政卻誤解他們是要來攻打自己，而請求賴房阻止義弘等人進入，此舉也觸怒了秀吉。
+
+char : ['，', '但', '成', '政', '卻', '誤', '解', '他', '們', '是', '要', '來', '攻', '打', '自', '己', '，', '而', '請', '求', '賴', '房', '阻', '止', '義', '弘', '等', '人', '進', '入', '，', '此', '舉', '也', '觸', '怒', '了', '秀', '吉', '。']
+
+ByteLevelBPE_10000: ['，', '但', '成', '政', '卻', '誤', '解', '他們', '是', '要', '來', '攻', '打', '自己', '，', '而', '請', '求', '賴', '房', '阻止', '義', '弘', '等人', '進入', '，', '此', '舉', '也', '觸', '怒', '了', '秀', '吉', '。']
+
+CharLevelBPE_20000: ['，但', '成', '政', '卻', '誤', '解', '他們', '是', '要', '來', '攻', '打', '自己', '，而', '請求', '賴', '房', '阻止', '義', '弘', '等人', '進入', '，此', '舉', '也', '觸', '怒', '了', '秀', '吉', '。']
+
+ ==================================================================================================== 
+ 葉色翠綠，葉呈線型末端收尖，質感細緻。
+
+char : ['葉', '色', '翠', '綠', '，', '葉', '呈', '線', '型', '末', '端', '收', '尖', '，', '質', '感', '細', '緻', '。']
+
+ByteLevelBPE_10000: ['葉', '色', '�', '�', '綠', '，', '葉', '呈', '線', '型', '末', '端', '收', '尖', '，', '質', '感', '細', '�', '�', '。']
+
+CharLevelBPE_20000: ['', '葉', '色', '翠', '綠', '，', '葉', '呈', '線', '型', '末', '端', '收', '尖', '，', '質', '感', '細', '緻', '。']
+
+ ==================================================================================================== 
+ 担任中国昆虫学会副理事长、江苏省昆虫学会理事长、国际系统与应用蜱螨学会秘书长、9本SCI杂志编委和5本中文核心期刊编委等学术职务。
+
+char : ['担', '任', '中', '国', '昆', '虫', '学', '会', '副', '理', '事', '长', '、', '江', '苏', '省', '昆', '虫', '学', '会', '理', '事', '长', '、', '国', '际', '系', '统', '与', '应', '用', '蜱', '螨', '学', '会', '秘', '书', '长', '、', '9', '本', 'S', 'C', 'I', '杂', '志', '编', '委', '和', '5', '本', '中', '文', '核', '心', '期', '刊', '编', '委', '等', '学', '术', '职', '务', '。']
+
+ByteLevelBPE_10000: ['担任', '中国', '昆', '虫', '学', '会', '副', '理事', '长', '、', '江', '苏', '省', '昆', '虫', '学', '会', '理事', '长', '、', '国际', '系统', '与', '应用', '�', '�', '�', '�', '学', '会', '秘书', '长', '、', '9', '本', 'S', 'C', 'I', '杂志', '编', '委', '和', '5', '本', '中文', '核心', '期', '刊', '编', '委', '等', '学术', '职', '务', '。']
+
+CharLevelBPE_20000: ['', '担任', '中国', '昆', '虫', '学会', '副', '理事', '长、', '江', '苏', '省', '昆', '虫', '学会', '理事', '长、', '国际', '系统', '与', '应用', '蜱', '', '学会', '秘书', '长、', '9', '本', 'SC', 'I', '杂志', '编', '委', '和', '5', '本', '中文', '核心', '期', '刊', '编', '委', '等', '学术', '职务', '。']
+
+ ==================================================================================================== 
+ 何塞·范韦尔特在他从事探险和殖民活动之前很少被提及，
+
+char : ['何', '塞', '·', '范', '韦', '尔', '特', '在', '他', '从', '事', '探', '险', '和', '殖', '民', '活', '动', '之', '前', '很', '少', '被', '提', '及', '，']
+
+ByteLevelBPE_10000: ['何', '塞', '·', '范', '韦', '尔', '特', '在他', '从', '事', '探', '险', '和', '殖民', '活动', '之前', '很少', '被', '提及', '，']
+
+CharLevelBPE_20000: ['', '何', '塞', '·', '范', '韦', '尔', '特', '在', '他', '从事', '探', '险', '和', '殖民', '活动', '之前', '很少', '被', '提及', '，']
+
+[2026-10-07 13:39:09.750002] All done!!
     |    |
     |    |
 Part 2. Language modeling
     |    |
     |    |
-<!>    train_lm.py skipped.    <!>
-<!>    evaluate_lm.py skipped.    <!>
-<!>    train_lm.py skipped.    <!>
-<!>    evaluate_lm.py skipped.    <!>
-<!>    train_lm.py skipped.    <!>
-<!>    evaluate_lm.py skipped.    <!>
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-07 13:39:12.080741] Loading 'Character-Level' tokenizer and building blocks...
+    vocab_size=9446, train blocks=35637, valid blocks=4455, device=cuda
+    Parameters: {'total': 6481920, 'input_embeddings': 2418176, 'output_layer': 2418176, 'positional': 65536, 'other': 1580032}
+
+[2026-10-07 13:39:16.743114] Training Transformer language model...
+1 Epoch | Step 1113 | Train Loss 3.848 | Valid Loss 3.205 | BPC approx: 4.773 | Train Time: 80s
+2 Epoch | Step 2226 | Train Loss 3.148 | Valid Loss 3.048 | BPC approx: 4.539 | Train Time: 94s
+
+[2026-10-07 13:42:12.799367] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-07 13:42:15.428108] Loading trained model...
+
+[2026-10-07 13:42:16.015969] Evaluating 'Character-Level' model on the 'valid' split...
+    all: Loss: 3.048 | Perplexity: 21.079 | BPC approx: 4.539
+     en: Loss: 2.081 | Perplexity: 8.008 | BPC approx: 3.075
+     tr: Loss: 2.103 | Perplexity: 8.192 | BPC approx: 3.095
+     zh: Loss: 4.913 | Perplexity: 136.032 | BPC approx: 7.455
+
+[2026-10-07 13:42:23.212534] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-07 13:42:25.643208] Loading 'ByteLevelBPE_10000' tokenizer and building blocks...
+    vocab_size=10000, train blocks=17376, valid blocks=2184, device=cuda
+    Parameters: {'total': 6765568, 'input_embeddings': 2560000, 'output_layer': 2560000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-07 13:42:30.019834] Training Transformer language model...
+1 Epoch | Step 543 | Train Loss 7.164 | Valid Loss 6.210 | BPC approx: 4.533 | Train Time: 38s
+2 Epoch | Step 1086 | Train Loss 6.080 | Valid Loss 5.959 | BPC approx: 4.350 | Train Time: 39s
+
+[2026-10-07 13:43:48.260641] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-07 13:43:51.114845] Loading trained model...
+
+[2026-10-07 13:43:51.809667] Evaluating 'ByteLevelBPE_10000' model on the 'valid' split...
+    all: Loss: 5.959 | Perplexity: 387.193 | BPC approx: 4.350
+     en: Loss: 5.212 | Perplexity: 183.408 | BPC approx: 2.525
+     tr: Loss: 5.609 | Perplexity: 272.896 | BPC approx: 2.671
+     zh: Loss: 6.378 | Perplexity: 588.683 | BPC approx: 7.835
+
+[2026-10-07 13:43:55.756210] Evaluation completed!!
+====================================================================================================
+~Running train_lm.py script...
+====================================================================================================
+[2026-10-07 13:43:58.200041] Loading 'CharLevelBPE_20000' tokenizer and building blocks...
+    vocab_size=20000, train blocks=16054, valid blocks=2019, device=cuda
+    Parameters: {'total': 11885568, 'input_embeddings': 5120000, 'output_layer': 5120000, 'positional': 65536, 'other': 1580032}
+
+[2026-10-07 13:44:01.902177] Training Transformer language model...
+1 Epoch | Step 501 | Train Loss 7.703 | Valid Loss 6.839 | BPC approx: 4.616 | Train Time: 54s
+2 Epoch | Step 1002 | Train Loss 6.690 | Valid Loss 6.586 | BPC approx: 4.445 | Train Time: 55s
+
+[2026-10-07 13:45:51.979462] Training succesful!!
+====================================================================================================
+~Running evaluate_lm.py script...
+====================================================================================================
+[2026-10-07 13:45:54.804135] Loading trained model...
+
+[2026-10-07 13:45:55.680574] Evaluating 'CharLevelBPE_20000' model on the 'valid' split...
+    all: Loss: 6.586 | Perplexity: 725.070 | BPC approx: 4.445
+     en: Loss: 5.638 | Perplexity: 280.910 | BPC approx: 2.578
+     tr: Loss: 6.198 | Perplexity: 491.951 | BPC approx: 2.753
+     zh: Loss: 7.106 | Perplexity: 1219.090 | BPC approx: 7.974
+
+[2026-10-07 13:46:00.890756] Evaluation completed!!
+====================================================================================================
     |    |
     |    |
 Part 3. Plotting
     |    |
     |    |
-<!>    plot_lm.py skipped.    <!>
+~Running plot_lm.py script...
+[2026-10-07 13:46:03.748907] Generating plots for 'valid' split...
+Plots saved to /home/gusbaranj@GU.GU.SE/MachineLearning/Advanced_ML_A1/multilingual-tokenization-and-language-modeling/data/logs/plots
     |    |
     |    |
 Part 4. Saving
     |    |
     |    |
-~Running save_latest.py script...
-Saving 17 models to data/manual_saves/9_Gather_All_Tokenizers/
-  [!] ByteLevelBPE_2000 used different args than the others: {'epochs': 20, 'seed': 0}
-  [!] ByteLevelBPE_4000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_6000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_8000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_12000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_14000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_16000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_18000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_20000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_2000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_10000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_11000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_12000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_15000 used different args than the others: {'seed': 0}
-  wrote data/manual_saves/9_Gather_All_Tokenizers/train.json
-  [!] ByteLevelBPE_2000 used different args than the others: {'epochs': 20, 'seed': 0}
-  [!] ByteLevelBPE_4000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_6000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_8000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_12000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_14000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_16000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_18000 used different args than the others: {'seed': 0}
-  [!] ByteLevelBPE_20000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_2000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_10000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_11000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_12000 used different args than the others: {'seed': 0}
-  [!] CharLevelBPE_15000 used different args than the others: {'seed': 0}
-  wrote data/manual_saves/9_Gather_All_Tokenizers/valid.json
-  [!] test: no eval for ['ByteLevelBPE_4000', 'ByteLevelBPE_6000', 'ByteLevelBPE_8000', 'ByteLevelBPE_12000', 'ByteLevelBPE_14000', 'ByteLevelBPE_16000', 'ByteLevelBPE_18000', 'CharLevelBPE_2000', 'CharLevelBPE_10000', 'CharLevelBPE_11000', 'CharLevelBPE_12000', 'CharLevelBPE_15000']
-  wrote data/manual_saves/9_Gather_All_Tokenizers/test.json
+~Running save_restore.py script...
+Saving 3 models to data/manual_saves/latest/
+  [!] missing: data/logs/test_run/Character-Level_test_eval.json
+  [!] missing: data/logs/test_run/ByteLevelBPE_10000_test_eval.json
+  [!] missing: data/logs/test_run/CharLevelBPE_20000_test_eval.json
 
-[2026-10-05 11:27:37.114035] Done!!
+[2026-10-07 13:46:08.057208] Done!!
 ^^^                                       ^^^
 ^^^    End of RUN.sh pipeline.            ^^^
 ^^^                                       ^^^

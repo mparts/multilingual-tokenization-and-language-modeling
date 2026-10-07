@@ -1,4 +1,4 @@
-from config import LOG_DIR, MODELS, LANGS, LATEST
+from config import LOG_DIR, MODELS, LANGS
 from helpers import load_json
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,10 +7,12 @@ from datetime import datetime
 
 
 def learning_curves(out_dir):
-    runs = {t: load_json(LOG_DIR / "train_run" / LATEST / f"{t}_train.json") for t in MODELS}
+    runs = {t: load_json(LOG_DIR / "train_run" / f"{t}_train.json") for t in MODELS}
     runs = {t: r for t, r in runs.items() if r}
+    if not runs:
+        print(f"No files found for train.")
+        return
     fig, (ax_loss, ax_bpc) = plt.subplots(1, 2, figsize=(13, 4.8))
-
     for i, (tok, run) in enumerate(runs.items()):
         ep = run["history"]["epochs"]
         x = [e["epoch"] for e in ep]
@@ -30,7 +32,7 @@ def learning_curves(out_dir):
 
 
 def eval_plots(split, out_dir):
-    res = {t: load_json(LOG_DIR / f"{split}_run" / LATEST / f"{t}_{split}_eval.json") for t in MODELS}
+    res = {t: load_json(LOG_DIR / f"{split}_run" / f"{t}_{split}_eval.json") for t in MODELS}
     res = {t: r["results"] for t, r in res.items() if r}
     if not res:
         print(f"No eval files found for split '{split}'.")

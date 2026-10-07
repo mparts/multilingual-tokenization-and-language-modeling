@@ -2,7 +2,7 @@
 train_lm.py
 """
 
-from config import LOG_DIR, MODELS, DEVICE, RUN_HISTORY, LATEST
+from config import LOG_DIR, MODELS, DEVICE
 from helpers import save_data, load_tokenizer
 from language_model import TransformerLM, make_blocks, train
 
@@ -47,11 +47,8 @@ def main():
     history, meta = train(model, xtr, ytr, xva, yva, DEVICE, args.tok, args.epochs, args.batch_size, args.lr,
           args.warmup_steps, tok_per_char, meta={"args": vars(args), "params": counts})
 
-    save_path, file_name = LOG_DIR / "train_run", f"{args.tok}_train.json"
-    save_data({f"{datetime.now()}": {**meta, "history": history}},
-              save_path / RUN_HISTORY / file_name, mode="a")
-    save_data({**meta, "history": history},
-              save_path / LATEST / file_name)
+    save_path = LOG_DIR / "train_run" / f"{args.tok}_train.json"
+    save_data({**meta, "history": history}, save_path)
     print(f"\n[{datetime.now()}] Training succesful!!", flush=True)
     print("="*100)
 

@@ -1,8 +1,9 @@
 import shutil
 import sys
 from datetime import datetime
+from argparse import ArgumentParser
 
-from config import ROOT, LOG_DIR, VOCAB_DIR, MODEL_DIR, LATEST, MODELS
+from config import ROOT, LOG_DIR, VOCAB_DIR, MODEL_DIR, MODELS
 from helpers import load_json, save_data
 
 EPOCH_KEYS = ["epoch", "step", "train_loss", "valid_loss", "valid_bpc_approx", "train_time"]
@@ -34,7 +35,7 @@ def split_args(args_per_model):
 def merge_train(dest):
     args, runs = {}, {}
     for name in MODELS:
-        d = load_json(LOG_DIR / "train_run" / LATEST / f"{name}_train.json")
+        d = load_json(LOG_DIR / "train_run" / f"{name}_train.json")
         if d is None:
             continue
         args[name] = d["args"]
@@ -52,7 +53,7 @@ def merge_eval(dest):
     args, results, splits = {}, {}, set()
     for name in MODELS:
         for split in ("valid", "test"):
-            d = load_json(LOG_DIR / f"{split}_run" / LATEST / f"{name}_{split}_eval.json")
+            d = load_json(LOG_DIR / f"{split}_run" / f"{name}_{split}_eval.json")
             if d is not None:
                 splits.add(split)
                 args[(split, name)] = d["args"]
@@ -70,12 +71,7 @@ def merge_eval(dest):
         save_data(out, dest / f"{split}.json")
 
 
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        sys.exit(f"Usage: python3 {sys.argv[0]} <directory-name>")
-    dest = ROOT / "data" / "manual_saves" / sys.argv[1]
-    dest.mkdir(parents=True, exist_ok=True)
+def save(dest):
     print(f"Saving {len(MODELS)} models to {dest.relative_to(ROOT)}/")
 
     merge_train(dest)
@@ -88,3 +84,29 @@ if __name__ == "__main__":
     copy(LOG_DIR / "plots", dest / "plots")
     copy(LOG_DIR / "tokenizers", dest / "tokenizers")
     print(f"\n[{datetime.now()}] Done!!", flush=True)
+
+
+def restore(dest):
+    if not dest.exists():
+        sys.exit(f"[!] Checkpoint does not exist: {dest.relative_to(ROOT)}")
+
+    print(f"Restoring from {dest.relative_to(ROOT)}/")
+    copy(dest / "models", MODEL_DIR)
+    copy(dest / "plots", LOG_DIR / "plots",)
+    copy(dest / "tokenizers", LOG_DIR / "tokenizers",)
+    copy(dest / "vocab", VOCAB_DIR)
+    print(f"\n[{datetime.now()}] Restore done!!", flush=True)
+
+
+if __name__ == "__main__":
+    argparser = ArgumentParser(description="Saves a 'checkpoint', or restores it to or from the specified path.")
+    argparser.add_argument("--save_dir", type=str,  required=True, help="Path to save to or reload from.")
+    argparser.add_argument("--mode",     type=str,  default="save", choices=["save", "restore"], help="save or restore?")
+    args = argparser.parse_args()
+    
+    save_dir = ROOT / "data" / "manual_saves" / args.save_dir
+    if args.mode == "save":
+        save_dir.mkdir(parents=True, exist_ok=True)
+        save(save_dir)
+    elif args.mode == "restore":
+        restore(save_dir)
