@@ -1,3 +1,7 @@
+---
+geometry: "left=1in,right=1in,top=1in,bottom=1in"
+output: pdf_document
+---
 ### Predictions for Part 1
 - Which language do you expect to require the most tokens?  
 I expect Chinese to require the most tokens, since it seems to be the more diverse of the three. So BPE will probably have a harder time with Chinese in contrast to English or Turkish.
