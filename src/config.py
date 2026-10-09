@@ -16,7 +16,8 @@ MODEL_DIR = ROOT / "models"
 
 INTERNAL_CORPUS_DIR = DATA_DIR / "corpus"
 EXTERNAL_CORPUS_DIR = Path("/srv/data/lt2326-h26/a1")
-# EXTERNAL_CORPUS_DIR = INTERNAL_CORPUS_DIR # Uncomment this, and comment the above, in case not run in mlt gpu
+# Uncomment this bellowe, and comment the above, in case not run in mlt gpu
+# EXTERNAL_CORPUS_DIR = INTERNAL_CORPUS_DIR 
 
 # === Constants ====================================================
 LANGS = ["en", "tr", "zh"]
@@ -33,7 +34,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 # === Tokenizer - Model names ==========================================
-# List of available tokenizers:
+# List of available tokenizers (just for reference, variable isn't used anywhere, safe to alter):
 all_toks     = ["Character-Level",
                 "ByteLevelBPE_2000", "ByteLevelBPE_4000", "ByteLevelBPE_6000", "ByteLevelBPE_8000", "ByteLevelBPE_10000", 
                 "ByteLevelBPE_12000", "ByteLevelBPE_14000", "ByteLevelBPE_16000", "ByteLevelBPE_18000", "ByteLevelBPE_20000", 

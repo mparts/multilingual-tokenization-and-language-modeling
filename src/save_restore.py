@@ -1,3 +1,8 @@
+"""
+save_restore.py
+either saves or restores a run
+"""
+
 import shutil
 import sys
 from datetime import datetime
@@ -33,6 +38,9 @@ def split_args(args_per_model):
 
 
 def merge_train(dest):
+    """
+    merges the multiple per model .json files into one
+    """
     args, runs = {}, {}
     for name in MODELS:
         d = load_json(LOG_DIR / "train_run" / f"{name}_train.json")
@@ -50,6 +58,9 @@ def merge_train(dest):
 
 
 def merge_eval(dest):
+    """
+    merges the multiple per model .json files into one
+    """
     args, results, splits = {}, {}, set()
     for name in MODELS:
         for split in ("valid", "test"):

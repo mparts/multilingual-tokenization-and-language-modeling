@@ -1,5 +1,6 @@
 """
 train_lm.py
+Gathers model parameters and calls the train loop, also saves results
 """
 
 from config import LOG_DIR, MODELS, DEVICE

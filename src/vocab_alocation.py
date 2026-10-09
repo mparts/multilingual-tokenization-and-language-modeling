@@ -1,12 +1,7 @@
 """
-Who gets the vocabulary?
-Method
-  rate_l(t)  = count of token t in language l / number of characters in language l
-  share_l(t) = rate_l(t) / sum_l' rate_l'(t)
-  token is "<l>"    if share_l(t) >= THRESH (default 0.8)
-  token is "shared" if no language reaches THRESH
-  token is "rare"   if it occurs fewer than MIN_COUNT times in total (incl. never used); special tokens are skipped
-Rates are per character (not per token) because the three corpora have about equal characters but very different token counts.
+vocab_alocation.py
+
+Rates are per character (not per token) because the three corpus have about equal characters but very different token counts.
 Character-Level tokenizer always ignored.
 """
 
@@ -32,6 +27,14 @@ def count_tokens(tok, sents_by_lang):
 
 
 def classify(counts, n_chars, vocab_size, thresh=THRESH, min_count=MIN_COUNT):
+    """
+    Method
+        rate_l(t)  = count of token t in language l / number of characters in language l
+        share_l(t) = rate_l(t) / sum_l' rate_l'(t)
+        token is "<l>"    if share_l(t) >= THRESH (default 0.8)
+        token is "shared" if no language reaches THRESH
+        token is "rare"   if it occurs fewer than MIN_COUNT times in total
+    """
     labels = {}
     for i in range(N_SPECIAL, vocab_size):
         c = {l: counts[l][i] for l in LANGS}

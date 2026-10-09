@@ -1,5 +1,6 @@
 """
 helpers.py
+holds various helper functions
 """
 
 from config import EXTERNAL_CORPUS_DIR, UNK, VOCAB_DIR, ROOT
@@ -8,15 +9,24 @@ import json
 
 
 def read_lines(split, lang, path=EXTERNAL_CORPUS_DIR):
+    """
+    simply reads from the corpus file
+    """
     with open(path / split / f"{lang}.txt", encoding="utf-8") as f:
         return [line.rstrip("\n") for line in f]
 
 
 def char_lvl_encode(text, stoi):
+    """
+    encodes the Character-level vocab
+    """
     return [stoi.get(c, UNK) for c in text]
 
 
 def load_json(path):
+    """
+    simply loads a .json
+    """
     if not path.exists():
         print(f"  [!] missing: {path.relative_to(ROOT)}")
         return None
@@ -25,6 +35,9 @@ def load_json(path):
 
 
 def save_data(data, path, mode="w"):
+    """
+    saves stuff into a .json. (I am probably calling this over a gazillion times)
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
     if mode == "a":
         if path.exists() and path.stat().st_size > 0:
@@ -40,10 +53,16 @@ def save_data(data, path, mode="w"):
 
 
 def load_vocabulary(name, path=VOCAB_DIR):
+    """
+    loads a hugging face tokenizer
+    """
     return Tokenizer.from_file(f"{path}/{name}_vocab.json")
 
 
 def load_tokenizer(name):
+    """
+    loads the tokenizers, encodes, and also returns their size alongside them
+    """
     if name == "Character-Level":
         itos = load_json(VOCAB_DIR / f"{name}_vocab.json")
         stoi = {c: i for i, c in enumerate(itos)}

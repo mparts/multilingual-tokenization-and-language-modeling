@@ -1,5 +1,6 @@
 """
 evaluate_lm.py
+GAthers model parameters and calls the evaluation loop, also saves the results
 """
 
 from config import MODEL_DIR, MODELS, LANGS, LOG_DIR, DEVICE

@@ -1,3 +1,7 @@
+"""
+plot_vocab.py
+plots useful figures for tokenizers
+"""
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from config import LANGS, LOG_DIR

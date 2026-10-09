@@ -216,25 +216,25 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# # Models exclusion
-# *.bin
-# *.ftz
-# *.vec
-# *.npy
-# *.pt
-# *.model
-# *.pkl
+# Models exclusion
+*.bin
+*.ftz
+*.vec
+*.npy
+*.pt
+*.model
+*.pkl
 
 # Testing 
 src/test.py
 docs/test_notes.md
 data/logs
 
-data/manual_saves/1_10E_Char_Char2k-10k_Byte2k-10k
-data/manual_saves/2_10E_CharBPE-10k-11k-12k-15k-20k
-data/manual_saves/3_10E_ByteBPE-2k-4k-6k-8k-10k
-data/manual_saves/4_20E_Char_Byte2k-10k-20k_Char20k
-data/manual_saves/6_10E_ByteBPE-10k-12k-14k-16k-18k-20k
-data/manual_saves/7_Seed1_Char_Byte10k_Char20k
-data/manual_saves/8_Seed2_Char_Byte10k_Char20k
-data/manual_saves/9_Gather_All_Tokenizers
+# data/manual_saves/1_10E_Char_Char2k-10k_Byte2k-10k
+# data/manual_saves/2_10E_CharBPE-10k-11k-12k-15k-20k
+# data/manual_saves/3_10E_ByteBPE-2k-4k-6k-8k-10k
+# data/manual_saves/4_20E_Char_Byte2k-10k-20k_Char20k
+# data/manual_saves/6_10E_ByteBPE-10k-12k-14k-16k-18k-20k
+# data/manual_saves/7_Seed1_Char_Byte10k_Char20k
+# data/manual_saves/8_Seed2_Char_Byte10k_Char20k
+# data/manual_saves/9_Gather_All_Tokenizers

@@ -1,3 +1,8 @@
+"""
+plot_lm.py
+plots figures for training and evaluation
+"""
+
 from config import LOG_DIR, MODELS, LANGS
 from helpers import load_json
 import numpy as np

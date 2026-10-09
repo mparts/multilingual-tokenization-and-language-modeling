@@ -1,5 +1,6 @@
 """
 lanfuage_model.py
+Defines every component needed to train and evaluate a transformer LM
 """
 from config import MODEL_DIR
 from config import LANGS, BOS, EOS
@@ -11,6 +12,9 @@ from tqdm import tqdm
 
 
 def make_blocks(encode, split, ctx, langs=LANGS, seed=0):
+    """
+    Creates sentence stream
+    """
     sents = [s for l in langs for s in read_lines(split, l)]
     random.Random(seed).shuffle(sents)
     stream = []
@@ -22,6 +26,9 @@ def make_blocks(encode, split, ctx, langs=LANGS, seed=0):
 
 
 class TransformerLM(nn.Module):
+    """
+    Defines the transformer
+    """
     def __init__(self, vocab_size, context_length, hidden_dim=256, n_heads=4, ff_dim=1024, n_layers=2, dropout=0.1):
         super().__init__()
         self.config = dict(vocab_size=vocab_size, context_length=context_length, hidden_dim=hidden_dim,
@@ -62,10 +69,16 @@ def _autocast(dev):
 
 
 def bpc_approx(loss, tok_per_char):
+    """
+    Computes bpc
+    """
     return loss / math.log(2) * tok_per_char
 
 
 def train(model, xtr, ytr, xva, yva, dev, name, epochs, batch_size, lr, warmup, tok_per_char, meta):
+    """
+    Train loop
+    """
     vocab_size = model.config["vocab_size"]
     steps_per_epoch = len(xtr) // batch_size
     total = epochs * steps_per_epoch
@@ -108,6 +121,9 @@ def train(model, xtr, ytr, xva, yva, dev, name, epochs, batch_size, lr, warmup, 
 
 
 def evaluate(model, x, y, dev, bs=64):
+    """
+    Evaluation loop
+    """
     model.eval()
     tot = 0.0
     with torch.no_grad():
