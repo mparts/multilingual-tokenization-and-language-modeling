@@ -1,18 +1,38 @@
 # Multilingual Tokenization and Language Modeling
 Assignment for the course Machine learning for statistical NLP: Advanced LT2326/LT2926. Department of Philosophy, Linguistics and Theory of Science (FLoV).
 
+## Main repository tree structure
+```text
+./
+├── data/              # contains all data
+│   ├── corpus/          # the corpus used
+│   ├── manual_saves/    # contains all the saved runs
+│   └── vocab/           # the tokenizers
+├── docs/              # submission content
+├── models/            # holds the trained models
+├── src/               # the code
+```
+
 ## Init
-### sub-title placeholder
-text placeholder
+### RUN ALL
+To run everything, simply execute this command from the repository root.
 ```bash
 bash RUN.sh
 ```
-## Part 1
-### sub-title placeholder
-text placeholder
-## Part 2
-### sub-title placeholder
-text placeholder
-## Part 3
-### sub-title placeholder
-text placeholder
+The file [run.conf](./run.conf) controls what [RUN.sh](./RUN.sh) executes and how. 
+
+If nothing is altered after a git clone, `RUN.sh`, copies [5_20E_TEST](./data/manual_saves/5_20E_TEST/), and runs evaluation and plotting scripts on the pretrained models.
+
+Keep in mind that this is the only saved_run that has its pretrained models uploaded in the repository.
+
+### Navigating run.conf
+You can alter the contents of [run.conf](./run.conf) to change what python scripts are executed. If you decide to replicate any other of the saved_runs or run whatever else you want, keep in mind these important notes:
+- Change `RESTORE_NAME` into the name of one of the directories inside [manual_saves](./data/manual_saves/).
+- You need to manually alter the model names of `LM_TOKENIZERS`.
+- You need to **make sure** that the models in `LM_TOKENIZERS` of [run.conf](./run.conf) and `MODELS` of [config.py](./src/config.py) are **identical**!! Any variation between the two will introduce bugs.
+
+### Manual execution
+If you do not wish to use `RUN.sh`, you can manually run any of the python scripts inside of [src/](./src/), but keep in mind that some require extra arguments when run.
+```python
+python3 src/<name_of_module.py> --potential_arguments <arg>
+```

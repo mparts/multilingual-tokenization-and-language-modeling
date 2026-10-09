@@ -17,7 +17,7 @@ from collections import Counter
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-THRESH = 0.8
+THRESH = 0.9
 MIN_COUNT = 5
 N_SPECIAL = 4
 CLASSES = LANGS + ["shared", "rare"]

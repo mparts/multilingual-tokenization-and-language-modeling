@@ -1,8 +1,6 @@
----
-geometry: "left=1in, right=1in, top=1in, bottom=1in"
-output: pdf_document
----
 # Tokenization and Language Modeling in English, Turkish and Chinese
+
+**Author:** Andreas Bartsiokas, [_github repository_](https://github.com/mparts/multilingual-tokenization-and-language-modeling)
 
 ## Abstract
 
@@ -35,6 +33,8 @@ Training of character-level and BPE tokenizers (byte-level and character-level, 
 - **P2 (partly):** Byte-2k→20k cuts tokens by 38% (en), 41% (tr), 35% (zh). Turkish gains slightly more than English. Chinese gains least.
 
 **Table 1: Tokenizer statistics on the validation set.** _T = tokens, S = sentence, C = characters_
+
+
 | Tokenizers  | |       |    T  |       | |       |  T/S  |       | |      | C/T  |      |
 |-------------|-|-------|-------|-------|-|-------|-------|-------|-|------|------|------|
 |             | | en    | tr    | zh    | |en     | tr    | zh    | |en    |  tr  | zh   |
@@ -200,7 +200,7 @@ _† Invalid: 4.85% of zh tokens are UNK._
 - **Examples (most frequent):** 
   - en `the`, `of`, `and`,
   - tr `ve`, `bir`, `lar`, `olarak`, `için`
-  - for zh look at _(because of pdf encoding strugling with chinese chars)_: `9_Gather_All_Tokenizers/tokenizers/vocab_alocation.json` 
+  - for zh look at: `vocab_alocation.json` _(because of pdf encoding strugling with chinese chars)_ 
   - shared `.`, `,`, `-`, `s`, `a`.
 
 ### 4.5 Relating tokenization to model behavior
