@@ -17,7 +17,7 @@ from collections import Counter
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-THRESH = 0.9
+THRESH = 0.8
 MIN_COUNT = 5
 N_SPECIAL = 4
 CLASSES = LANGS + ["shared", "rare"]
@@ -95,7 +95,7 @@ def plot_vocab_allocation(out_path):
         left = [l + p for l, p in zip(left, pct)]
 
     ax.set(xlabel="Share of vocabulary entries (%)", xlim=(0, 100),
-           title="Who gets the vocabulary? (threshold 0.8, min count 5)")
+           title=f"Who gets the vocabulary? (threshold {THRESH}, min count {MIN_COUNT})")
     ax.invert_yaxis()
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=5, fontsize=8)
     fig.tight_layout()
