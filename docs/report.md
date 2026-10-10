@@ -1,10 +1,16 @@
-# Tokenization and Language Modeling in English, Turkish and Chinese
+---
+geometry: "left=1in, right=1in, top=1in, bottom=1in"
+output: pdf_document
+---
+
+# Tokenization & Language Modeling in English, Turkish & Chinese
 
 **Author:** Andreas Bartsiokas, [_github repository_](https://github.com/mparts/multilingual-tokenization-and-language-modeling)
 
 ## Abstract
 
 Training of character-level and BPE tokenizers (byte-level and character-level, 2k–20k vocabulary) on a balanced English/Turkish/Chinese corpus. Trainning of a small Transformer LM per tokenizer, and compare them with bits per character (BPC). A mid-sized byte-level BPE (10k) is best overall. English and Turkish gain from BPE, Chinese does not.
+
 
 ## Part 1: Setup
 
@@ -14,6 +20,7 @@ Training of character-level and BPE tokenizers (byte-level and character-level, 
   - **Byte_V:**  Byte-level BPE (using HuggingFace), 256 byte alphabet, lossless (0% UNK).
   - **CharBPE_V:** BPE over characters (using HuggingFace) (Metaspace pre-tokenizer, `<UNK>`).
 - **Vocabulary sizes:** 2k and 10k (suggested), 20k as the "substantially larger" one. Because Chinese alone gives a character vocabulary of $\approx$ 9k, a 2k character-level BPE cannot even cover the alphabet (4.85% of zh tokens are UNK Table 1). Byte-level BPE avoids this. I additionally swept 2k–20k (Table 6).
+
 
 ## Part 2: Tokenizers
 
@@ -47,7 +54,7 @@ Training of character-level and BPE tokenizers (byte-level and character-level, 
 | CharBPE-20k | | 107.8 | 106.1 | 267.4 | | 23.75 | 28.40 | 27.99 | | 3.42 | 3.47 | 1.38 |
 
 UNK rate (zh): Char 0.07%, CharBPE-2k 4.85%, CharBPE-10k 0.08%, CharBPE-20k 0.10%. Byte-level 0%.  
-Source: `9_Gather_All_Tokenizers/tokenizers/tokenizer_stats.json`.
+Source: [save_9/tokenizers/tokenizer_stats.json](./../data/manual_saves/9_Gather_All_Tokenizers/tokenizers/tokenizer_stats.json).
 
 | Figure 1: Characters per token vs. vocabulary size. | Figure 1.5: Total tokens vs. vocabulary size. |
 |:---:|:---:|
@@ -60,8 +67,10 @@ Source: `9_Gather_All_Tokenizers/tokenizers/tokenizer_stats.json`.
 - **zh:** merges are rare. Most tokens stay single characters. Byte-10k holds $\approx$ 2k pure multi-character Chinese tokens. The corpus mixes simplified and traditional forms, which splits the statistics.
 - **Why:** BPE merges frequent adjacent pairs. English/Turkish have a small alphabet and highly repetitive character sequences, so merges pay off quickly. Chinese has thousands of characters of lower individual frequency, so the same number of merges buys much less compression.
 
-Source: `docs/Submission_Checkpoint/tokenized_sentences.txt`   
-Examples for all tokenizers:  `9_Gather_All_Tokenizers/tokenizers/tokenized_sentences.json`.
+Source: [docs/Submission_Checkpoint/tokenized_sentences.txt](./../docs/Submission_Checkpoint/tokenized_sentences.txt)   
+Examples for all tokenizers: [save_9/tokenizers/tokenized_sentences.json](./../data/manual_saves/9_Gather_All_Tokenizers/tokenizers/tokenized_sentences.json)
+
+
 ## Part 3: Language models
 
 ### 3.1 Architecture and training
@@ -102,7 +111,9 @@ Examples for all tokenizers:  `9_Gather_All_Tokenizers/tokenizers/tokenized_sent
   3. 10 epochs were not converged, so main comparison moved to 20 epochs.
   4. Seed-noise runs added (Table 5).
 
-Source: `5_20E_TEST/train.json`.
+Source: [5_20E_TEST/train.json](./../data/manual_saves/5_20E_TEST/train.json).
+
+
 ## Part 4: Evaluation and analysis
 
 ### 4.1 Metric
@@ -111,7 +122,7 @@ $$ \mathrm{BPC} = -\frac{1}{N_{\mathrm{characters}}} \sum_t \log_2 p(x_t). $$
 
 BPC measures the code length of the same text, independent of how it is segmented, so it is comparable across tokenizers. Approximations: token count includes `<BOS>`/`<EOS>`, the incomplete last block is dropped, and languages are scored in separate streams. BPC is comparable *across models within a language*, not across languages (a Chinese character carries more information than a Latin letter).
 
-### 4.2 Test results
+### 4.2.1 Test results
 
 **Table 4: Test BPC, 20 epochs, seed 0 (run 5_20E_TEST).**
 
@@ -126,9 +137,11 @@ BPC measures the code length of the same text, independent of how it is segmente
 ![ Figure 3: Test BPC per language and model.](./../data/manual_saves/5_20E_TEST/plots/test_bpc_per_language.png)
 *Figure 3: Test BPC per language and model.*
 
-**Seed noise** (10 epochs, valid, "all")
+Source: [5_20E_TEST/test.json](./../data/manual_saves/5_20E_TEST/test.json)
 
-**Table 5: Seed variation** (seeds 1, 2 from runs 7, 8, seed 0 from runs 1, 2). Spread $\lesssim$ 0.01 BPC, so differences $\geq$ 0.05 are treated as real. Only 3 models/3 seeds.
+### 4.2.2 Seed noise
+
+**Table 5: Seed variation** (seeds 0, 1, 2). Spread $\lesssim$ 0.01 BPC, so differences $\geq$ 0.05 are treated as real. Only 3 models/3 seeds.
 
 | Model | seed 0 | seed 1 | seed 2 |
 |---|---|---|---|
@@ -136,7 +149,9 @@ BPC measures the code length of the same text, independent of how it is segmente
 | Byte-10k | 3.719 | 3.726 | 3.717 |
 | CharBPE-20k | 3.749 | 3.750 | 3.749 |
 
-**Vocabulary sweep** (10 epochs, valid, "all" Char 3.822)
+Source: [save_1/valid.json](./../data/manual_saves/1_10E_Char_Char2k-10k_Byte2k-10k/valid.json) & [save_7/valid.json](./../data/manual_saves/7_Seed1_Char_Byte10k_Char20k/valid.json) & [save_8/valid.json](./../data/manual_saves/8_Seed2_Char_Byte10k_Char20k/valid.json)
+
+### 4.2.3 Vocabulary sweep
 
 **Table 6: Valid BPC** (10 epochs, seed 0). Byte-level improves up to $\approx$ 10k and then plateaus (within noise) while parameters double.  
 _† Invalid: 4.85% of zh tokens are UNK._
@@ -145,9 +160,13 @@ _† Invalid: 4.85% of zh tokens are UNK._
 |---|---|---|---|---|---|---|---|---|---|---|
 | Byte | 3.868 | 3.806 | 3.785 | 3.748 | 3.719 | 3.721 | 3.722 | 3.721 | 3.715 | 3.720 |
 
+Source: [save_3/valid.json](./../data/manual_saves/3_10E_ByteBPE-2k-4k-6k-8k-10k/valid.json) & [save_6/valid.json](./../data/manual_saves/6_10E_ByteBPE-10k-12k-14k-16k-18k-20k/valid.json)
+
 | V | 2k (†) | 10k | 11k | 12k | 15k | 20k |
 |---|---|---|---|---|---|---|
 | CharBPE | 3.645 | 3.764 | 3.775 | 3.760 | 3.752 | 3.749 |
+
+Source: [save_2/valid.json](./../data/manual_saves/2_10E_CharBPE-10k-11k-12k-15k-20k/valid.json)
 
 **Main observations**
 
@@ -203,6 +222,8 @@ _† Invalid: 4.85% of zh tokens are UNK._
   - for zh look at: `vocab_alocation.json` _(because of pdf encoding strugling with chinese chars)_ 
   - shared `.`, `,`, `-`, `s`, `a`.
 
+Source: [save_9/tokenizers/vocab_allocation.json](./../data/manual_saves/9_Gather_All_Tokenizers/tokenizers/vocab_allocation.json)
+
 ### 4.5 Relating tokenization to model behavior
 
 **Pattern:** a larger vocabulary compresses zh better (0.90 → 1.39 chars/token) but its BPC does not improve (Byte: 6.813, 6.587, 6.707 at 2k/10k/20k, Char 6.490).
@@ -217,7 +238,8 @@ _† Invalid: 4.85% of zh tokens are UNK._
 
 **Interpretation:** with a fixed amount of data, many sparse zh tokens are seen too few times to learn, the model overfits instead of using the shorter sequence. For en/tr the merged units are frequent, so the gain from shorter sequences outweighs the larger softmax. The small difference between 10k and 20k in en/tr and the plateau in the sweep suggest that frequent units are exhausted around 10k.
 
-## 5 Conclusion
+
+## Part 5 Conclusion
 
 - **Supported:** a moderately sized BPE works best (H3): Byte-10k has the lowest overall test BPC (3.609) at about the same size as Char, larger vocabularies add parameters without gain (sweep plateau, overfitting).
 - **Not supported / surprising:** Chinese does not benefit from larger BPE (H2), char-level is best for zh (6.490 vs. 6.587) although its sequences are 25% longer (368k vs. 295k tokens).

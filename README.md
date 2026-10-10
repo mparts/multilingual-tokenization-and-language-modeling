@@ -47,6 +47,8 @@ python3 src/<name_of_module.py> --potential_arguments <arg>
 Details about the individual scripts can be found in this [README.md](./src/README.md)
 
 ## Submission
-All files submitted to canvas can also be found inside of [docs](./docs/). My local clone of the repo contains things the online repository doesn't include. Like e.g. all of the trained models, or scattered notes. 
+All files submitted to canvas can also be found inside of [docs](./docs/). If the report is read through the [.md](./docs/report.md) version instead of the [.pdf](./docs/report.pdf), there are also links pointing to the relevant `.json` whenever numbers are mentioned.
+
+My local clone of the repo contains various things that the online repository doesn't include. Like e.g. all of the trained models, or scattered notes. 
 
 Even though I did execute `RUN.sh` in a fresh clone before submitting in canvas, to make sure that things will work fine for the grader, in the unfortunate case that anything doesn't work, or maybe something more might be needed in the submission, please kindly contact me.
