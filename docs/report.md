@@ -1,8 +1,3 @@
----
-geometry: "left=1in, right=1in, top=1in, bottom=1in"
-output: pdf_document
----
-
 # Tokenization & Language Modeling in English, Turkish & Chinese
 
 **Author:** Andreas Bartsiokas, [_github repository_](https://github.com/mparts/multilingual-tokenization-and-language-modeling)
