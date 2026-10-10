@@ -4,11 +4,9 @@ plots useful figures for tokenizers
 """
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from config import LANGS, LOG_DIR
+from config import LANGS, LOG_DIR, FAMILY_MARKERS, LANGUAGE_COLORS
 from helpers import load_json
 
-LANGUAGE_COLORS = {"en": "green", "tr": "red", "zh": "blue",}
-FAMILY_MARKERS = {"ByteLevelBPE": "s", "CharLevelBPE": "o", "Character-Level": "^",}
 
 
 def get_family(tokenizer):

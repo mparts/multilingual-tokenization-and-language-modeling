@@ -19,18 +19,25 @@ EXTERNAL_CORPUS_DIR = Path("/srv/data/lt2326-h26/a1")
 # Uncomment this bellowe, and comment the above, in case not run in mlt gpu
 # EXTERNAL_CORPUS_DIR = INTERNAL_CORPUS_DIR 
 
-# === Constants ====================================================
+# === General Constants ====================================================
 LANGS = ["en", "tr", "zh"]
 SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
 PAD, UNK, BOS, EOS = 0, 1, 2, 3
+LANGUAGE_COLORS = {"en": "green", "tr": "red", "zh": "blue",}
+FAMILY_MARKERS = {"ByteLevelBPE": "s", "CharLevelBPE": "o", "Character-Level": "^",}
 
-
-# === Tokenizing =========================================================
+# === examine_tokenizers.py ================================================
 N_SAMPLES = 5
 
 
 # === Training =====================================================
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+
+# === vocab_alocation.py ================================================
+THRESH = 0.9
+MIN_COUNT = 5
+N_SPECIAL = len(SPECIALS)
 
 
 # === Tokenizer - Model names ==========================================

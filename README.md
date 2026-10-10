@@ -36,3 +36,4 @@ If you do not wish to use `RUN.sh`, you can manually run any of the python scrip
 ```python
 python3 src/<name_of_module.py> --potential_arguments <arg>
 ```
+Details about the individual scripts can be found in this [README.md](./src/README.md)

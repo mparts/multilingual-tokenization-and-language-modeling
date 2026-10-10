@@ -5,17 +5,12 @@ Rates are per character (not per token) because the three corpus have about equa
 Character-Level tokenizer always ignored.
 """
 
-from config import LOG_DIR, LANGS, MODELS
+from config import LOG_DIR, LANGS, MODELS, THRESH, MIN_COUNT, N_SPECIAL, LANGUAGE_COLORS
 from helpers import read_lines, load_vocabulary, save_data, load_json
 
 from collections import Counter
 from datetime import datetime
 import matplotlib.pyplot as plt
-
-THRESH = 0.9
-MIN_COUNT = 5
-N_SPECIAL = 4
-CLASSES = LANGS + ["shared", "rare"]
 
 
 def count_tokens(tok, sents_by_lang):
@@ -48,6 +43,7 @@ def classify(counts, n_chars, vocab_size, thresh=THRESH, min_count=MIN_COUNT):
 
 
 def analyse(tok, counts, n_chars, n_examples=10):
+    CLASSES = LANGS + ["shared", "rare"]
     V = tok.get_vocab_size()
     labels = classify(counts, n_chars, V)
     total_c = {l: sum(counts[l].values()) for l in LANGS}
@@ -79,7 +75,7 @@ def analyse(tok, counts, n_chars, n_examples=10):
 
 
 def plot_vocab_allocation(out_path):
-    COLORS = {"en": "green", "tr": "red", "zh": "blue", "shared": "gray", "rare": "lightgray"}
+    COLORS = LANGUAGE_COLORS | {"shared": "gray", "rare": "lightgray"}
     LABELS = {"en": "English", "tr": "Turkish", "zh": "Chinese", "shared": "Shared", "rare": "Rare (<5 uses)"}
 
     data = load_json(LOG_DIR / "tokenizers" / "vocab_allocation.json")
