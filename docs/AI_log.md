@@ -1,3 +1,5 @@
+# AI Log
+
 Prompts | Why? | Incorporated as
 :--:|:--:|:--:|
 Explain BPE | To further understand BPE (top level, core idea of what BPE does, not the python implementation of it) |  BPE was explained, and certain questions answered

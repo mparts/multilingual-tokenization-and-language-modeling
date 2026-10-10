@@ -1,6 +1,6 @@
 # Tokenization & Language Modeling in English, Turkish & Chinese
 
-**Author:** Andreas Bartsiokas, [_github repository_](https://github.com/mparts/multilingual-tokenization-and-language-modeling)
+**Author:** Andreas Bartsiokas
 
 ## Abstract
 
